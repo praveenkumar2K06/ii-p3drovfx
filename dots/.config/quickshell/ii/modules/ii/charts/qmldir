@@ -1,0 +1,5 @@
+module qs.modules.ii.charts
+
+UsageColumnChart 1.0 UsageColumnChart.qml
+UsageSemiDonut 1.0 UsageSemiDonut.qml
+UsageActivityHeatmap 1.0 UsageActivityHeatmap.qml

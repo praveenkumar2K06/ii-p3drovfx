@@ -8,7 +8,7 @@ import qs.modules.common
 import qs.modules.common.functions
 import qs.modules.common.widgets
 import qs.modules.settings.configs.widgets
-import qs.modules.ii.usage
+import qs.modules.ii.charts
 
 Item {
     id: root

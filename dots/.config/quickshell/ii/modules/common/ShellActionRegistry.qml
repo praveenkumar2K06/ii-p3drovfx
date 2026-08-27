@@ -11,7 +11,7 @@ Singleton {
     function keywordsFor(action) {
         const base = [action.id, action.name.toLowerCase()];
         const extras = {
-            usage: ["usage", "uso", "stats"], modes: ["modes", "routines", "rotinas"],
+            modes: ["modes", "routines", "rotinas"],
             colorPicker: ["color picker", "cor", "hex"], wallpaperSelector: ["wallpaper", "papel de parede"],
             overlay: ["overlay", "widgets"],
             session: ["session", "logout", "desligar"], regionOcr: ["ocr", "texto da tela"],

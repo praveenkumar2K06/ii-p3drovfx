@@ -50,8 +50,6 @@ Singleton {
     property string shellConfigPath: `${Directories.shellConfig}/${Directories.shellConfigName}`
     property string todoPath: FileUtils.trimFileProtocol(`${Directories.state}/user/todo.json`)
     property string appUsagePath: FileUtils.trimFileProtocol(`${Directories.state}/user/app_usage.json`)
-    // One file per local day, written by the app_stats sampler.
-    property string appStats: FileUtils.trimFileProtocol(`${Directories.state}/user/app_stats`)
     property string commandsPath: FileUtils.trimFileProtocol(`${Directories.state}/user/commands.json`)
     // User-authored shortcut collections. Hyprland remains a generated,
     // read-only page and is deliberately not duplicated into this file.
@@ -139,7 +137,6 @@ Singleton {
         Quickshell.execDetached(["mkdir", "-p", `${FileUtils.parentDirectory(keybindsPath)}`]);
         Quickshell.execDetached(["mkdir", "-p", `${aiRagIndexDir}`]);
         Quickshell.execDetached(["mkdir", "-p", `${aiDrafts}`]);
-        Quickshell.execDetached(["mkdir", "-p", `${appStats}`]);
         Quickshell.execDetached(["mkdir", "-p", `${FileUtils.parentDirectory(holidaysCachePath)}`]);
         Quickshell.execDetached(["mkdir", "-p", `${userActions}`]);
         Quickshell.execDetached(["mkdir", "-p", `${userWidgetsPath}`]);

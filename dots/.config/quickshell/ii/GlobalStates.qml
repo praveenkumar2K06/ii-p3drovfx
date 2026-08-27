@@ -154,7 +154,6 @@ Singleton {
     signal snipForAiRequested
     property bool sessionOpen: false
     property bool superDown: false
-    property bool usageOpen: false
     property bool modesOpen: false
     // Transient "Work mode on" banner: set by the Modes engine for ~3 s.
     // Payload: { kind: "mode"|"routine", id, icon, color, title, subtitle }

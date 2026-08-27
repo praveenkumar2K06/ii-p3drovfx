@@ -23,11 +23,6 @@ ContentPage {
             Layout.bottomMargin: 16
         }
 
-        BatteryUsageChart {
-            Layout.fillWidth: true
-            Layout.bottomMargin: 16
-        }
-
         ConfigSpinBox {
             icon: "warning"
             text: Translation.tr("Low warning (%)")

@@ -35,7 +35,6 @@ import qs.modules.ii.keyboardLayoutTransitionPopup
 import qs.modules.ii.keypressDisplay
 import qs.modules.ii.topLayer
 import qs.modules.ii.tilingAssistant
-import qs.modules.ii.usage
 import qs.modules.ii.modes
 import qs.modules.ii.modeFlashPopup
 import qs.modules.ii.alarmRingingPopup
@@ -70,10 +69,6 @@ Scope {
     }
     PanelLoader {
         component: Cheatsheet {}
-    }
-    PanelLoader {
-        extraCondition: Config.options.appStats.overlayEnabled
-        component: Usage {}
     }
     PanelLoader {
         extraCondition: Config.options.modes.overlayEnabled

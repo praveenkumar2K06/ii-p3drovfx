@@ -270,17 +270,6 @@ Singleton {
             "aliases": ["Core Services", "Suspend", "Battery warning", "Automatic suspend"]
         },
         {
-            "id": "usageStats",
-            "name": "App Usage",
-            "icon": "bar_chart",
-            "component": "modules/settings/configs/UsageStatsConfig.qml",
-            "subPages": [
-                "widgets/UsageStatsOverlayConfig.qml",
-                "widgets/UsageStatsCollectionConfig.qml"
-            ],
-            "aliases": ["Usage stats", "Screen time", "App usage", "Digital wellbeing", "Energy per app", "RAPL", "History retention", "Sampler"]
-        },
-        {
             "id": "network",
             "name": "Network",
             "icon": "wifi",
@@ -381,7 +370,7 @@ Singleton {
         {
             "id": "system",
             "name": "System",
-            "pageIds": ["displays", "network", "soundAlerts", "power", "devicesPhone", "usageStats", "privacy", "about"]
+            "pageIds": ["displays", "network", "soundAlerts", "power", "devicesPhone", "privacy", "about"]
         }
     ]
 
