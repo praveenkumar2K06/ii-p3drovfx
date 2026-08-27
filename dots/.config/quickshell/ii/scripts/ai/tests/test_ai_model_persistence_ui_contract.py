@@ -20,7 +20,7 @@ USAGE_DASHBOARD_QML = (
     ROOT / "modules" / "settings" / "configs" / "ai" / "AiUsageDashboard.qml"
 ).read_text(encoding="utf-8")
 COLUMN_CHART_QML = (
-    ROOT / "modules" / "ii" / "usage" / "UsageColumnChart.qml"
+    ROOT / "modules" / "ii" / "charts" / "UsageColumnChart.qml"
 ).read_text(encoding="utf-8")
 
 

@@ -517,7 +517,7 @@ def extract_entries(record: dict[str, Any], root: Path, translations: dict[str, 
             elif len(writes) == 1:
                 # Controls that keep the current value on a helper object and
                 # write the choice to config from the handler
-                # (`currentValue: page.opts.x` + `onSelected: … appStats.x = v`).
+                # (`currentValue: page.opts.x` + `onSelected: … config.x = v`).
                 key = next(iter(writes))
                 has_ui = True
             # A control driving several settings at once (the bar-position
