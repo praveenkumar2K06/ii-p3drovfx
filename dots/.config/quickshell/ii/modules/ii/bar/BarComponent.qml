@@ -27,7 +27,6 @@ import qs.modules.ii.bar.widgets.utilButtons
 import qs.modules.ii.bar.widgets.policies
 import qs.modules.ii.bar.widgets.timer
 import qs.modules.ii.bar.widgets.indicators
-import qs.modules.ii.bar.widgets.dockToPanel
 
 import qs.modules.ii.verticalBar as Vertical
 
@@ -504,8 +503,6 @@ Item {
                 return workspaceCompMinimal;
             if (isExp)
                 return workspaceCompExpressive;
-            if (style === "dock")
-                return workspaceCompDock;
             return workspaceComp;
         case "music_player":
             if (isExp)
@@ -581,8 +578,6 @@ Item {
             return modeIndicatorComp;
         case "screen_share_indicator":
             return screenshareIndicatorComp;
-        case "dock_to_panel":
-            return dockToPanelComp;
         default:
             return null;
         }
@@ -800,12 +795,6 @@ Item {
             vertical: rootItem.vertical
         }
     }
-    Component {
-        id: dockToPanelComp
-        DockToPanel {
-            vertical: rootItem.vertical
-        }
-    }
 
     // Expressive variants
     Component {
@@ -841,12 +830,6 @@ Item {
     Component {
         id: workspaceCompExpressive
         ExpressiveWorkspaces {
-            vertical: rootItem.vertical
-        }
-    }
-    Component {
-        id: workspaceCompDock
-        DockWorkspaces {
             vertical: rootItem.vertical
         }
     }

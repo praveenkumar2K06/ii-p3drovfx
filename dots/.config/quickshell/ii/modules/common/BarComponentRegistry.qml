@@ -273,12 +273,6 @@ Singleton {
             styleOptions: defaultStyleOptions,
             pageId: "power"
         },
-        {
-            id: "dock_to_panel",
-            icon: "apps",
-            title: "Dock to Panel",
-            configPage: "DockToPanelConfig.qml"
-        }
     ]
 
     // The Settings Bar page uses this list for its widget cards. Keep the
