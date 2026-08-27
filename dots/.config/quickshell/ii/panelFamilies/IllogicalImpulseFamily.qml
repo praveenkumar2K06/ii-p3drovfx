@@ -42,7 +42,6 @@ import qs.modules.ii.modeFlashPopup
 import qs.modules.ii.alarmRingingPopup
 import qs.modules.ii.screenshotOverlay
 import qs.modules.ii.dynamicIsland
-import qs.modules.ii.touchGestures
 
 Scope {
     property bool barExtraCondition: true
@@ -228,11 +227,5 @@ Scope {
             console.log("[IllogicalImpulseFamily] DynamicIsland PanelLoader - Config.ready:", Config.ready, "floatingNotch.enable:", Config.options.bar.floatingNotch.enable, "centerInBar:", Config.options.bar.floatingNotch.centerInBar);
         }
         component: DynamicIsland {}
-    }
-    readonly property var _touchGestureService: TouchGestureService
-
-    PanelLoader {
-        extraCondition: Config.ready && Boolean(Config.options && Config.options.interactions && Config.options.interactions.touchGestures && Config.options.interactions.touchGestures.enable)
-        component: TouchGestures {}
     }
 }

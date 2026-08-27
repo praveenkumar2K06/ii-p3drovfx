@@ -53,10 +53,5 @@ __pycache__/
 /dots/.config/quickshell/ii/scripts/appStats/app_stats_src/target/
 /dots/.config/quickshell/ii/scripts/appStats/app_stats_src/Cargo.lock
 
-# Compiled binary — build it from touch_gestures_src/ instead (see scripts/touchGestures/README.md)
-/dots/.config/quickshell/ii/scripts/touchGestures/touch_gestures
-/dots/.config/quickshell/ii/scripts/touchGestures/touch_gestures_src/target/
-/dots/.config/quickshell/ii/scripts/touchGestures/touch_gestures_src/Cargo.lock
-
 /dots/.config/quickshell/ii/.tmp
 /dots/.config/quickshell/ii/.commandcode

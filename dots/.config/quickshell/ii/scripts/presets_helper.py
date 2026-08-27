@@ -109,10 +109,6 @@ def reset_monitor_bindings(data):
             floating_notch['onlyShowOnSingleMonitor'] = False
             floating_notch['singleMonitorName'] = ''
 
-    interactions = data.get('interactions')
-    if isinstance(interactions, dict) and isinstance(interactions.get('touchGestures'), dict):
-        interactions['touchGestures']['targetMonitor'] = 'auto'
-
     notifications = data.get('notifications')
     if isinstance(notifications, dict) and isinstance(notifications.get('monitor'), dict):
         notifications['monitor']['enable'] = False

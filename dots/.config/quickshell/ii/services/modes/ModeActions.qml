@@ -1010,16 +1010,6 @@ QtObject {
                     Quickshell.execDetached(["hyprctl", "switchxkblayout", "all", String(idx)]);
             }
         },
-        touchGestures: {
-            id: "touchGestures", category: "input", label: "Touch gestures", icon: "swipe",
-            editor: "switch", volatile: false,
-            available: () => true,
-            read: () => Config.options.interactions.touchGestures.enable,
-            normalize: v => !!v,
-            apply: v => { Config.options.interactions.touchGestures.enable = !!v; },
-            revert: was => { Config.options.interactions.touchGestures.enable = !!was; }
-        },
-
         // ------------------------------------------------- apps
         launch: {
             id: "launch", category: "apps", label: "Launch app", icon: "rocket_launch",

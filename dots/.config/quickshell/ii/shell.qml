@@ -55,7 +55,6 @@ ShellRoot {
         AppStats.stateDir; // Instantiate: starts the usage sampler, which must collect whether or not the overlay is open
         Modes.ready; // Touch singleton: the modes engine must watch triggers whether or not its overlay is open
         TilingAssistant.enabled; // Touch singleton: watches for window drags, does nothing while disabled
-        TouchGestureService.enabled; // Touch singleton: starts passive touch input helper daemon
         WorkspaceCompactor.enabled; // Touch singleton: auto-compacts workspace gaps, does nothing while disabled
         IconThemes.availableThemes; // Touch singleton: arms the DynamicTheme watcher for live icon refresh
         DictationService.installed; // Touch singleton: registers the dictation keybind, whose surfaces are all optional
