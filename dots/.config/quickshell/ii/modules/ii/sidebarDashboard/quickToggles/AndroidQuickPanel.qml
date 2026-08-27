@@ -191,9 +191,6 @@ AbstractQuickPanel {
     }
 
     implicitHeight: contentItem.implicitHeight + root.padding * 2
-    Behavior on implicitHeight {
-        animation: Appearance.animation.elementMove.numberAnimation.createObject(this)
-    }
 
     // Page management functions
     function addPage() {
@@ -327,10 +324,6 @@ AbstractQuickPanel {
             id: flickableContainer
             width: parent.width
             height: root.currentContentHeight
-
-            Behavior on height {
-                animation: Appearance.animation.elementMove.numberAnimation.createObject(this)
-            }
 
             clip: true
 
@@ -495,6 +488,7 @@ AbstractQuickPanel {
         // Edit mode: page navigation + add page buttons
         FadeLoader {
             shown: root.editMode
+            fade: false
             anchors {
                 left: parent.left
                 right: parent.right
@@ -619,6 +613,7 @@ AbstractQuickPanel {
         // Separator between used and unused toggles in edit mode
         FadeLoader {
             shown: root.editMode
+            fade: false
             anchors {
                 left: parent.left
                 right: parent.right
@@ -635,6 +630,7 @@ AbstractQuickPanel {
         FadeLoader {
             id: unusedTogglesLoader
             shown: root.editMode
+            fade: false
             anchors {
                 left: parent.left
                 right: parent.right
