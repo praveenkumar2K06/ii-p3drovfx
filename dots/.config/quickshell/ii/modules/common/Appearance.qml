@@ -749,7 +749,6 @@ Singleton {
         property real wallpaperSelectorSortDialogWidth: 280
         property real wallpaperSelectorItemMargins: 8
         property real wallpaperSelectorItemPadding: 6
-        property int dockButtonSize: Math.round((Config.options?.dock.height ?? 60) * 0.85)
     }
 
     syntaxHighlightingTheme: root.m3colors.darkmode ? "Monokai" : "ayu Light"

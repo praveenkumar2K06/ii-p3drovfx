@@ -41,7 +41,6 @@ Item {
                 anchors.fill: parent
                 visible: false
                 source: {
-                    const _ = TaskbarApps.iconThemeRevision;
                     let icon;
                     icon = AppSearch.guessIcon(root.node?.properties["application.icon-name"] ?? "");
                     if (AppSearch.iconExists(icon))

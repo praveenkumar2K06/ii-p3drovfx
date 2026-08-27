@@ -7,18 +7,17 @@ import qs.modules.common
 Item {
     id: root
 
-    // Fetch sports data while either consumer is enabled. The dock and bar
+    // Fetch sports data while either consumer is enabled. The bar
     // controls stay independent, but share this single data source.
     readonly property bool barEnabled: Config.options?.bar?.sports?.enable ?? false
-    readonly property bool dockEnabled: Config.options?.dock?.enableSportsWidget ?? true
     readonly property bool lockEnabled: Config.options?.lock?.sports ?? true
-    property bool enabled: barEnabled || dockEnabled || lockEnabled
+    property bool enabled: barEnabled || lockEnabled
     // AI consumers are counted separately from the visual widgets. They may
     // query a league that is not monitored by the bar, but must never cause a
     // visual selection or a Config write as a side effect.
     property int aiSubscribers: 0
     // Search is a visible consumer with a short lifetime. Its dedicated daily
-    // request must not start the compact bar/dock polling loop.
+    // request must not start the compact bar polling loop.
     property int searchSubscribers: 0
     property var searchGames: []
     property bool searchLoading: false
@@ -836,7 +835,7 @@ Item {
         root.timetableProjectionEventIndex = 0;
         root.timetableProjectionSeen = ({});
         root.timetableProjecting = false;
-        // Reuse the timetable response for bar/dock only when it actually
+        // Reuse the timetable response for bar only when it actually
         // contains today. Navigating to another month must not blank or stale
         // the compact live score projection.
         if (root.enabled && root.timetableRangeCoversToday) {

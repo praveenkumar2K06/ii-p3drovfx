@@ -44,7 +44,7 @@ RippleButton {
     /**
      * The same action set the Ctrl+K panel offers — not just the result's own
      * `actions`, which most desktop entries do not define at all. That was the
-     * difference between a prominent row that offers Pin to Dock, Copy ID and
+     * difference between a prominent row that offers Copy ID and
      * Reset, and one that offers nothing but a taller silhouette.
      *
      * Index 0 is the primary action, which this row already presents as the

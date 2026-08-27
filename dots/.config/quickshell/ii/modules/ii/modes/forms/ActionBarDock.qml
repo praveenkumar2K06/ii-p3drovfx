@@ -33,22 +33,4 @@ ColumnLayout {
             ]
         }
     }
-
-    RowLayout {
-        spacing: 10
-
-        FormLabel {
-            text: Translation.tr("Dock")
-        }
-
-        FormChoice {
-            current: row.obj.dock ?? "keep"
-            onPicked: v => row.patchValue({ dock: v })
-            options: [
-                { displayName: Translation.tr("Keep"), value: "keep" },
-                { displayName: Translation.tr("Hidden"), value: "hide" },
-                { displayName: Translation.tr("Shown"), value: "show" }
-            ]
-        }
-    }
 }

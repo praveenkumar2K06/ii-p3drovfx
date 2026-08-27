@@ -13,7 +13,7 @@ import qs.modules.common.models
  *
  * This list used to be built inside SearchItem, which meant it existed only for
  * the row shape that owns the Ctrl+K panel. Everything a result can *do* beyond
- * opening it — pin to the dock, copy an id, reset its ranking, reveal a folder —
+ * opening it — copy an id, reset its ranking, reveal a folder —
  * was therefore invisible to any other presentation of the same result.
  *
  * Everything here is derived from the result object; the two callbacks are the
@@ -88,15 +88,6 @@ Singleton {
         }
 
         if (entry.type === Translation.tr("App") || itemType === Translation.tr("App")) {
-            const isPinned = TaskbarApps.isPinned(identifier);
-            items.push({
-                name: isPinned ? Translation.tr("Unpin from Dock") : Translation.tr("Pin to Dock"),
-                icon: isPinned ? "keep_off" : "keep",
-                execute: () => {
-                    TaskbarApps.togglePin(identifier);
-                    done();
-                }
-            });
             items.push({
                 name: Translation.tr("Copy ID"),
                 icon: "content_copy",
@@ -113,25 +104,6 @@ Singleton {
                     done();
                 }
             });
-        }
-
-        if (contentType === "filepath" || itemType === Translation.tr("Directory") || itemType === Translation.tr("Folder Alias")) {
-            const isDir = itemType === Translation.tr("Directory") || itemType === Translation.tr("Folder Alias");
-            if (isDir) {
-                // File-search rows deliberately display just the basename. Pinning
-                // that label used to create an unusable relative dock entry; the
-                // canonical result path is the only stable dock identity.
-                const folderPath = String(entry.filePath ?? itemName);
-                const isPinned = TaskbarApps.isPinnedFile(folderPath);
-                items.push({
-                    name: isPinned ? Translation.tr("Unpin folder from Dock") : Translation.tr("Pin folder to Dock"),
-                    icon: isPinned ? "folder_off" : "create_new_folder",
-                    execute: () => {
-                        TaskbarApps.togglePinnedFile(folderPath);
-                        done();
-                    }
-                });
-            }
         }
 
         if (key.startsWith("fsearch:") && LauncherSearch.allFileResults.length > 0) {

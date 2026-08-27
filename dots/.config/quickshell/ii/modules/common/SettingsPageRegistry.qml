@@ -74,26 +74,11 @@ Singleton {
             "aliases": ["Sidebars & Panels", "Panels"]
         },
         {
-            "id": "dock",
-            "name": "Dock",
-            "icon": "dock_to_bottom",
-            "component": "modules/settings/configs/DockConfig.qml",
-            "subPages": [
-                "widgets/DockContentConfig.qml",
-                "widgets/DockAppearanceConfig.qml",
-                "widgets/DockAppGroupsConfig.qml",
-                "widgets/DockLivePreviewConfig.qml",
-                "widgets/DockMagnificationConfig.qml",
-                "widgets/DockPresetsManager.qml"
-            ],
-            "aliases": ["Dock Content", "Dock Widgets", "Dock Appearance", "Taskbar", "Pinned apps", "Magnification", "Smart grouping"]
-        },
-        {
             "id": "workspaces",
             "name": "Workspaces",
             "icon": "workspaces",
             "component": "modules/settings/configs/WorkspacesConfig.qml",
-            "subPages": ["widgets/DockWorkspaceConfig.qml"],
+            "subPages": [],
             "aliases": ["Tint workspaces icons"]
         },
         {
@@ -386,7 +371,7 @@ Singleton {
         {
             "id": "modules",
             "name": "Modules",
-            "pageIds": ["sidebars", "dock", "dynamicIsland"]
+            "pageIds": ["sidebars", "dynamicIsland"]
         },
         {
             "id": "desktopWindows",

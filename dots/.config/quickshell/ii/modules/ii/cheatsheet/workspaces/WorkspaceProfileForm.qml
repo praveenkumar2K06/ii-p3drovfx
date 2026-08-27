@@ -873,7 +873,6 @@ Item {
                                                         anchors.centerIn: parent
                                                         sourceSize: Qt.size(16, 16)
                                                         source: {
-                                                            const _ = TaskbarApps.iconThemeRevision;
                                                             return Quickshell.iconPath(AppSearch.guessIcon(windowRowItem.modelData.class || ""), "");
                                                         }
                                                         smooth: true

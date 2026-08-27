@@ -108,11 +108,6 @@ ContentPage {
             }
 
             RelatedChip {
-                pageId: "dock"
-                label: Translation.tr("Dock badges")
-            }
-
-            RelatedChip {
                 pageId: "dynamicIsland"
                 label: Translation.tr("Island notch")
             }

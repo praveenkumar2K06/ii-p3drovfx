@@ -546,7 +546,7 @@ Singleton {
         case "hyprland":
             return { presets: ["animations"], options: {} };
         case "barDock":
-            return { bar: "keep", dock: "keep" };
+            return { bar: "keep" };
         case "launch":
             return { app: "", command: "", onEnd: "keep", class: "" };
         case "shell":
@@ -741,15 +741,10 @@ Singleton {
         case "barDock": {
             const parts = [];
             const bar = obj?.bar ?? "keep";
-            const dock = obj?.dock ?? "keep";
             if (bar === "autoHide")
                 parts.push(Translation.tr("Bar auto-hides"));
             else if (bar === "fixed")
                 parts.push(Translation.tr("Bar fixed"));
-            if (dock === "hide")
-                parts.push(Translation.tr("Dock hidden"));
-            else if (dock === "show")
-                parts.push(Translation.tr("Dock shown"));
             return parts.length ? parts.join(" · ") : Translation.tr("No change");
         }
         case "launch": {

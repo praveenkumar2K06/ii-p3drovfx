@@ -78,7 +78,7 @@ Item {
             ? Translation.tr("Search by the visible control name — including composite choices such as Bar position.")
             : Translation.tr("Search Launcher, Appearance, Bar, Cheatsheet and every registered subpage."))
     readonly property var suggestions: root.activeSection === 0
-        ? [Translation.tr("Bar position"), Translation.tr("Dark mode"), Translation.tr("Dock size"), Translation.tr("Clipboard")]
+        ? [Translation.tr("Bar position"), Translation.tr("Dark mode"), Translation.tr("Clipboard")]
         : [Translation.tr("Launcher"), Translation.tr("Appearance"), Translation.tr("Bar"), Translation.tr("Cheatsheet")]
 
     implicitWidth: Config.options.search.appearance.panelWidth

@@ -202,8 +202,7 @@ QtObject {
     function barDockRequest(v) {
         const obj = root.asObject(v);
         const bar = ["autoHide", "fixed"].indexOf(obj.bar) !== -1 ? obj.bar : "keep";
-        const dock = ["hide", "show"].indexOf(obj.dock) !== -1 ? obj.dock : "keep";
-        return { bar: bar, dock: dock };
+        return { bar: bar };
     }
 
     // ---- audio devices: stored by node name, matched again on apply so a
@@ -933,35 +932,29 @@ QtObject {
             revert: was => { root.setGameMode(!!was); }
         },
         barDock: {
-            id: "barDock", category: "hyprland", label: "Bar & dock", icon: "dock_to_bottom",
+            id: "barDock", category: "hyprland", label: "Bar", icon: "dock_to_bottom",
             editor: "barDock", volatile: false,
-            // value: { bar: "keep" | "autoHide" | "fixed", dock: "keep" | "hide" | "show" }
+            // value: { bar: "keep" | "autoHide" | "fixed" }
             available: () => true,
             read: () => ({
                 barAutoHide: Config.options.bar.autoHide.enable,
-                dockEnabled: Config.options.dock.enable
             }),
             normalize: v => {
                 const req = root.barDockRequest(v);
                 const current = root.registry.barDock.read();
                 return {
-                    barAutoHide: req.bar === "keep" ? current.barAutoHide : req.bar === "autoHide",
-                    dockEnabled: req.dock === "keep" ? current.dockEnabled : req.dock === "show"
+                    barAutoHide: req.bar === "keep" ? current.barAutoHide : req.bar === "autoHide"
                 };
             },
             apply: v => {
                 const req = root.barDockRequest(v);
                 if (req.bar !== "keep")
                     Config.options.bar.autoHide.enable = req.bar === "autoHide";
-                if (req.dock !== "keep")
-                    Config.options.dock.enable = req.dock === "show";
             },
             revert: was => {
                 const w = root.asObject(was);
                 if (typeof w.barAutoHide === "boolean")
                     Config.options.bar.autoHide.enable = w.barAutoHide;
-                if (typeof w.dockEnabled === "boolean")
-                    Config.options.dock.enable = w.dockEnabled;
             }
         },
 

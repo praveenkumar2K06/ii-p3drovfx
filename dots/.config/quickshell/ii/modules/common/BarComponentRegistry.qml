@@ -82,11 +82,6 @@ Singleton {
                     icon: "fluid_med",
                     value: "expressive"
                 },
-                {
-                    displayName: qsTr("Dock"),
-                    icon: "dock_to_left",
-                    value: "dock"
-                }
             ]
         },
         {

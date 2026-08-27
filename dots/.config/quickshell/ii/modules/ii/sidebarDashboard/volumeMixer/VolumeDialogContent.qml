@@ -688,7 +688,6 @@ StyledFlickable {
                             source: {
                                 if (!progEntry.node)
                                     return "";
-                                const _ = TaskbarApps.iconThemeRevision;
                                 let icon;
                                 icon = AppSearch.guessIcon(progEntry.node.properties["application.icon-name"] ?? "");
                                 if (AppSearch.iconExists(icon))

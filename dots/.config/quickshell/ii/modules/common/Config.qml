@@ -2090,10 +2090,6 @@ Singleton {
                     property bool useMaterialShapeForActiveIndicator: false
                     property bool useRandomShapeForActiveIndicator: true
                     property string activeIndicatorShape: "Pentagon"
-                    property bool dockShowActiveIndicator: true
-                    property bool dockShowWindowDots: true
-                    property bool dockHoverEffect: true
-                    property bool dockShowAppIcons: true
 
                     property bool autoCompact: false // Run the workspace compactor automatically when a gap appears
                     property string autoCompactCurrentGap: "onswitch" // Gap on the current workspace: "onswitch" | "immediate" | "never"
@@ -2383,59 +2379,6 @@ Singleton {
                 // for anyone who would rather not reach for the keybind.
                 property bool alwaysShowIndicator: false
                 property bool showInIsland: true
-            }
-
-            property JsonObject dock: JsonObject {
-                property bool enable: false
-                property bool smartGrouping: false
-                property bool isolateMonitors: false
-                property bool showOnlyOnFocusedMonitor: false
-                property bool monochromeIcons: false
-                property bool dimInactiveIcons: false
-                property real iconSpacing: -1
-                property real dockRadius: -1
-                property real widgetRadius: -1
-                property bool enableMagnification: false
-                property real magnificationScale: 1.5
-                property real magnificationInfluenceRadius: 2.35
-                property string magnificationCurve: "cosine"
-                property string magnificationMotion: "balanced"
-                property bool magnificationDynamicSpacing: true
-                property string dockStyle: "floating"
-                property bool islandsStyle: false
-                property real islandSpacing: 8
-                property bool enableAppGroups: true
-                property bool enableShapeMask: true
-                property string shapeMask: "Circle"
-                property real height: 56
-                property real hoverRegionHeight: 2
-                property bool pinnedOnStartup: false
-                property bool enablePreview: true
-                property bool enableAppTooltip: false
-                property bool hoverToReveal: true
-                property bool enableMediaWidget: false
-                property bool enableWeatherWidget: false
-                property bool enableSportsWidget: false
-                property bool enableLivePreviewWidget: false
-                property string livePreviewAppId: ""
-                property int livePreviewSlots: 2
-                property bool livePreviewPaintCursor: false
-                property string livePreviewCaptureMode: "visible"
-                property bool livePreviewFollowActiveWindow: true
-                property bool showPhoneButton: false
-                property bool showDividers: true
-                property bool showOverviewButton: true
-                property bool showPinButton: true
-                property bool showTrashButton: false
-                property bool showNotificationBadges: true
-                property string position: "auto"
-                property list<string> pinnedApps: ["org.kde.dolphin", "kitty"]
-                property list<string> ignoredAppRegexes: []
-                property list<string> pinnedFiles: []
-                // Each entry is { id: string, apps: list<string> } and is
-                // rendered as one dock item while app groups are enabled.
-                property list<var> appGroups: []
-                property list<string> order: ["pin", "app:org.kde.dolphin", "app:kitty", "runningApps", "media", "weather", "sports", "livePreview", "phone", "trash", "overview"]
             }
 
             property JsonObject hyprland: JsonObject {

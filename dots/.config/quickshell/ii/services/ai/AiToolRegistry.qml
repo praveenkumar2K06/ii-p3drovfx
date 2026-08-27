@@ -855,7 +855,7 @@ Singleton {
             timeoutMs: 15000,
             maxResultTokens: 500,
             idempotent: true,
-            description: "Force a fresh ESPN read for a supported league. Use the same league, team, date, status and limit parameters as sports_search_games; omit date for today. This never changes the bar or dock sports widgets.",
+            description: "Force a fresh ESPN read for a supported league. Use the same league, team, date, status and limit parameters as sports_search_games; omit date for today. This never changes the bar.",
             parameters: {
                 type: "object",
                 properties: {

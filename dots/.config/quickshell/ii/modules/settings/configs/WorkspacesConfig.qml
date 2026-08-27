@@ -308,25 +308,6 @@ Item {
         }
 
         ContentSection {
-            visible: Config.options.bar.styles.workspaces === "dock"
-            title: Translation.tr("Dock Workspace Style")
-            icon: "dock"
-
-            ConfigSwitch {
-                buttonIcon: "dock"
-                text: Translation.tr("Dock workspace style options")
-                checked: Config.options.bar.workspaces.dockShowActiveIndicator
-                configPage: Qt.resolvedUrl("widgets/DockWorkspaceConfig.qml")
-                onCheckedChanged: {
-                    Config.options.bar.workspaces.dockShowActiveIndicator = checked;
-                }
-                StyledToolTip {
-                    text: Translation.tr("Click button text to configure active indicator, window count dots, hover effects, and app icons in dock style.")
-                }
-            }
-        }
-
-        ContentSection {
             title: Translation.tr("Workspace Compactor")
             icon: "compress"
 

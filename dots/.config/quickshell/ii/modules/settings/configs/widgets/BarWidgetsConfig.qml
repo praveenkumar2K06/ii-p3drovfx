@@ -91,7 +91,7 @@ ContentPage {
                 cardShape: "Circle"
                 cardHue: 210
                 title: Translation.tr("Workspaces")
-                description: Translation.tr("Workspaces style, minimal mode, dock mode, and compaction")
+                description: Translation.tr("Workspaces style, minimal mode, and compaction")
                 onOpenCard: root.openComponentPage("workspaces")
             }
 
@@ -102,15 +102,6 @@ ContentPage {
                 title: Translation.tr("Active Window")
                 description: Translation.tr("Window title truncation, app icons, and titlebar styling")
                 onOpenCard: root.openComponentPage("active_window")
-            }
-
-            ServiceCard {
-                cardIcon: "apps"
-                cardShape: "Circle"
-                cardHue: 210
-                title: Translation.tr("Dock to Panel")
-                description: Translation.tr("Embedded panel app launcher and dock integration settings")
-                onOpenCard: root.openComponentPage("dock_to_panel")
             }
         }
 

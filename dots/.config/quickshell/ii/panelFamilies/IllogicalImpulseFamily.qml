@@ -9,7 +9,6 @@ import qs.modules.ii.bar
 import qs.modules.ii.bluetoothConnectionPopup
 import qs.modules.ii.bluetoothPairing
 import qs.modules.ii.cheatsheet
-import qs.modules.ii.dock
 import qs.modules.ii.lock
 import qs.modules.ii.mediaControls
 import qs.modules.ii.notificationPopup
@@ -87,10 +86,6 @@ Scope {
         extraCondition: Config.ready && !Config.options.bar.floatingNotch.enable
             && !Config.options.bar.floatingNotch.centerInBar
         component: ModeFlashPopup {}
-    }
-    PanelLoader {
-        extraCondition: Config.options.dock.enable
-        component: Dock {}
     }
     PanelLoader {
         component: Lock {}

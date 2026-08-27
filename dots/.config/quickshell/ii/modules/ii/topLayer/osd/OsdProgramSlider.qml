@@ -26,7 +26,6 @@ Item {
 
     readonly property string appIconName: {
         if (!node) return "";
-        const _ = TaskbarApps.iconThemeRevision;
         let icon = AppSearch.guessIcon(node.properties["application.icon-name"] ?? "");
         if (AppSearch.iconExists(icon)) return icon;
         icon = AppSearch.guessIcon(node.properties["node.name"] ?? "");

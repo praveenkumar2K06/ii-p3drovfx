@@ -187,13 +187,6 @@ Item {
         }
     }
 
-    Connections {
-        target: TaskbarApps
-        function onIconThemeRevisionChanged() {
-            root.updateMonitorWindows();
-        }
-    }
-
     // Occupied workspace updates
     Component.onCompleted: {
         updateWorkspaceOccupied();
@@ -712,8 +705,8 @@ Item {
                                     asynchronous: true
                                     backer.cache: false
                                     backer.sourceSize: Qt.size(
-                                        root.individualIconBoxHeight * root.iconRatio + TaskbarApps.iconThemeRevision,
-                                        root.individualIconBoxHeight * root.iconRatio + TaskbarApps.iconThemeRevision)
+                                        root.individualIconBoxHeight * root.iconRatio,
+                                        root.individualIconBoxHeight * root.iconRatio)
 
                                     Behavior on anchors.leftMargin {
                                         animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)

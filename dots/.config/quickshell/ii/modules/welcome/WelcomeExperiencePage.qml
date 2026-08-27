@@ -295,19 +295,6 @@ Item {
             RowLayout {
                 Layout.fillWidth: true
                 spacing: Appearance.rounding.small
-
-                WelcomeQuickToggle {
-                    Layout.fillWidth: true
-                    Layout.minimumWidth: 0
-                    Layout.preferredWidth: 0
-                    Layout.minimumHeight: Appearance.rounding.verylarge + Appearance.rounding.normal
-                    Layout.preferredHeight: Appearance.rounding.verylarge + Appearance.rounding.normal
-                    toggleIcon: "dock_to_bottom"
-                    label: Translation.tr("Show dock")
-                    checked: Config.options.dock.enable
-                    onToggleRequested: value => Config.options.dock.enable = value
-                }
-
                 WelcomeQuickToggle {
                     Layout.fillWidth: true
                     Layout.minimumWidth: 0

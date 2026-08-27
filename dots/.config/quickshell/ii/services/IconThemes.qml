@@ -47,16 +47,5 @@ Singleton {
         }
     }
 
-    FileView {
-        path: Directories.home + "/.local/share/icons/DynamicTheme.colhash"
-        watchChanges: true
-        onFileChanged: {
-            // DynamicTheme is atomically replaced before the hash is written.
-            // A single bounded toggle is enough to invalidate icon bindings without
-            // making sourceSize grow after every theme change.
-            TaskbarApps.iconThemeRevision = 1 - TaskbarApps.iconThemeRevision;
-        }
-    }
-
     Component.onCompleted: refresh()
 }

@@ -455,7 +455,6 @@ Item {
                                                 required property var modelData
                                                 sourceSize: Qt.size(16, 16)
                                                 source: {
-                                                    const _ = TaskbarApps.iconThemeRevision;
                                                     return Quickshell.iconPath(AppSearch.guessIcon(modelData), "");
                                                 }
                                                 visible: source.toString() !== "" && status !== Image.Error

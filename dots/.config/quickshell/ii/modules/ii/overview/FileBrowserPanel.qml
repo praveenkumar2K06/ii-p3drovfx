@@ -212,7 +212,6 @@ Item {
             { id: "external", label: Translation.tr("Open externally"), icon: "launch", actionId: "secondary", keys: ["Ctrl", "↵"], enabled: canUseEntry },
             { id: "mark", label: root.isMarked(root.selectedEntry?.path) ? Translation.tr("Unmark item") : Translation.tr("Mark item"), icon: "select_check_box", actionId: "select", keys: ["Ctrl", "Space"], enabled: canUseEntry },
             { id: "copy-path", label: Translation.tr("Copy path"), icon: "content_copy", actionId: "copy", keys: ["Ctrl", "C"], enabled: canUseEntry },
-            { id: "pin-folder", label: root.isPinnedFolder(root.selectedEntry?.path) ? Translation.tr("Unpin folder from Dock") : Translation.tr("Pin folder to Dock"), icon: root.isPinnedFolder(root.selectedEntry?.path) ? "folder_off" : "create_new_folder", enabled: canUseEntry && root.selectedEntry?.isDir },
             { id: "stage-copy", label: Translation.tr("Copy for paste"), icon: "file_copy", actionId: "stageCopy", keys: ["Ctrl", "Shift", "C"], enabled: canUseEntry },
             { id: "cut", label: Translation.tr("Cut for paste"), icon: "content_cut", actionId: "cut", keys: ["Ctrl", "X"], enabled: canUseEntry },
             { id: "paste", label: Translation.tr("Paste here"), icon: "content_paste", actionId: "paste", keys: ["Ctrl", "V"], enabled: root.contentReady && !root.globalSearchMode && !backend.operating && root.stagedPaths.length > 0 },
@@ -524,21 +523,6 @@ Item {
         return true;
     }
 
-    function isPinnedFolder(path): bool {
-        return TaskbarApps.isPinnedFile(String(path ?? ""));
-    }
-
-    function togglePinnedFolder(): bool {
-        const entry = root.selectedEntry;
-        if (!entry?.isDir)
-            return false;
-        TaskbarApps.togglePinnedFile(entry.path);
-        root.showNotice(TaskbarApps.isPinnedFile(entry.path)
-            ? Translation.tr("Folder pinned to Dock")
-            : Translation.tr("Folder unpinned from Dock"));
-        return true;
-    }
-
     function operationTargets(): var {
         if (!root.contentReady)
             return [];
@@ -710,7 +694,6 @@ Item {
         case "external": return root.secondaryActivateSelected();
         case "mark": return root.toggleSelection();
         case "copy-path": return root.copySelected();
-        case "pin-folder": return root.togglePinnedFolder();
         case "stage-copy": return root.stageCopy();
         case "cut": return root.cutSelected();
         case "paste": return root.pasteClipboard();
