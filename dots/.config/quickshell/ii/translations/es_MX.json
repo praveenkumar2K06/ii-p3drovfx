@@ -218,7 +218,7 @@
     "Dot": "Punto",
     "Incorrect password": "Contraseña incorrecta",
     "Unmuted": "Sin silencio",
-    "On-screen keyboard": "Teclado en pantalla",
+
     "Brightness adjustment": "Ajuste de brillo",
     "Workspaces shown": "Espacios de trabajo mostrados",
     "Donate": "Donar",
@@ -600,7 +600,7 @@
     "Terminal: Harmonize threshold": "Terminal: Umbral de armonización",
     "System uptime:": "Tiempo de actividad del sistema:",
     "Enable now": "Activar ahora",
-    "Virtual Keyboard": "Teclado virtual",
+
     "Click to show": "Clic para mostrar",
     "When enabled keeps the content of the right sidebar loaded to reduce the delay when opening,\nat the cost of around 15MB of consistent RAM usage. Delay significance depends on your system's performance.\nUsing a custom kernel like linux-cachyos might help": "Cuando está activado, mantiene el contenido de la barra lateral derecha cargado para reducir el retraso al abrir,\na costa de un uso constante de RAM de aproximadamente 15 MB. La importancia del retraso depende del rendimiento de tu sistema.\nUsar un kernel personalizado como linux-cachyos podría ayudar",
     "Secured": "Asegurado",

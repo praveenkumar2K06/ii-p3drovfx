@@ -90,7 +90,6 @@ hl.layer_rule({ match = { namespace = "selection" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "overview" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "anyrun" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "indicator.*" }, no_anim = true})
-hl.layer_rule({ match = { namespace = "osk" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "hyprpicker" }, no_anim = true})
 
 hl.layer_rule({ match = { namespace = "noanim" }, no_anim = true})
@@ -126,8 +125,6 @@ hl.layer_rule({ match = { namespace = "sideleft[0-9]*" }, blur = true})
 hl.layer_rule({ match = { namespace = "sideleft[0-9]*" }, ignore_alpha = 0.6})
 hl.layer_rule({ match = { namespace = "indicator.*" }, blur = true})
 hl.layer_rule({ match = { namespace = "indicator.*" }, ignore_alpha = 0.6})
-hl.layer_rule({ match = { namespace = "osk[0-9]*" }, blur = true})
-hl.layer_rule({ match = { namespace = "osk[0-9]*" }, ignore_alpha = 0.6})
 
 -- Quickshell
 -- Quickshell: illogical-impulse
@@ -164,7 +161,6 @@ hl.layer_rule({ match = { namespace = "quickshell:overviewWindowTransition" }, x
 hl.layer_rule({ match = { namespace = "quickshell:overviewWindowTransition" }, blur = false})
 hl.layer_rule({ match = { namespace = "quickshell:overviewWindowTransition" }, ignore_alpha = 0.0})
 
-hl.layer_rule({ match = { namespace = "quickshell:osk" }, animation = "slide bottom"})
 hl.layer_rule({ match = { namespace = "quickshell:polkit" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "quickshell:popup" }, xray = false}) -- No weird color for bar tooltips (this in theory should suffice)
 hl.layer_rule({ match = { namespace = "quickshell:popup" }, ignore_alpha = 0.8}) -- No weird color for bar tooltips (but somehow this is necessary)
@@ -180,7 +176,6 @@ hl.layer_rule({ match = { namespace = "quickshell:session" }, ignore_alpha = 0})
 hl.layer_rule({ match = { namespace = "quickshell:sidebarRight" }, animation = "slide right", order = 5})
 hl.layer_rule({ match = { namespace = "quickshell:sidebarLeft" }, animation = "slide left", order = 5})
 hl.layer_rule({ match = { namespace = "quickshell:verticalBar" }, animation = "slide", order = 5})
-hl.layer_rule({ match = { namespace = "quickshell:osk" }, order = -1})
 
 -- Launchers need to be FAST
 hl.layer_rule({ match = { namespace = "gtk4-layer-shell" }, no_anim = true})

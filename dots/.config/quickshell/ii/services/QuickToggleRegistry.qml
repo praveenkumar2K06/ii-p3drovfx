@@ -25,7 +25,6 @@ Singleton {
         { id: "screenRecord", model: screenRecordToggle, keywords: ["record", "gravar", "screen"] },
         { id: "colorPicker", model: colorPickerToggle, keywords: ["color", "picker", "cor"] },
         { id: "videoEditor", model: videoEditorToggle, keywords: ["video", "editor", "editar"] },
-        { id: "onScreenKeyboard", model: onScreenKeyboardToggle, keywords: ["keyboard", "teclado", "osk"] },
         { id: "mic", model: micToggle, keywords: ["microphone", "mic", "microfone"] },
         { id: "audio", model: audioToggle, keywords: ["audio", "sound", "som"] },
         { id: "notifications", model: notificationToggle, keywords: ["notifications", "dnd", "notificacoes"] },
@@ -59,7 +58,6 @@ Singleton {
     ScreenRecordToggle { id: screenRecordToggle }
     ColorPickerToggle { id: colorPickerToggle }
     VideoEditorToggle { id: videoEditorToggle }
-    OnScreenKeyboardToggle { id: onScreenKeyboardToggle }
     MicToggle { id: micToggle }
     AudioToggle { id: audioToggle }
     NotificationToggle { id: notificationToggle }

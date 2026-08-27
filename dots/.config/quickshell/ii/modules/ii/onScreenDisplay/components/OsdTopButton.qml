@@ -20,8 +20,6 @@ RippleButton {
     toggled: {
         if (currentIndicator === "brightness" || currentIndicator === "gamma")
             return Appearance.m3colors.darkmode;
-        if (currentIndicator === "keyboardBrightness")
-            return GlobalStates.oskOpen;
         return _muted;
     }
 
@@ -39,18 +37,12 @@ RippleButton {
         if (currentIndicator === "brightness" || currentIndicator === "gamma") {
             return Appearance.m3colors.darkmode ? "dark_mode" : "light_mode";
         }
-        if (currentIndicator === "keyboardBrightness") {
-            return "keyboard";
-        }
         return _muted ? "volume_off" : "volume_up";
     }
 
     readonly property string currentText: {
         if (currentIndicator === "brightness" || currentIndicator === "gamma") {
             return Appearance.m3colors.darkmode ? Translation.tr("Light mode") : Translation.tr("Dark mode");
-        }
-        if (currentIndicator === "keyboardBrightness") {
-            return GlobalStates.oskOpen ? Translation.tr("Close keyboard") : Translation.tr("Open keyboard");
         }
         return _muted ? Translation.tr("Unmute output") : Translation.tr("Mute output");
     }
@@ -92,8 +84,6 @@ RippleButton {
             } else {
                 DarkModeService.enableDarkMode();
             }
-        } else if (currentIndicator === "keyboardBrightness") {
-            GlobalStates.oskOpen = !GlobalStates.oskOpen;
         } else {
             Audio.toggleMute();
         }

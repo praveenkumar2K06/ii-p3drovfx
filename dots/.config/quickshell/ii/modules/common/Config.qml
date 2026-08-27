@@ -535,17 +535,6 @@ Singleton {
             delete android.toggles;
         }
 
-        // v3 -> v4: osk.layout keeps its type but changes meaning (Aug 2026). It used to be
-        // overwritten by HyprlandXkb on every layout switch, so no value on disk was ever a
-        // deliberate choice - and the shipped default "qwerty_full" named no layout at all,
-        // which is why the keyboard always drew the same one. "auto" says out loud what the
-        // overwriting was doing, and the keyboard settings now offer a real choice to anyone
-        // who would rather pin a layout.
-        if (from < 4 && typeof raw.osk?.layout === "string" && raw.osk.layout !== "auto") {
-            console.log(`[Config] Migrated osk.layout "${raw.osk.layout}" -> "auto"`);
-            raw.osk.layout = "auto";
-        }
-
         // v4 -> v5: Settings now has one performance switch instead of two
         // independent rendering switches. Older presets predate the new
         // switch, so default them to the safe, low-overhead path. Users can
@@ -941,10 +930,6 @@ Singleton {
             "lock.notifications.privacy": ["full", "redacted", "countOnly"],
             "lock.notifications.defaultPolicy": ["show", "hide"],
             "lock.notifications.filters.criticalOverride": ["full", "none"],
-            // osk.layout is deliberately absent: its values are layout names out of layouts.js,
-            // so a fixed list here would reject a layout added later. An unknown one already
-            // falls back to the keyboard's default.
-            "osk.style": ["deck", "classic"],
             "sidebar.position": ["default", "inverted", "left", "right"],
             "sidebar.sidebarStyle": ["default", "connect"],
             "sidebar.dashboardHeader.profileImageType": ["user_profile", "distro", "none"],
@@ -2067,7 +2052,6 @@ Singleton {
                     property bool showScreenSnip: false
                     property bool showColorPicker: true
                     property bool showMicToggle: false
-                    property bool showKeyboardToggle: false
                     property bool showDarkModeToggle: false
                     property bool showPerformanceProfileToggle: false
                     property bool showScreenRecord: true
@@ -2565,32 +2549,6 @@ Singleton {
                     property bool minimal: false
                     property bool shapedValues: true
                     property bool circledShapes: true
-                }
-            }
-
-            property JsonObject osk: JsonObject {
-                // "deck" is the full-bleed keyboard, "classic" the original floating one.
-                property string style: "deck"
-                // "auto" follows whatever layout Hyprland reports; any other value pins a
-                // layout by name ("French", "German", ...).
-                property string layout: "auto"
-                // Share of the screen height the deck takes. Key size falls out of it, so this
-                // is the only size control the deck needs.
-                property int heightPercent: 35
-                // The small shift and AltGr glyphs in the corners of a deck key.
-                property bool secondaryGlyphs: true
-                property bool pinnedOnStartup: false
-
-                // Raises the keyboard when a text field is focused by finger or pen.
-                // Requires the osk_autoshow helper (see scripts/osk/README.md).
-                property JsonObject autoShow: JsonObject {
-                    property bool enable: false
-                    property bool allowTouch: true
-                    property bool allowPen: true
-                    // How long after a touch a text field may claim focus and still count as touch-driven.
-                    property int touchWindowMs: 1200
-                    property bool hideOnPhysicalKey: true
-                    property bool hideOnTouchOutside: true
                 }
             }
 

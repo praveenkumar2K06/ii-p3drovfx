@@ -13,7 +13,7 @@ Singleton {
         const extras = {
             usage: ["usage", "uso", "stats"], modes: ["modes", "routines", "rotinas"],
             colorPicker: ["color picker", "cor", "hex"], wallpaperSelector: ["wallpaper", "papel de parede"],
-            overlay: ["overlay", "widgets"], osk: ["osk", "teclado"],
+            overlay: ["overlay", "widgets"],
             session: ["session", "logout", "desligar"], regionOcr: ["ocr", "texto da tela"],
             screenTranslate: ["translate screen", "traduzir tela"], regionRecord: ["record", "gravar"],
             regionScreenshot: ["screenshot", "print", "snip"], localSend: ["localsend", "enviar arquivo"],

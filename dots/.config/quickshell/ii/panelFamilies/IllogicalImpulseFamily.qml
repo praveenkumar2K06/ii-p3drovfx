@@ -14,7 +14,6 @@ import qs.modules.ii.mediaControls
 import qs.modules.ii.notificationPopup
 import qs.modules.ii.onScreenDisplay
 import qs.modules.ii.onScreenDisplay.minimalist
-import qs.modules.ii.onScreenKeyboard
 import qs.modules.ii.oledSaver
 import qs.modules.ii.overview
 import qs.modules.ii.polkit
@@ -126,9 +125,6 @@ Scope {
         // and invisible until a recording or the quick toggle asks for them.
         extraCondition: Config.ready
         component: KeypressDisplay {}
-    }
-    PanelLoader {
-        component: OnScreenKeyboard {}
     }
     PanelLoader {
         component: OledSaver {}

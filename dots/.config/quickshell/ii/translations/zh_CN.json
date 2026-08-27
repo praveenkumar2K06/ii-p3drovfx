@@ -488,7 +488,7 @@
     "Generate translation with Gemini": "使用 Gemini 生成翻译",
     "Enable GPS based location": "启用基于 GPS 的位置",
     "Microphone": "麦克风",
-    "Virtual Keyboard": "屏幕键盘",
+
     "Shut down": "关机",
     "Digits in the middle": "在中心显示数字",
     "If you want to somehow use fingerprint unlock...": "如果你想想办法用指纹解锁的话...",
@@ -573,7 +573,7 @@
     "Click to cycle through power profiles": "点击以循环切换电源模式",
     "When the previous option is off and this is on,\nyou can still hover the corner's end to open sidebar,\nand the remaining area can be used for volume/brightness scroll": "当上一个选项为关闭且此项开启时，你仍然\n可以通过悬停在角落的末端来打开侧边栏，\n剩余的区域将可用于滚动调节音量与亮度",
     "Widgets": "小组件",
-    "On-screen keyboard": "屏幕键盘",
+
     "Used for general UI text": "用于通用 UI 文本",
     "Line": "线条",
     "Replace 󱕐   for \"Scroll ↓\", 󱕑   \"Scroll ↑\", L󰍽   \"LMB\", R󰍽   \"RMB\", 󱕒   \"Scroll ↑/↓\" and ⇞/⇟ for \"Page_↑/↓\"": "如用 󱕐   来表示 “Scroll ↓”，󱕑   “Scroll ↑”，L󰍽   “LMB”，R󰍽   “RMB”，以及 󱕒   “Scroll ↑/↓” 和 ⇞/⇟ 来表示 “Page_↑/↓”",

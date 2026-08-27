@@ -86,7 +86,6 @@
           { "type": "darkMode", "size": 2, "sizeW": 2, "sizeH": 1 }
         ],
         [
-          { "type": "onScreenKeyboard", "size": 1, "sizeW": 1, "sizeH": 1 },
           { "type": "micSlider", "size": 2, "sizeW": 2, "sizeH": 1 },
           { "type": "videoEditor", "size": 1, "sizeW": 1, "sizeH": 1 },
           { "type": "mic", "size": 1, "sizeW": 1, "sizeH": 1 },

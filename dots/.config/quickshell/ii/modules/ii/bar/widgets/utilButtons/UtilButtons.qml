@@ -100,22 +100,6 @@ Item {
         }
 
         Loader {
-            active: Config.options.bar.utilButtons.showKeyboardToggle
-            visible: Config.options.bar.utilButtons.showKeyboardToggle
-            sourceComponent: CircleUtilButton {
-                Layout.alignment: Qt.AlignVCenter
-                onClicked: GlobalStates.oskOpen = !GlobalStates.oskOpen
-                MaterialSymbol {
-                    horizontalAlignment: Qt.AlignHCenter
-                    fill: 0
-                    text: "keyboard"
-                    iconSize: Appearance.font.pixelSize.large
-                    color: Appearance.colors.colOnLayer2
-                }
-            }
-        }
-
-        Loader {
             active: Config.options.bar.utilButtons.showWallpaperToggle
             visible: Config.options.bar.utilButtons.showWallpaperToggle
             sourceComponent: CircleUtilButton {

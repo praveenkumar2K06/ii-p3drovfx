@@ -63,14 +63,6 @@ ContentPage {
             }
         }
         ConfigSwitch {
-            buttonIcon: "keyboard"
-            text: Translation.tr("Show Keyboard Toggle")
-            checked: Config.options.bar.utilButtons.showKeyboardToggle
-            onCheckedChanged: {
-                Config.options.bar.utilButtons.showKeyboardToggle = checked;
-            }
-        }
-        ConfigSwitch {
             buttonIcon: "mic"
             text: Translation.tr("Show Mic Toggle")
             checked: Config.options.bar.utilButtons.showMicToggle

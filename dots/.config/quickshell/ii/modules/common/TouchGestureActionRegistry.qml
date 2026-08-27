@@ -19,7 +19,6 @@ Singleton {
         { id: "sidebarLeft", name: "Left Sidebar", icon: "left_panel_open" },
         { id: "sidebarRight", name: "Right Sidebar", icon: "right_panel_open" },
         { id: "cheatsheet", name: "Cheat Sheet", icon: "keyboard" },
-        { id: "osk", name: "On-screen Keyboard", icon: "keyboard_alt" },
         { id: "overlay", name: "Game / Widget Overlay", icon: "layers" },
         { id: "session", name: "Session / Power Menu", icon: "power_settings_new" },
         { id: "settings", name: "Settings", icon: "settings" },
@@ -112,10 +111,6 @@ Singleton {
 
         case "cheatsheet":
             GlobalStates.toggleCheatsheet();
-            break;
-
-        case "osk":
-            GlobalStates.oskOpen = !GlobalStates.oskOpen;
             break;
 
         case "overlay":
