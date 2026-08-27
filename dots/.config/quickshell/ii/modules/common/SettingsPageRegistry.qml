@@ -168,11 +168,10 @@ Singleton {
             "component": "modules/settings/configs/CheatSheetConfig.qml",
             "subPages": [
                 "widgets/CheatSheetAppearanceConfig.qml",
-                "widgets/TimetableConfig.qml",
                 "widgets/CheatsheetAminoAcidsConfig.qml",
-                "widgets/CheatsheetCommandsConfig.qml"
+                "widgets/CheatSheetCommandsConfig.qml"
             ],
-            "aliases": ["Shortcuts", "Keybinds", "Timetable", "Gmail", "Amino acids", "Commands reference", "Periodic table"]
+            "aliases": ["Shortcuts", "Keybinds", "Amino acids", "Commands reference", "Periodic table"]
         },
         {
             "id": "windows",
@@ -244,14 +243,6 @@ Singleton {
                 "ai/CustomModelsConfig.qml"
             ],
             "aliases": ["Core Services", "Gemini", "AI", "System prompt", "Tokens", "Usage", "Context", "Memory", "Formatting", "Thinking", "Cost", "Privacy"]
-        },
-        {
-            "id": "tasksAccounts",
-            "name": "Accounts & Backup",
-            "icon": "checklist",
-            "component": "modules/settings/configs/TasksAccountsConfig.qml",
-            "subPages": ["widgets/GoogleDriveBackupConfig.qml", "widgets/AdvancedDriveConfig.qml", "widgets/CoreGoogleTasksConfig.qml", "widgets/CoreTickTickConfig.qml"],
-            "aliases": ["Core Services", "Tasks & Accounts", "TickTick", "Google Tasks", "Google Tasks API", "Tasks", "Accounts", "Google Drive", "Backup", "Cloud backup", "rclone"]
         },
         {
             "id": "soundAlerts",
@@ -365,7 +356,7 @@ Singleton {
         {
             "id": "servicesIntegrations",
             "name": "Services & Integrations",
-            "pageIds": ["mediaMusic", "languageTime", "weather", "aiAssistant", "tasksAccounts"]
+            "pageIds": ["mediaMusic", "languageTime", "weather", "aiAssistant"]
         },
         {
             "id": "system",

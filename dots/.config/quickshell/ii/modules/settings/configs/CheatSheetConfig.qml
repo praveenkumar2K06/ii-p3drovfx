@@ -63,33 +63,6 @@ Item {
                 spacing: Appearance.sizes.elevationMargin / 2
 
                 ConfigSwitch {
-                    buttonIcon: "calendar_month"
-                    text: Translation.tr("Enable Timetable")
-                    checked: Config.options.cheatsheet.enableTimetable
-                    configPage: Qt.resolvedUrl("widgets/TimetableConfig.qml")
-                    onCheckedChanged: {
-                        Config.options.cheatsheet.enableTimetable = checked;
-                    }
-
-                    StyledToolTip {
-                        text: Translation.tr("Weekly and monthly calendar timetable with event scheduling, alarms, and sports integration.")
-                    }
-                }
-
-                ConfigSwitch {
-                    buttonIcon: "mail"
-                    text: Translation.tr("Enable Gmail")
-                    checked: Config.options.cheatsheet.enableGmail
-                    onCheckedChanged: {
-                        Config.options.cheatsheet.enableGmail = checked;
-                    }
-
-                    StyledToolTip {
-                        text: Translation.tr("View and manage unread Gmail messages directly in the Cheatsheet.")
-                    }
-                }
-
-                ConfigSwitch {
                     buttonIcon: "biotech"
                     text: Translation.tr("Enable Amino acids")
                     checked: Config.options.cheatsheet.enableAminoAcids

@@ -168,8 +168,6 @@ FloatingWindow {
 
     function openCheatsheetGuide(sectionId: string): void {
         const icons = [];
-        if (Config.options.cheatsheet.enableTimetable)
-            icons.push("calendar_month");
         icons.push("keyboard");
         if (Config.options.cheatsheet.enablePeriodicTable)
             icons.push("experiment");
@@ -179,8 +177,6 @@ FloatingWindow {
             icons.push("terminal");
         if (Config.options.cheatsheet.enableWorkspaceProfiles)
             icons.push("dashboard");
-        if (Config.options.cheatsheet.enableGmail)
-            icons.push("mail");
 
         const index = icons.indexOf(sectionId);
         if (index >= 0)

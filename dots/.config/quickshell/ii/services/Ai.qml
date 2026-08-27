@@ -1686,15 +1686,13 @@ Singleton {
     readonly property AiSettingsIntegration settingsIntegration: AiSettingsIntegration {}
     /** Explicit clipboard, launcher and active-window metadata for one turn. */
     readonly property AiShellContextIntegration shellContext: AiShellContextIntegration {}
-    /** Local alarms, khal calendar and Weather DTOs; it owns no UI. */
+    /** Local alarms, timers and Weather DTOs; it owns no UI. */
     readonly property AiTimeIntegration timeIntegration: AiTimeIntegration {}
     /** Read-only live system and keybind DTOs; never a shell fallback. */
     readonly property AiSystemIntegration systemIntegration: AiSystemIntegration {}
     /** Parameterized ESPN reads; never touches the sports widget state. */
     readonly property AiSportsIntegration sportsIntegration: AiSportsIntegration {}
-    /** Read-only Gmail metadata/body bridge with correlated helper calls. */
-    readonly property AiGmailIntegration gmailIntegration: AiGmailIntegration {}
-    /** Provider-neutral local/TickTick task contract. */
+    /** Local task contract. */
     readonly property AiTasksIntegration tasksIntegration: AiTasksIntegration {}
     /** The one path to the filesystem the assistant may use by itself. */
     readonly property AiFilesIntegration filesIntegration: AiFilesIntegration {}
@@ -1727,17 +1725,6 @@ Singleton {
     }
 
     Connections {
-        target: root.gmailIntegration
-        function onResultReady(key, callId, sessionId, outcome) {
-            const activeSession = String(root.currentRunSessionId || root.sessions.currentId || "");
-            if (String(sessionId ?? "").length > 0 && String(sessionId) !== activeSession)
-                return;
-            if (root.broker.isPending(String(key)))
-                root.broker.settle(String(key), outcome);
-        }
-    }
-
-    Connections {
         target: root.tasksIntegration
         function onResultReady(key, operationId, outcome) {
             const message = root.messageForToolKey(String(key));
@@ -1760,17 +1747,6 @@ Singleton {
                     summary: String(outcome.summary ?? "")
                 });
             }
-            if (root.broker.isPending(String(key)))
-                root.broker.settle(String(key), outcome);
-        }
-    }
-
-    Connections {
-        target: root.timeIntegration
-        function onCalendarMutationFinished(key, operationId, outcome) {
-            const message = root.messageForToolKey(String(key));
-            if (message)
-                root.finishCalendarMutation(message, outcome);
             if (root.broker.isPending(String(key)))
                 root.broker.settle(String(key), outcome);
         }
@@ -1859,11 +1835,6 @@ Singleton {
             "alarms_list": call => root.toolAlarmsList(call),
             "timer_start": call => root.toolTimerStart(call),
             "timer_status": call => root.toolTimerStatus(call),
-            "calendar_list_events": call => root.toolCalendarListEvents(call),
-            "calendar_next_event": call => root.toolCalendarNextEvent(call),
-            "calendar_create_event": call => root.toolCalendarCreateEvent(call),
-            "calendar_move_event": call => root.toolCalendarMoveEvent(call),
-            "calendar_delete_event": call => root.toolCalendarDeleteEvent(call),
             "weather_get": call => root.toolWeatherGet(call),
             "tasks_list": call => root.toolTasksList(call),
             "tasks_search": call => root.toolTasksSearch(call),
@@ -1894,10 +1865,6 @@ Singleton {
             "keybinds_search": call => root.toolKeybindsSearch(call),
             "sports_search_games": call => root.toolSports(call, false),
             "sports_refresh_games": call => root.toolSports(call, true),
-            "gmail_search_messages": call => root.toolGmail(call, "search"),
-            "gmail_get_message": call => root.toolGmail(call, "get"),
-            "gmail_get_thread": call => root.toolGmail(call, "thread"),
-            "gmail_open_in_client": call => root.toolGmailOpen(call),
             "files_search": call => root.toolFilesSearch(call),
             "files_preview": call => root.toolFilesPreview(call),
             "files_attach": call => root.toolFilesAttach(call),
@@ -1982,7 +1949,7 @@ Singleton {
     // Approval bodies are actionable only while pending. Keeping their final
     // state in the model lets the transcript turn the card into one outcome
     // row instead of removing it from under the reader.
-    readonly property var approvalCardKinds: ["settingsDiff", "reminderPreview", "memoryFact", "fileAttachPreview", "notesPreview", "systemControlPreview", "windowMovePreview", "wallpaperPreview", "mediaControlPreview", "songIdentifyPreview", "taskPreview", "taskMutationPreview", "calendarMutationPreview"]
+    readonly property var approvalCardKinds: ["settingsDiff", "reminderPreview", "memoryFact", "fileAttachPreview", "notesPreview", "systemControlPreview", "windowMovePreview", "wallpaperPreview", "mediaControlPreview", "songIdentifyPreview", "taskPreview", "taskMutationPreview"]
     readonly property var resolvedApprovalStates: ["done", "denied", "failed", "needsInspection"]
 
     function visibleToolCards(message): var {
@@ -4423,9 +4390,6 @@ Singleton {
             "reminder_create": pending => root.createReminderNow(pending.message, pending.args, pending.sessionId),
             "alarm_create": pending => root.createAlarmNow(pending.message, pending.args, pending.sessionId),
             "timer_start": pending => root.startTimerNow(pending.message, pending.args, pending.sessionId),
-            "calendar_create_event": pending => root.startCalendarMutation(pending),
-            "calendar_move_event": pending => root.startCalendarMutation(pending),
-            "calendar_delete_event": pending => root.startCalendarMutation(pending),
             "tasks_create": pending => root.startTaskCreate(pending),
             "tasks_update": pending => root.startTaskMutation(pending, "update"),
             "tasks_complete": pending => root.startTaskMutation(pending, "complete"),
@@ -5196,126 +5160,6 @@ Singleton {
         };
     }
 
-    function toolCalendarListEvents(call: var): var {
-        const result = root.timeIntegration.calendarEvents(call.args);
-        if (result.error)
-            return {
-                status: "error",
-                summary: Translation.tr("That calendar date range is not valid"),
-                data: { error: result.error },
-                retryable: true
-            };
-        if (!result.available)
-            return {
-                status: "unavailable",
-                summary: Translation.tr("The khal calendar is not available"),
-                data: { events: [] },
-                retryable: false
-            };
-        return {
-            status: "success",
-            summary: result.events.length === 1 ? Translation.tr("1 calendar event") : Translation.tr("%1 calendar events").arg(result.events.length),
-            data: { events: result.events }
-        };
-    }
-
-    function toolCalendarNextEvent(call: var): var {
-        const result = root.timeIntegration.nextCalendarEvent();
-        if (!result.available)
-            return {
-                status: "unavailable",
-                summary: Translation.tr("The khal calendar is not available"),
-                data: { event: null },
-                retryable: false
-            };
-        return {
-            status: "success",
-            summary: result.event
-                ? (result.event.state === "inProgress" ? Translation.tr("Calendar event in progress") : Translation.tr("Next calendar event"))
-                : Translation.tr("No upcoming calendar event"),
-            data: { event: result.event }
-        };
-    }
-
-    function calendarMutationTool(call: var, operation: string): var {
-        const preview = root.timeIntegration.calendarMutationPreview(operation, call.args);
-        if (!preview.ok)
-            return {
-                status: "error",
-                summary: String(preview.error ?? Translation.tr("That calendar change is not valid")),
-                data: preview,
-                retryable: true
-            };
-        const toolId = "calendar_" + operation + "_event";
-        call.message.toolCallSerial = call.serial;
-        root.addToolCard(call.message, {
-            callId: call.key,
-            tool: toolId,
-            kind: "calendarMutationPreview",
-            state: "pending",
-            summary: operation === "delete" ? Translation.tr("Calendar deletion needs approval") : Translation.tr("Calendar change needs approval"),
-            data: { operation: operation, preview: preview }
-        });
-        call.message.functionPending = true;
-        return { status: "approval" };
-    }
-
-    function toolCalendarCreateEvent(call: var): var {
-        return root.calendarMutationTool(call, "create");
-    }
-
-    function toolCalendarMoveEvent(call: var): var {
-        return root.calendarMutationTool(call, "move");
-    }
-
-    function toolCalendarDeleteEvent(call: var): var {
-        return root.calendarMutationTool(call, "delete");
-    }
-
-    function approveCalendarMutation(message: AiMessageData): void {
-        if (!message?.functionPending || root.pendingToolExecution?.message === message)
-            return;
-        const key = root.toolKeyFor(message);
-        const card = root.toolCardFor(message, key);
-        const preview = card?.data?.preview;
-        const operation = String(preview?.operation ?? "");
-        if (!preview || ["create", "move", "delete"].indexOf(operation) < 0) {
-            root.rejectCalendarMutation(message);
-            return;
-        }
-        root.beginToolExecution(message, "calendar_" + operation + "_event", { args: preview });
-    }
-
-    function rejectCalendarMutation(message: AiMessageData): void {
-        if (!message?.functionPending)
-            return;
-        message.functionPending = false;
-        const key = root.toolKeyFor(message);
-        root.updateToolCard(message, key, { state: "denied", summary: Translation.tr("Calendar change discarded") });
-        root.broker.settle(key, {
-            status: "denied",
-            summary: Translation.tr("Calendar change discarded"),
-            data: Translation.tr("The user chose not to change the calendar."),
-            retryable: false
-        });
-    }
-
-    function finishCalendarMutation(message: AiMessageData, outcome): void {
-        const key = root.toolKeyFor(message);
-        message.functionPending = false;
-        root.updateToolCard(message, key, {
-            state: outcome.status === "success" ? "done" : String(outcome.status ?? "error"),
-            summary: String(outcome.summary ?? "")
-        });
-        root.broker.settle(key, outcome);
-    }
-
-    function startCalendarMutation(pending): void {
-        const outcome = root.timeIntegration.executeCalendarMutation(pending.args, root.toolKeyFor(pending.message), pending.operationId);
-        if (outcome.status !== "pending")
-            root.finishCalendarMutation(pending.message, outcome);
-    }
-
     function toolWeatherGet(call: var): var {
         return {
             status: "success",
@@ -5393,7 +5237,7 @@ Singleton {
                 providerId: reference.providerId,
                 accountId: reference.accountId,
                 listId: reference.listId,
-                listName: reference.providerId === "ticktick" ? "TickTick Inbox" : Translation.tr("Local tasks"),
+                listName: Translation.tr("Local tasks"),
                 taskId: reference.taskId,
                 title: String(call.args.title ?? ""),
                 changes: changes
@@ -6180,18 +6024,6 @@ Singleton {
         return root.sportsIntegration.query(call.key, call.callId, sessionId, call.args, force);
     }
 
-    function toolGmail(call: var, operation: string): var {
-        const sessionId = String(root.currentRunSessionId || root.sessions.currentId || "");
-        if (operation === "search")
-            return root.gmailIntegration.search(call.key, call.callId, sessionId, call.args);
-        if (operation === "get")
-            return root.gmailIntegration.getMessage(call.key, call.callId, sessionId, call.args);
-        return root.gmailIntegration.getThread(call.key, call.callId, sessionId, call.args);
-    }
-
-    function toolGmailOpen(call: var): var {
-        return root.gmailIntegration.openInClient(call.args);
-    }
 
     // ── Files ─────────────────────────────────────────────────────────────
     // The one path by which the assistant reaches the filesystem by itself.

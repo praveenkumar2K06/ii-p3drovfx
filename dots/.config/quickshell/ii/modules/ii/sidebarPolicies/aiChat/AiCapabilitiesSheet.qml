@@ -149,15 +149,6 @@ Item {
             ]
         },
         {
-            title: Translation.tr("Gmail"),
-            icon: "mail",
-            note: Translation.tr("Read-only — nothing is ever sent, replied to, or deleted."),
-            prompts: [
-                Translation.tr("Do I have any unread emails from my boss?"),
-                Translation.tr("Search my inbox for the flight confirmation")
-            ]
-        },
-        {
             title: Translation.tr("Memory"),
             icon: "psychology",
             prompts: [

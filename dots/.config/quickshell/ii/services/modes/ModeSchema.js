@@ -32,7 +32,6 @@ var CONDITION_SOURCES = {
     discordVoice: "conditions/DiscordVoiceCondition.qml",
     phone: "conditions/PhoneCondition.qml",
     pomodoro: "conditions/PomodoroCondition.qml",
-    calendar: "conditions/CalendarCondition.qml",
     resource: "conditions/ResourceCondition.qml",
     vpn: "conditions/VpnCondition.qml",
     lid: "conditions/LidCondition.qml",
@@ -62,7 +61,6 @@ var TRIGGER_GROUPS = {
 
 var TRIGGER_TYPES = {
     schedule: { label: "Schedule", icon: "schedule", editor: "schedule", group: "time" },
-    calendar: { label: "Calendar event", icon: "event", editor: "calendar", group: "time" },
     app: { label: "App", icon: "apps", editor: "app", group: "windows" },
     game: { label: "Game", icon: "sports_esports", editor: "game", group: "windows" },
     fullscreen: { label: "Fullscreen window", icon: "fullscreen", editor: "none", group: "windows" },
@@ -302,9 +300,6 @@ function normalizeTrigger(raw) {
         break;
     case "pomodoro":
         t.phase = ["focus", "break", "any"].indexOf(t.phase) !== -1 ? t.phase : "any";
-        break;
-    case "calendar":
-        t.match = typeof t.match === "string" ? t.match.trim() : "";
         break;
     case "resource":
         t.metric = RESOURCE_METRICS.indexOf(t.metric) !== -1 ? t.metric : "cpuUsage";

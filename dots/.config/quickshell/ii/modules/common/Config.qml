@@ -1315,45 +1315,11 @@ Singleton {
                 property bool preferPopupOverNotification: true
             }
 
-            property JsonObject googleDrive: JsonObject {
-                property bool enabled: false
-                property string syncInterval: "3d" // "1h", "4h", "1d", "2d", "3d"
-                property bool syncOnBoot: true
-                property bool syncOnNetworkChange: false
-                property int bandwidthLimitKbps: 0
-                property bool pauseOnMeteredConnection: true
-                property list<string> backupFolders: []
-                property list<string> excludePatterns: ["*.tmp", "*.swp", "*.lock", "node_modules/", ".git/", "__pycache__/"]
-                // Empty means the per-machine default: <username>_<distro>_backups.
-                // GoogleDriveService also treats the old "ii-backup" default as
-                // automatic so existing installs migrate without rewriting config.
-                property string driveBasePath: ""
-                property bool notifyOnComplete: true
-                property bool notifyOnError: true
-                property int keepVersions: 3
-                property bool deleteRemoteOrphans: false
-                property bool onlyModifiedSinceLastSync: false
-                property string lastSyncTime: ""
-                property string lastSyncStatus: ""
-                property int lastSyncFileCount: 0
-                property real lastSyncSizeMb: 0.0
-                // Durable sync events used by the Drive activity charts. Keep
-                // this explicitly typed: nested JsonObject arrays must not use
-                // `var` in Quickshell's JSON adapter.
-                property list<var> syncHistory: []
-                property real totalDriveUsageMb: 0.0
-                property real driveQuotaMb: 0.0
-                property real driveBackupUsageMb: 0.0
-            }
 
             property JsonObject todo: JsonObject {
-                // Choices: "local", "ticktick", or "googleTasks".
+                // Only the local task provider remains.
                 property string provider: "local"
                 property int refreshIntervalMinutes: 5
-                property JsonObject googleTasks: JsonObject {
-                    property string taskListId: ""
-                    property string taskListTitle: ""
-                }
             }
 
             property JsonObject vpn: JsonObject {
@@ -2153,84 +2119,6 @@ Singleton {
                 property int suspend: 3
             }
 
-            property JsonObject calendar: JsonObject {
-                property string locale: "en-GB"
-                property JsonObject holidays: JsonObject {
-                    property bool enable: true
-                    // ISO 3166-1 alpha-2, or "auto" to derive it from the system locale
-                    property string countryCode: "auto"
-                    property bool showInMonthView: true
-                }
-                property JsonObject timetable: JsonObject {
-                    // New events start in khal's configured default calendar
-                    // until the user successfully creates one in another
-                    // writable calendar. The selected khal collection then
-                    // becomes the persistent Timetable default.
-                    property string defaultCalendar: ""
-                    property list<string> subscriptions: []
-                    property JsonObject imports: JsonObject {
-                        // Local ICS files and remote read-only subscriptions
-                        // are inactive until the user enables calendar sources.
-                        property bool enable: false
-                        property JsonObject gmailIcs: JsonObject {
-                            // Scans only calendar attachments from the active
-                            // Gmail account and imports through the same
-                            // deduplicating calendar bridge as local files.
-                            property bool enable: false
-                            property int maxMessages: 25
-                            property int scanIntervalMinutes: 60
-                        }
-                        property JsonObject outlook: JsonObject {
-                            // Direct Microsoft Graph calendar mirror. It is
-                            // registered as a local read-only khal collection.
-                            property bool enable: false
-                            property int syncIntervalMinutes: 60
-                            property JsonObject icsAttachments: JsonObject {
-                                // Mail.Read is used only to locate bounded
-                                // .ics/text-calendar files, never mail bodies.
-                                property bool enable: false
-                                property int maxMessages: 25
-                                property int scanIntervalMinutes: 60
-                            }
-                        }
-                    }
-                    // ESPN games stay outside khal and are displayed only when
-                    // explicitly requested in the Timetable.
-                    property bool sportsEvents: false
-                    // Number of dates summarized by the month view's agenda rail.
-                    property int upcomingHorizonDays: 14
-                    // Opt-in: timeline views may replace calendar colours with
-                    // a gradient centred on the next event.
-                    property bool proximityColorGradient: false
-                    property JsonObject moonPhases: JsonObject {
-                        // Moon phase badges in the month grid; computed locally,
-                        // never fetched from the network.
-                        property bool enable: false
-                    }
-                    property JsonObject birthdays: JsonObject {
-                        // Contact birthdays are a read-only projection; they
-                        // never create or mutate khal events.
-                        property bool enable: false
-                    }
-                    property JsonObject googleColors: JsonObject {
-                        // Per-event colour exists only in the Google Calendar API
-                        // (colorId); the synced .ics files carry no COLOR at all.
-                        // Opt-in because it needs the authorized account.
-                        property bool enable: false
-                        // Hours before the colour map is fetched again.
-                        property int refreshHours: 6
-                    }
-                    property JsonObject notifications: JsonObject {
-                        property bool enable: true
-                        property list<string> offsets: ["-15m"]
-                        property bool dailySummary: false
-                        property string dailySummaryTime: "08:00"
-                        property bool notifyAllDay: true
-                        property bool sound: false
-                    }
-                }
-            }
-
             property JsonObject cheatsheet: JsonObject {
                 // Use a nerdfont to see the icons
                 // 0: 󰖳  | 1: 󰌽 | 2: 󰘳 | 3:  | 4: 󰨡
@@ -2242,9 +2130,6 @@ Singleton {
                 property bool useMouseSymbol: false
                 property bool useFnSymbol: false
                 property bool filterUnbinds: true
-                property bool enableGmail: true
-                property bool enableTimetable: true
-                property bool timetableTodayFirst: false
                 property bool enablePeriodicTable: false
                 property bool enableAminoAcids: false
                 // "five" | "seven" | "four" — side chain classification scheme
@@ -2825,16 +2710,6 @@ Singleton {
                     property bool shellCommand: true
                     property bool systemControls: true
                     property bool shellActions: true
-                    property JsonObject calendar: JsonObject {
-                        property bool enable: false
-                        property string source: "khal"
-                        property int lookaheadDays: 14
-                        property bool showDeclined: false
-                        property bool allowCreate: true
-                        property string defaultCalendarId: ""
-                        property int defaultDurationMin: 30
-                        property list<string> hiddenCalendars: []
-                    }
                     property JsonObject tasks: JsonObject {
                         property bool enable: true
                         property bool showCompleted: false
@@ -2884,7 +2759,6 @@ Singleton {
                     property JsonObject cheatsheet: JsonObject {
                         property bool enable: true
                         property bool commandsPanel: true
-                        property bool gmailPanel: true
                     }
                     property JsonObject sports: JsonObject {
                         property bool enable: false

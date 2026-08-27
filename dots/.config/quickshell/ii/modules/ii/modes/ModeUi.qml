@@ -264,10 +264,6 @@ Singleton {
         case "pomodoro":
             return t.phase === "focus" ? Translation.tr("Pomodoro focus lap")
                 : (t.phase === "break" ? Translation.tr("Pomodoro break") : Translation.tr("Pomodoro running"));
-        case "calendar": {
-            const m = String(t.match ?? "").trim();
-            return m.length ? Translation.tr("During an event \"%1\"").arg(m) : Translation.tr("During a calendar event");
-        }
         case "resource": {
             const metric = root.resourceMetricLabel(t.metric);
             const unit = String(t.metric).endsWith("Temp") ? "°C" : "%";

@@ -167,7 +167,7 @@ Item {
             if (Todo.remoteEnabled && Todo.connected) {
                 Todo.refresh();
             } else {
-                GlobalStates.openSettingsPage("tasksAccounts");
+                Todo.refresh();
             }
         }
 

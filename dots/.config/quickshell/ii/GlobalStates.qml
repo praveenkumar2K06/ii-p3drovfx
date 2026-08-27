@@ -44,10 +44,6 @@ Singleton {
     // A stable tab id makes deep links independent from the user-configurable
     // tab order. Cheatsheet consumes this intent as soon as it opens.
     property string cheatsheetPendingTab: ""
-    // Notification actions can ask the lazily-loaded timetable to land on a
-    // concrete local date. A serial makes two clicks for the same day visible.
-    property string timetableRequestedDate: ""
-    property int timetableNavigationRequest: 0
     property bool crosshairOpen: false
     property bool notesOpen: false
     property bool mediaControlsOpen: false
@@ -79,19 +75,6 @@ Singleton {
         root.searchTargetWindowAddress = rawAddress.length === 0
             ? ""
             : (rawAddress.startsWith("0x") ? rawAddress : `0x${rawAddress}`);
-    }
-
-    function openTimetableAt(dateValue): void {
-        const text = String(dateValue ?? "").trim();
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(text))
-            return;
-        const parts = text.split("-").map(Number);
-        const date = new Date(parts[0], parts[1] - 1, parts[2]);
-        if (Qt.formatDate(date, "yyyy-MM-dd") !== text)
-            return;
-        root.timetableRequestedDate = text;
-        root.timetableNavigationRequest++;
-        root.cheatsheetOpen = true;
     }
 
     // Legacy Gnome-like window transition state.  These values intentionally

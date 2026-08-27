@@ -71,7 +71,6 @@ ColumnLayout {
         case "windows": return Translation.tr("Windows");
         case "time": return Translation.tr("Time & reminders");
         case "media": return Translation.tr("Media");
-        case "gmail": return Translation.tr("Gmail");
         case "files": return Translation.tr("Files");
         case "web": return Translation.tr("Web");
         case "theme": return Translation.tr("Theme");

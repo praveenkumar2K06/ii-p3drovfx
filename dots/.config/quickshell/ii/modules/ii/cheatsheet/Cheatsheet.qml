@@ -12,19 +12,11 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import "commands"
-import "timetable"
 
 Scope {
     id: root
     property var tabButtonList: {
         let list = [];
-        if (Config.options.cheatsheet.enableTimetable) {
-            list.push({
-                "id": "timetable",
-                "icon": "calendar_month",
-                "name": Translation.tr("Timetable")
-            });
-        }
         list.push({
             "id": "keybinds",
             "icon": "keyboard",
@@ -58,13 +50,6 @@ Scope {
                 "name": Translation.tr("Workspaces")
             });
         }
-        if (Config.options.cheatsheet.enableGmail) {
-            list.push({
-                "id": "email",
-                "icon": "mail",
-                "name": Translation.tr("Email")
-            });
-        }
         return list;
     }
 
@@ -91,10 +76,6 @@ Scope {
             } else {
                 root.requestClose();
             }
-        }
-
-        function onTimetableNavigationRequestChanged() {
-            root.openTimetableNavigation();
         }
     }
 
@@ -130,15 +111,6 @@ Scope {
         } else {
             requestOpen();
         }
-    }
-
-    function openTimetableNavigation() {
-        const timetableIndex = root.tabButtonList.findIndex(tab => tab.id === "timetable");
-        if (timetableIndex < 0)
-            return;
-        if (Persistent.states.cheatsheet.tabIndex !== timetableIndex)
-            Persistent.states.cheatsheet.tabIndex = timetableIndex;
-        root.requestOpen();
     }
 
     Loader {
@@ -401,24 +373,6 @@ Scope {
                         }
                     }
 
-                    // Left counterpart of the close button: only the timetable tab
-                    // has two shapes to choose between, so it only appears there.
-                    TimetableViewSwitch {
-                        id: timetableViewSwitch
-                        visible: Boolean(root.tabButtonList[swipeView.currentIndex] && root.tabButtonList[swipeView.currentIndex].icon === "calendar_month")
-                        animateIn: cheatsheetBackground.animateIn && timetableViewSwitch.visible
-                        compact: cheatsheetBackground.width < 1100
-                        // Anchored to the column (a sibling) rather than the tab
-                        // bar itself: an anchor may only target a parent or a
-                        // sibling, and the tab bar is a grandchild.
-                        anchors {
-                            left: parent.left
-                            leftMargin: 20
-                            top: cheatsheetColumnLayout.top
-                            topMargin: Math.max(0, (topToolbar.height - timetableViewSwitch.height) / 2)
-                        }
-                    }
-
                     ColumnLayout {
                         id: cheatsheetColumnLayout
                         anchors.centerIn: parent
@@ -562,13 +516,6 @@ Scope {
                                     // tabs resident and made Loader.active unstable.
                                     active: swipeView.currentIndex === index
 
-                                    // The timetable is substantially heavier than the
-                                    // text-first tabs. Incubating it lets the overlay
-                                    // paint its first frame before the calendar tree is
-                                    // completed; its own repeaters then continue the
-                                    // progressive materialization item by item.
-                                    asynchronous: modelData.icon === "calendar_month"
-
                                     onStatusChanged: {
                                         if (status === Loader.Ready) {
                                             // Inject the key nav target so TextFields in each
@@ -583,8 +530,6 @@ Scope {
 
                                     source: {
                                         switch (modelData.icon) {
-                                        case "calendar_month":
-                                            return "CheatsheetTimetable.qml";
                                         case "keyboard":
                                             return "CheatsheetKeybinds.qml";
                                         case "experiment":
@@ -595,8 +540,6 @@ Scope {
                                             return "commands/CheatsheetCommands.qml";
                                         case "dashboard":
                                             return "CheatsheetWorkspaces.qml";
-                                        case "mail":
-                                            return "CheatsheetEmail.qml";
                                         default:
                                             return "";
                                         }

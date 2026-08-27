@@ -52,7 +52,6 @@ Scope {
             files: Ai.filesIntegration.rootsConfigured,
             ocr: Ai.ocrAvailable,
             sports: true,
-            gmail: EmailService.authenticated,
             notes: NotesService.ready,
             tasks: true,
             rag: Ai.ragIntegration.ready

@@ -1363,8 +1363,6 @@ Item {
                         return mediaControlPreviewCard;
                     case "songIdentifyPreview":
                         return songIdentifyPreviewCard;
-                    case "gmailResults":
-                        return gmailResultsCard;
                     case "sportsResults":
                         return sportsResultsCard;
                     case "taskPreview":
@@ -1600,16 +1598,8 @@ Item {
                 }
 
                 Component {
-                    id: gmailResultsCard
-
-                    AiGmailResultCard {
-                        card: cardHost.card
-                    }
-                }
-
-                Component {
                     id: sportsResultsCard
-
+                   
                     AiSportsGameCard {
                         card: cardHost.card
                     }

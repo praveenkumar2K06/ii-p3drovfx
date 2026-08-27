@@ -155,15 +155,6 @@ Item {
                 }
 
                 ServiceCard {
-                    cardIcon: "checklist"
-                    cardHue: 312
-                    cardShape: "Cookie7Sided"
-                    title: qsTr("TickTick Sync")
-                    description: qsTr("Credentials and token configuration")
-                    onOpenCard: root.openSubPage("widgets/CoreTickTickConfig.qml")
-                }
-
-                ServiceCard {
                     cardIcon: "download"
                     cardHue: 312
                     cardShape: "Cookie7Sided"

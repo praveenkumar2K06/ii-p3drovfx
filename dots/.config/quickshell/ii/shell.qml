@@ -45,13 +45,6 @@ ShellRoot {
         ChangelogService.load();
         SoundService.indexReady; // Instantiate: scans sound themes, plays login sound if enabled
         VideoColorSampler.active; // Touch singleton to initialize
-        CalendarNotifier.enabled; // Touch singleton: evaluates calendar VALARMs every minute
-        CalendarSubscriptions.enabled; // Touch singleton: keeps managed read-only ICS subscriptions reconciled
-        GmailCalendarImport.enabled; // Touch singleton: imports opted-in Gmail ICS attachments idempotently
-        OutlookCalendarImport.enabled; // Touch singleton: mirrors opted-in Outlook events into a read-only calendar
-        OutlookIcsImport.enabled; // Touch singleton: imports opted-in Outlook ICS attachments idempotently
-        BirthdaysService.enabled; // Touch singleton: projects contact birthdays into timetable items
-        GoogleDriveService.configured; // Touch singleton: keeps scheduled backups independent of Settings
         Modes.ready; // Touch singleton: the modes engine must watch triggers whether or not its overlay is open
         TilingAssistant.enabled; // Touch singleton: watches for window drags, does nothing while disabled
         WorkspaceCompactor.enabled; // Touch singleton: auto-compacts workspace gaps, does nothing while disabled

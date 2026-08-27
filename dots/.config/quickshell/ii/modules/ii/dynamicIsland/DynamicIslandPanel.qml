@@ -647,16 +647,6 @@ Scope {
                 expandedW: 300
             };
         }
-        if (type === "calendar") {
-            return {
-                type: "calendar",
-                source: "widgets/FloatingNotchCalendar.qml",
-                contractedH: Config.options.bar.floatingNotch.heightCalendar ?? 48,
-                expandedH: 140,
-                contractedW: 260,
-                expandedW: 340
-            };
-        }
         if (type === "audio") {
             return {
                 type: "audio",
@@ -719,7 +709,6 @@ Scope {
 
         let list = [];
         let showChecklist = !Config.options.bar.floatingNotch.disableChecklist && (Config.options.bar.floatingNotch.checklistAlwaysVisible || (root.isHoverExpanded && Config.options.bar.floatingNotch.checklistOnlyExpanded));
-        let showCalendar = !Config.options.bar.floatingNotch.disableCalendar;
         let showAudio = !Config.options.bar.floatingNotch.disableAudio && root.isHoverExpanded;
 
         if (root.batteryNotifActive && root._batteryAvailable && !Config.options.bar.floatingNotch.disableBattery) {
@@ -770,14 +759,7 @@ Scope {
             list.push(getWidgetDetails("audio"));
         }
 
-        if (showCalendar && root.isHoverExpanded) {
-            list.push(getWidgetDetails("calendar"));
-        }
-
         if (list.length === 0) {
-            if (showCalendar) {
-                return [getWidgetDetails("calendar")];
-            }
             return [getWidgetDetails("home")];
         }
         return list;
@@ -908,7 +890,7 @@ Scope {
 
     // Priority-sorted list of modes for accordion direction (Feature 13)
     readonly property bool isPrioritySwapUpward: {
-        const priorities = ["osd", "notification", "localsend", "progress", "clipboard", "workspaces", "keyboard", "mode", "wifi", "bluetooth", "stopwatch", "pomodoro", "recording", "media", "calendar", "checklist", "audio", "home"];
+        const priorities = ["osd", "notification", "localsend", "progress", "clipboard", "workspaces", "keyboard", "mode", "wifi", "bluetooth", "stopwatch", "pomodoro", "recording", "media", "checklist", "audio", "home"];
         const oldIdx = priorities.indexOf(root.previousWidgetType);
         const newIdx = priorities.indexOf(root.currentWidgetType);
         return oldIdx !== -1 && newIdx !== -1 && newIdx < oldIdx;
@@ -1008,7 +990,7 @@ Scope {
         onTriggered: showOnTopHover = false
     }
 
-    // Check if the notch is currently showing the fallback home or contracted calendar display
+    // Check if the notch is currently showing the fallback home display
     readonly property bool isIdle: mode === "home"
 
     // Determine if the island should be physically hidden (slid up out of bounds)

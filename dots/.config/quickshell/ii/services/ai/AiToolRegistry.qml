@@ -380,146 +380,6 @@ Singleton {
             needsSearch: false
         },
         {
-            id: "calendar_list_events",
-            version: 1,
-            domain: "time",
-            title: Translation.tr("Read calendar events"),
-            summary: Translation.tr("Reads a bounded range from the local khal calendar. Nothing is changed."),
-            icon: "calendar_month",
-            kind: "localRead",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            defaultApproval: "allow",
-            timeoutMs: 5000,
-            maxResultTokens: 400,
-            idempotent: true,
-            description: "Read events from the local khal calendar. For today or the next seven days, omit `from` and `to`; the shell supplies the current local date. Otherwise they are YYYY-MM-DD dates and may cover at most 31 days. `limit` is 1 to 20. This is read-only; do not offer to create calendar events with this tool.",
-            parameters: {
-                type: "object",
-                properties: {
-                    from: { type: "string", description: "Optional first local date, YYYY-MM-DD" },
-                    to: { type: "string", description: "Optional final local date, YYYY-MM-DD" },
-                    limit: { type: "integer", description: "Maximum events, from 1 to 20" }
-                },
-                required: []
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "calendar_next_event",
-            version: 1,
-            domain: "time",
-            title: Translation.tr("Read next calendar event"),
-            summary: Translation.tr("Reads the current or next event from the local khal calendar. Nothing is changed."),
-            icon: "event_upcoming",
-            kind: "localRead",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            defaultApproval: "allow",
-            timeoutMs: 5000,
-            maxResultTokens: 180,
-            idempotent: true,
-            description: "Read the event currently in progress or the next upcoming event from the local khal calendar. This is read-only; do not offer to create or modify calendar events.",
-            parameters: null,
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "calendar_create_event",
-            version: 1,
-            domain: "time",
-            title: Translation.tr("Create calendar event"),
-            summary: Translation.tr("Shows the complete event before adding it to the local khal calendar."),
-            icon: "event_available",
-            kind: "localWrite",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            defaultApproval: "ask",
-            timeoutMs: 15000,
-            maxResultTokens: 220,
-            idempotent: false,
-            description: "Prepare one event for the local khal calendar. It is never written until the user approves the complete preview. Supply title and start. Timed events also require end, both as local ISO 8601 date-times such as 2026-08-25T14:00. For an all-day event set allDay true, give start as YYYY-MM-DD, and optionally give end as an exclusive YYYY-MM-DD end date. calendar is optional and defaults to khal's writable default. location, url and notes are optional.",
-            parameters: {
-                type: "object",
-                properties: {
-                    title: { type: "string", description: "Event title" },
-                    start: { type: "string", description: "Local ISO date-time, or YYYY-MM-DD when allDay is true" },
-                    end: { type: "string", description: "Required local ISO end date-time for timed events; optional exclusive end date for all-day events" },
-                    allDay: { type: "boolean", description: "Whether this is an all-day event" },
-                    calendar: { type: "string", description: "Optional exact khal calendar name" },
-                    location: { type: "string", description: "Optional location" },
-                    url: { type: "string", description: "Optional meeting URL" },
-                    notes: { type: "string", description: "Optional event notes" }
-                },
-                required: ["title", "start"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "calendar_move_event",
-            version: 1,
-            domain: "time",
-            title: Translation.tr("Move calendar event"),
-            summary: Translation.tr("Shows the new time and recurrence scope before changing a local khal event."),
-            icon: "edit_calendar",
-            kind: "localWrite",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            defaultApproval: "ask",
-            timeoutMs: 15000,
-            maxResultTokens: 220,
-            idempotent: false,
-            description: "Prepare moving a local khal event identified by uid returned from calendar_list_events. For timed events give local ISO start and end. For all-day events set allDay true and give YYYY-MM-DD start with an optional exclusive YYYY-MM-DD end. scope is one of all, this, or future. A recurring event defaults to all only when scope is omitted; the preview always says which occurrences will change. For this or future, recurrenceId is required and identifies the original occurrence as a local ISO date-time or YYYY-MM-DD.",
-            parameters: {
-                type: "object",
-                properties: {
-                    uid: { type: "string", description: "Exact event uid returned by calendar_list_events" },
-                    start: { type: "string", description: "New local ISO date-time, or YYYY-MM-DD for all-day" },
-                    end: { type: "string", description: "New local ISO end date-time, or exclusive end date for all-day" },
-                    allDay: { type: "boolean", description: "Whether the moved event is all-day" },
-                    scope: { type: "string", description: "all, this, or future; defaults to all with an explicit preview" },
-                    recurrenceId: { type: "string", description: "Original occurrence local ISO date-time/date when scope is this or future" }
-                },
-                required: ["uid", "start"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "calendar_delete_event",
-            version: 1,
-            domain: "time",
-            title: Translation.tr("Delete calendar event"),
-            summary: Translation.tr("Shows the event and recurrence scope before removing it from the local khal calendar."),
-            icon: "event_busy",
-            kind: "localWrite",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            defaultApproval: "ask",
-            timeoutMs: 15000,
-            maxResultTokens: 180,
-            idempotent: false,
-            description: "Prepare deleting a local khal event identified by uid returned from calendar_list_events. scope is all, this, or future. A recurring event defaults to all only when scope is omitted; the approval preview explicitly warns when every occurrence will be removed. For this or future, recurrenceId is required and identifies the original occurrence as a local ISO date-time or YYYY-MM-DD. The event is never deleted until the user approves.",
-            parameters: {
-                type: "object",
-                properties: {
-                    uid: { type: "string", description: "Exact event uid returned by calendar_list_events" },
-                    scope: { type: "string", description: "all, this, or future; defaults to all with an explicit preview" },
-                    recurrenceId: { type: "string", description: "Original occurrence local ISO date-time/date when scope is this or future" }
-                },
-                required: ["uid"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
             id: "weather_get",
             version: 1,
             domain: "time",
@@ -646,7 +506,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Optional provider id: local or ticktick" },
+                    provider: { type: "string", description: "Provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     limit: { type: "integer", description: "Maximum tasks, from 1 to 50" },
                     includeCompleted: { type: "boolean", description: "Whether completed tasks should be included" }
@@ -676,7 +536,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Optional provider id: local or ticktick" },
+                    provider: { type: "string", description: "Provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     query: { type: "string", description: "Short words to find in task title or notes" },
                     limit: { type: "integer", description: "Maximum tasks, from 1 to 50" }
@@ -706,7 +566,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Optional provider id: local or ticktick" },
+                    provider: { type: "string", description: "Provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     title: { type: "string", description: "Task title" },
                     notes: { type: "string", description: "Optional task notes" },
@@ -738,7 +598,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Exact provider id: local or ticktick" },
+                    provider: { type: "string", description: "Exact provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     taskId: { type: "string", description: "Exact task id from tasks_list or tasks_search" },
                     title: { type: "string", description: "Optional replacement title" },
@@ -770,7 +630,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Exact provider id: local or ticktick" },
+                    provider: { type: "string", description: "Exact provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     taskId: { type: "string", description: "Exact task id from a task result" }
                 },
@@ -799,7 +659,7 @@ Singleton {
             parameters: {
                 type: "object",
                 properties: {
-                    provider: { type: "string", description: "Exact provider id: local or ticktick" },
+                    provider: { type: "string", description: "Exact provider id: local" },
                     listId: { type: "string", description: "Optional exact list/project id" },
                     taskId: { type: "string", description: "Exact task id from a task result" }
                 },
@@ -866,123 +726,6 @@ Singleton {
                     limit: { type: "integer", description: "Maximum games, from 1 to 20" }
                 },
                 required: ["league"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "gmail_search_messages",
-            version: 1,
-            domain: "gmail",
-            title: Translation.tr("Search Gmail"),
-            summary: Translation.tr("Reads bounded Gmail message metadata. Message bodies require an explicit follow-up."),
-            icon: "mail",
-            kind: "externalRead",
-            network: "required",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            requiredServices: ["gmail"],
-            defaultApproval: "allow",
-            timeoutMs: 15000,
-            maxResultTokens: 500,
-            idempotent: true,
-            description: "Search the authenticated Gmail account with a short Gmail query. For a purchase/latest-email request, use {compra compras pedido recibo} and do not add recency words such as recente or último; the bridge returns newest Gmail results first. Returns at most ten metadata-only message references: id, threadId, subject, sender, date, snippet and labels. It never returns a body; use gmail_get_message or gmail_get_thread with an explicit bodyMode when the user asks to read content.",
-            parameters: {
-                type: "object",
-                properties: {
-                    query: { type: "string", description: "Gmail search query" },
-                    limit: { type: "integer", description: "Maximum messages, from 1 to 10" },
-                    pageToken: { type: "string", description: "Page token returned by a previous search" },
-                    accountId: { type: "string", description: "Optional authenticated account email" }
-                },
-                required: ["query"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "gmail_get_message",
-            version: 1,
-            domain: "gmail",
-            title: Translation.tr("Read a Gmail message"),
-            summary: Translation.tr("Reads one Gmail message, with its body only when explicitly requested."),
-            icon: "mark_email_read",
-            kind: "externalRead",
-            network: "required",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            requiredServices: ["gmail"],
-            defaultApproval: "ask",
-            timeoutMs: 15000,
-            maxResultTokens: 900,
-            idempotent: true,
-            description: "Read one message reference returned by Gmail search. The default bodyMode is metadata. To read content, pass bodyMode plainText or sanitizedHtml explicitly. This returns no attachment payloads and does not change message state.",
-            parameters: {
-                type: "object",
-                properties: {
-                    messageId: { type: "string", description: "Exact Gmail message id" },
-                    bodyMode: { type: "string", description: "metadata, plainText or sanitizedHtml; default metadata" },
-                    accountId: { type: "string", description: "Optional authenticated account email" }
-                },
-                required: ["messageId"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "gmail_get_thread",
-            version: 1,
-            domain: "gmail",
-            title: Translation.tr("Read a Gmail thread"),
-            summary: Translation.tr("Reads a bounded Gmail thread, with bodies only when explicitly requested."),
-            icon: "forum",
-            kind: "externalRead",
-            network: "required",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            requiredServices: ["gmail"],
-            defaultApproval: "ask",
-            timeoutMs: 20000,
-            maxResultTokens: 1200,
-            idempotent: true,
-            description: "Read up to ten messages in one Gmail thread by exact thread id. The default bodyMode is metadata. To read content, pass bodyMode plainText or sanitizedHtml explicitly. This returns no attachment payloads and does not change message state.",
-            parameters: {
-                type: "object",
-                properties: {
-                    threadId: { type: "string", description: "Exact Gmail thread id" },
-                    bodyMode: { type: "string", description: "metadata, plainText or sanitizedHtml; default metadata" },
-                    accountId: { type: "string", description: "Optional authenticated account email" }
-                },
-                required: ["threadId"]
-            },
-            formats: ["gemini", "openai", "anthropic"],
-            needsSearch: false
-        },
-        {
-            id: "gmail_open_in_client",
-            version: 1,
-            domain: "gmail",
-            title: Translation.tr("Open Gmail in II"),
-            summary: Translation.tr("Opens the existing Gmail tab in Cheatsheet without changing the message."),
-            icon: "open_in_new",
-            kind: "navigation",
-            network: "never",
-            sensitivity: "personal",
-            requiredModelCapabilities: ["tools"],
-            requiredServices: ["gmail"],
-            defaultApproval: "allow",
-            timeoutMs: 3000,
-            maxResultTokens: 120,
-            idempotent: true,
-            description: "Open II's existing Gmail tab in Cheatsheet so the user can inspect the account. Pass a messageId or threadId when available for context. This only navigates the UI; it does not fetch a body or change message state.",
-            parameters: {
-                type: "object",
-                properties: {
-                    messageId: { type: "string", description: "Optional Gmail message id for context" },
-                    threadId: { type: "string", description: "Optional Gmail thread id for context" },
-                    accountId: { type: "string", description: "Optional authenticated account email" }
-                },
-                required: []
             },
             formats: ["gemini", "openai", "anthropic"],
             needsSearch: false
@@ -1854,13 +1597,6 @@ Singleton {
         case "tasks_complete":
         case "tasks_delete":
             return String(args.provider ?? "") + " · " + String(args.taskId ?? "");
-        case "calendar_list_events":
-            return [args.from ?? "", args.to ?? ""].filter(value => String(value).length > 0).join(" → ");
-        case "calendar_create_event":
-            return String(args.title ?? "") + " · " + String(args.start ?? "");
-        case "calendar_move_event":
-        case "calendar_delete_event":
-            return String(args.uid ?? "") + " · " + String(args.scope ?? "all");
         case "keybinds_search":
             return String(args.query ?? "");
         case "wallpaper_search":

@@ -11,7 +11,6 @@ RippleButton {
     property string day
     property int isToday
     property bool bold
-    property var taskList
     readonly property int taskMargin: 5
     property bool showPopup: false
 
@@ -71,36 +70,6 @@ RippleButton {
     implicitHeight: cellSize
     toggled: (isToday == 1)
     buttonRadius: Appearance.rounding.small
-    
-    Rectangle {
-        id: taskDot
-        width: 8
-        height: 8
-        radius: Appearance.rounding.full
-        scale: 0
-        color: (taskList.length > 0 && isToday !== -1 && !bold) ? 
-               toggled ? Appearance.colors.colOnPrimary : Appearance.colors.colPrimary : "transparent"
-        anchors {
-            top: parent.top
-            left: parent.left
-            margins: 4
-        }
-    }
-
-    Connections {
-        target: button
-        function on_EntranceDoneChanged() {
-            if (button._entranceDone && taskList.length > 0 && isToday !== -1 && !bold) {
-                taskDotPop.start();
-            }
-        }
-    }
-
-    SequentialAnimation {
-        id: taskDotPop
-        NumberAnimation { target: taskDot; property: "scale"; from: 0; to: 1.15; duration: 250; easing.type: Easing.OutBack }
-        NumberAnimation { target: taskDot; property: "scale"; from: 1.15; to: 1.0; duration: 150; easing.type: Easing.OutBack }
-    }
 
     LazyLoader {
         id: popupLoader
@@ -143,9 +112,6 @@ RippleButton {
         anchors.fill: parent
         hoverEnabled: true
         onEntered: {
-            if (button.taskList.length > 0 && button.isToday !== -1 && !button.bold) {
-                button.showPopup = true
-            }
         }
         onExited: button.showPopup = false
     }

@@ -180,7 +180,6 @@ Item {
                     isToday: modelData.today
                     bold: true
                     enabled: false
-                    taskList: []
                     cellSize: root.cellSize
                 }
 
@@ -206,7 +205,6 @@ Item {
                     delegate: CalendarDayButton {
                         day: calendarLayout[modelData][index].day
                         isToday: calendarLayout[modelData][index].today
-                        taskList: CalendarService.getTasksByDate(new Date(calendarLayout[modelData][index].year, calendarLayout[modelData][index].month, calendarLayout[modelData][index].day))
                         gridRow: modelData
                         gridCol: index
                         entranceKey: calendarColumn.parent._entranceKey

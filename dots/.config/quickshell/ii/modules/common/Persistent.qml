@@ -42,33 +42,6 @@ Singleton {
                     }
                 }
 
-                // Google Drive
-                if (Config.options.googleDrive) {
-                    const src = Config.options.googleDrive;
-                    const dst = root.states.googleDrive;
-                    if (src.enabled !== undefined) dst.enabled = src.enabled;
-                    if (src.syncInterval) dst.syncInterval = src.syncInterval;
-                    if (src.syncOnBoot !== undefined) dst.syncOnBoot = src.syncOnBoot;
-                    if (src.syncOnNetworkChange !== undefined) dst.syncOnNetworkChange = src.syncOnNetworkChange;
-                    if (src.bandwidthLimitKbps !== undefined) dst.bandwidthLimitKbps = src.bandwidthLimitKbps;
-                    if (src.pauseOnMeteredConnection !== undefined) dst.pauseOnMeteredConnection = src.pauseOnMeteredConnection;
-                    if (src.backupFolders && src.backupFolders.length > 0) dst.backupFolders = Array.from(src.backupFolders);
-                    if (src.excludePatterns && src.excludePatterns.length > 0) dst.excludePatterns = Array.from(src.excludePatterns);
-                    if (src.driveBasePath !== undefined) dst.driveBasePath = src.driveBasePath;
-                    if (src.notifyOnComplete !== undefined) dst.notifyOnComplete = src.notifyOnComplete;
-                    if (src.notifyOnError !== undefined) dst.notifyOnError = src.notifyOnError;
-                    if (src.keepVersions !== undefined) dst.keepVersions = src.keepVersions;
-                    if (src.deleteRemoteOrphans !== undefined) dst.deleteRemoteOrphans = src.deleteRemoteOrphans;
-                    if (src.onlyModifiedSinceLastSync !== undefined) dst.onlyModifiedSinceLastSync = src.onlyModifiedSinceLastSync;
-                    if (src.lastSyncTime) dst.lastSyncTime = src.lastSyncTime;
-                    if (src.lastSyncStatus) dst.lastSyncStatus = src.lastSyncStatus;
-                    if (src.lastSyncFileCount !== undefined) dst.lastSyncFileCount = src.lastSyncFileCount;
-                    if (src.lastSyncSizeMb !== undefined) dst.lastSyncSizeMb = src.lastSyncSizeMb;
-                    if (src.syncHistory && src.syncHistory.length > 0) dst.syncHistory = Array.from(src.syncHistory);
-                    if (src.totalDriveUsageMb !== undefined) dst.totalDriveUsageMb = src.totalDriveUsageMb;
-                    if (src.driveQuotaMb !== undefined) dst.driveQuotaMb = src.driveQuotaMb;
-                    if (src.driveBackupUsageMb !== undefined) dst.driveBackupUsageMb = src.driveBackupUsageMb;
-                }
 
                 root.states.migrations.presetUserDataVersion = 1;
             }
@@ -76,32 +49,6 @@ Singleton {
             // Sync Persistent values to Config.options as a compatibility mirror
             if (Config.options.search) {
                 Config.options.search.aliases = Array.from(root.states.search.aliases || []);
-            }
-            if (Config.options.googleDrive) {
-                const src = root.states.googleDrive;
-                const dst = Config.options.googleDrive;
-                dst.enabled = src.enabled;
-                dst.syncInterval = src.syncInterval;
-                dst.syncOnBoot = src.syncOnBoot;
-                dst.syncOnNetworkChange = src.syncOnNetworkChange;
-                dst.bandwidthLimitKbps = src.bandwidthLimitKbps;
-                dst.pauseOnMeteredConnection = src.pauseOnMeteredConnection;
-                dst.backupFolders = Array.from(src.backupFolders || []);
-                dst.excludePatterns = Array.from(src.excludePatterns || []);
-                dst.driveBasePath = src.driveBasePath;
-                dst.notifyOnComplete = src.notifyOnComplete;
-                dst.notifyOnError = src.notifyOnError;
-                dst.keepVersions = src.keepVersions;
-                dst.deleteRemoteOrphans = src.deleteRemoteOrphans;
-                dst.onlyModifiedSinceLastSync = src.onlyModifiedSinceLastSync;
-                dst.lastSyncTime = src.lastSyncTime;
-                dst.lastSyncStatus = src.lastSyncStatus;
-                dst.lastSyncFileCount = src.lastSyncFileCount;
-                dst.lastSyncSizeMb = src.lastSyncSizeMb;
-                dst.syncHistory = Array.from(src.syncHistory || []);
-                dst.totalDriveUsageMb = src.totalDriveUsageMb;
-                dst.driveQuotaMb = src.driveQuotaMb;
-                dst.driveBackupUsageMb = src.driveBackupUsageMb;
             }
         } finally {
             root.applyingPersistentState = false;
@@ -240,30 +187,6 @@ Singleton {
                 property list<var> panelUsage: []
             }
 
-            property JsonObject googleDrive: JsonObject {
-                property bool enabled: false
-                property string syncInterval: "3d" // "1h", "4h", "1d", "2d", "3d"
-                property bool syncOnBoot: true
-                property bool syncOnNetworkChange: false
-                property int bandwidthLimitKbps: 0
-                property bool pauseOnMeteredConnection: true
-                property list<string> backupFolders: []
-                property list<string> excludePatterns: ["*.tmp", "*.swp", "*.lock", "node_modules/", ".git/", "__pycache__/"]
-                property string driveBasePath: ""
-                property bool notifyOnComplete: true
-                property bool notifyOnError: true
-                property int keepVersions: 3
-                property bool deleteRemoteOrphans: false
-                property bool onlyModifiedSinceLastSync: false
-                property string lastSyncTime: ""
-                property string lastSyncStatus: ""
-                property int lastSyncFileCount: 0
-                property real lastSyncSizeMb: 0.0
-                property list<var> syncHistory: []
-                property real totalDriveUsageMb: 0.0
-                property real driveQuotaMb: 0.0
-                property real driveBackupUsageMb: 0.0
-            }
 
             property JsonObject ai: JsonObject {
                 // Catalog id of the model that answers, "provider:model".
@@ -311,32 +234,6 @@ Singleton {
                 // The page rail follows the timetable sidebar pattern and
                 // remembers whether the user left it expanded.
                 property bool keybindSidebarVisible: true
-                // "day" | "threeDay" | "week" | "month" — timetable range.
-                property string timetableView: "month"
-                property bool timetableShowUpcoming: true
-                // "comfortable" | "compact" | "dots" — month-cell density.
-                property string timetableMonthDensity: "compact"
-                property bool timetableCollapseRecurring: true
-                // Horizon buckets hidden in the month view's upcoming rail.
-                property list<string> timetableCollapsedUpcomingGroups: []
-                // Pixels per hour in the timetable grid. WeekView constrains
-                // writes to its discrete zoom scale.
-                property int timetableSlotHeight: 168
-                // One-shot migrations can change the comfortable default
-                // without overwriting a later zoom choice on every reopen.
-                property int timetableSlotHeightVersion: 0
-                // `occurrence-ms|uid|offset` and daily-summary keys. Pruned by
-                // CalendarNotifier so notifications do not repeat after reload.
-                property list<string> timetableNotified: []
-                // Pending calendar reminder snoozes. Each DTO is reconstructed
-                // by CalendarNotifier; no CalendarService object crosses disk.
-                property list<var> timetableSnoozes: []
-                // Gmail account + attachment identity for calendar files the
-                // user opted into importing. Keeps periodic scans idempotent.
-                property list<string> timetableGmailIcsImports: []
-                // The Outlook equivalent. Each entry includes the account,
-                // message attachment identity and a content digest.
-                property list<string> timetableOutlookIcsImports: []
             }
 
             property JsonObject clipboard: JsonObject {
