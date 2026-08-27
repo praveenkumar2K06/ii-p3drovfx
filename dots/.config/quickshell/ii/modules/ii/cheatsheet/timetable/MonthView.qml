@@ -781,7 +781,7 @@ Item {
                 Layout.preferredHeight: 26
 
                 // Locale short names ("Mon", "Seg"). Deliberately not tied to
-                // the waffles two-character tweak: that one belongs to the
+                // the two-character tweak: that one belongs to the
                 // Windows-style shell, not to this calendar.
                 readonly property var labels: H.weekdayLabels(root.firstDayOfWeek, Config.options.calendar.locale, Locale.ShortFormat)
 

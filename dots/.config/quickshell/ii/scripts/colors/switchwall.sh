@@ -96,47 +96,6 @@ post_process() {
     "$SCRIPT_DIR/../ytmusic/generate-ytmusic-theme.sh" > /dev/null 2>&1 &
 }
 
-check_and_prompt_upscale() {
-    local img="$1"
-    min_width_desired="$(hyprctl monitors -j | jq '([.[].width] | max)' | xargs)" # max monitor width
-    min_height_desired="$(hyprctl monitors -j | jq '([.[].height] | max)' | xargs)" # max monitor height
-
-    if command -v identify &>/dev/null && [ -f "$img" ]; then
-        local img_width img_height
-        if is_video "$img"; then # Not check resolution for videos, just let em pass
-            img_width=$min_width_desired
-            img_height=$min_height_desired
-        else
-            img_width=$(identify -format "%w" "$img" 2>/dev/null)
-            img_height=$(identify -format "%h" "$img" 2>/dev/null)
-        fi
-        if [[ "$img_width" -lt "$min_width_desired" || "$img_height" -lt "$min_height_desired" ]]; then
-            action=$(notify-send "Upscale?" \
-                "Image resolution (${img_width}x${img_height}) is lower than screen resolution (${min_width_desired}x${min_height_desired})" \
-                -A "open_upscayl=Open Upscayl"\
-                -a "Wallpaper switcher")
-            if [[ "$action" == "open_upscayl" ]]; then
-                if command -v upscayl &>/dev/null; then
-                    nohup upscayl > /dev/null 2>&1 &
-                else
-                    action2=$(notify-send \
-                        -a "Wallpaper switcher" \
-                        -c "im.error" \
-                        -A "install_upscayl=Install Upscayl (Arch)" \
-                        "Install Upscayl?" \
-                        "yay -S upscayl-bin")
-                    if [[ "$action2" == "install_upscayl" ]]; then
-                        kitty -1 yay -S upscayl-bin
-                        if command -v upscayl &>/dev/null; then
-                            nohup upscayl > /dev/null 2>&1 &
-                        fi
-                    fi
-                fi
-            fi
-        fi
-    fi
-}
-
 CUSTOM_DIR="$XDG_CONFIG_HOME/hypr/custom"
 RESTORE_SCRIPT_DIR="$CUSTOM_DIR/scripts"
 RESTORE_SCRIPT="$RESTORE_SCRIPT_DIR/__restore_video_wallpaper.sh"
@@ -280,18 +239,6 @@ switch() {
         )
     fi
 
-    # Start Gemini auto-categorization if enabled
-    aiStylingEnabled=$(jq -r '.background.widgets.clock.cookie.aiStyling' "$SHELL_CONFIG_FILE")
-    aiStylingModel=$(jq -r '.background.widgets.clock.cookie.aiStylingModel' "$SHELL_CONFIG_FILE")
-    if [[ "$aiStylingEnabled" == "true" ]]; then
-        if [[ "$aiStylingModel" == "gemini" ]]; then  
-            "$SCRIPT_DIR/../ai/gemini-categorize-wallpaper.sh" "$imgpath" > "$STATE_DIR/user/generated/wallpaper/category.txt" &
-        fi
-        if [[ "$aiStylingModel" == "openrouter" ]]; then  
-            "$SCRIPT_DIR/../ai/openrouter-categorize-wallpaper.sh" "$imgpath" > "$STATE_DIR/user/generated/wallpaper/category.txt" &
-        fi
-    fi
-
     read scale screenx screeny screensizey < <(hyprctl monitors -j | jq '.[] | select(.focused) | .scale, .x, .y, .height' | xargs)
     cursorposx=$(hyprctl cursorpos -j | jq '.x' 2>/dev/null) || cursorposx=960
     cursorposx=$(bc <<< "scale=0; ($cursorposx - $screenx) * $scale / 1")
@@ -309,8 +256,6 @@ switch() {
             echo 'Aborted'
             exit 0
         fi
-
-        check_and_prompt_upscale "$imgpath" &
         
         if [[ "$noswitch_flag" != "1" ]]; then
             kill_existing_mpvpaper

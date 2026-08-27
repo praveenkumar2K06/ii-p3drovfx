@@ -119,22 +119,6 @@ Item {
         }
 
         ContentSection {
-            icon: "style"
-            title: Translation.tr("Widgets & Layout")
-
-            ConfigSwitch {
-                buttonIcon: "widgets"
-                text: Translation.tr("Lockscreen widgets and layout")
-                checked: true
-                subPageOnly: true
-                configPage: Qt.resolvedUrl("widgets/LockscreenWidgetsConfig.qml")
-                StyledToolTip {
-                    text: Translation.tr("Click button text to configure lockscreen clock animation, alignment, spacing, and widget visibility.")
-                }
-            }
-        }
-
-        ContentSection {
             icon: "blur_on"
             title: Translation.tr("Lock Screen Effects")
 

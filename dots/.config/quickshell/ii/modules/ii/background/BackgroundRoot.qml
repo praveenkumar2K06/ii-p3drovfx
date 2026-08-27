@@ -11,7 +11,6 @@ import qs.modules.common.widgets
 import qs.modules.common.widgets.widgetCanvas
 import qs.modules.common.functions as CF
 
-import qs.modules.ii.background.widgets
 import qs.modules.ii.background.wallpaper
 import qs.modules.ii.background.lockscreen
 import qs.modules.ii.background.parallax
@@ -22,9 +21,8 @@ PanelWindow {
     id: bgRoot
 
     required property var modelData
-    required property var widgetStateManager
 
-    property bool anyWidgetIsDragging: (widgetStateManager?.draggingActive) ?? false
+    property bool anyWidgetIsDragging: false
     property real baseWallpaperScale: 1 // Calculated scale from wallpaper size
     property int wallpaperWidth: modelData.width // Some reasonable init value, to be updated
     property int wallpaperHeight: modelData.height // Some reasonable init value, to be updated
@@ -463,11 +461,9 @@ PanelWindow {
             scaleOriginX: bgRoot.isGnomeLikeOverview ? gnomeOverviewController.scaleOriginX : overviewController.scaleOriginX
             scaleOriginY: bgRoot.isGnomeLikeOverview ? gnomeOverviewController.scaleOriginY : overviewController.scaleOriginY
             scaleProgress: bgRoot.isGnomeLikeOverview ? gnomeOverviewController.scaleProgress : overviewController.scaleProgress
-            anyWidgetIsDragging: bgRoot.anyWidgetIsDragging
             mediaModeOpen: bgRoot.mediaModeOpen
             lockAnimationActive: bgRoot.lockAnimationActive
             hasWindowsInActiveWorkspace: bgRoot.hasWindowsInActiveWorkspace
-            widgetStateManager: bgRoot.widgetStateManager
         }
 
         GlobalShortcut {

@@ -329,12 +329,6 @@ QtObject {
         return ws && ws.id > 0 ? ws.id : null;
     }
 
-    // ---- desktop widgets: the placed list, positions included, so the
-    // revert puts every widget back where it was.
-    function activeWidgets() {
-        return ModeSchema.clone(ModeSchema.toArray(Config.options.background.activeWidgets));
-    }
-
     function oledTargets(scope) {
         if (scope === "focused") {
             const name = Hyprland.focusedMonitor?.name;
@@ -534,24 +528,6 @@ QtObject {
                 GlobalStates.oledSaverMonitors = next;
             },
             revert: was => { GlobalStates.oledSaverMonitors = ModeSchema.stringList(was); }
-        },
-        desktopWidgets: {
-            id: "desktopWidgets", category: "display", label: "Hide desktop widgets", icon: "widgets",
-            editor: "none", volatile: false,
-            // No value: clears the placed widgets, and puts them back where
-            // they were.
-            available: () => true,
-            read: () => root.activeWidgets(),
-            normalize: () => [],
-            apply: () => {
-                if (root.activeWidgets().length)
-                    Config.options.background.activeWidgets = [];
-            },
-            revert: was => {
-                const list = ModeSchema.toArray(was);
-                if (list.length)
-                    Config.options.background.activeWidgets = ModeSchema.clone(list);
-            }
         },
 
         // ------------------------------------------------- sound

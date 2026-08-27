@@ -5,7 +5,7 @@ import qs.services
 import qs.modules.common
 import qs.modules.common.widgets
 import Quickshell.Widgets
-import qs.modules.waffle.looks
+
 
 ContentPage {
     id: page

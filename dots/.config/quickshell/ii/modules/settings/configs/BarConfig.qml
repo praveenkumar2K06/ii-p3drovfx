@@ -781,19 +781,19 @@ Item {
             prioritizeOnSearch: true
         }
 
-        // ── Widgets & Waffle Sub-Page ─────────────────────────────────────────
+        // ── Widgets Sub-Page ─────────────────────────────────────────
         ContentSection {
             icon: "widgets"
-            title: Translation.tr("Widgets & Waffle")
+            title: Translation.tr("Widgets")
 
             ServiceCard {
                 cardIcon: "widgets"
                 cardHue: 210
                 cardShape: "circle"
-                title: Translation.tr("Widgets & Waffle Settings")
-                description: Translation.tr("Configure individual bar widgets and Waffle panel tweaks")
+                title: Translation.tr("Widgets Settings")
+                description: Translation.tr("Configure individual bar widgets")
                 onOpenCard: {
-                    barConfigRoot.activeSubPage = Qt.resolvedUrl("widgets/BarWidgetsWaffleConfig.qml");
+                    barConfigRoot.activeSubPage = Qt.resolvedUrl("widgets/BarWidgetsConfig.qml");
                 }
             }
         }

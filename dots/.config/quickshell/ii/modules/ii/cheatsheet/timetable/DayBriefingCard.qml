@@ -23,8 +23,8 @@ Rectangle {
             && day.getMonth() === now.getMonth()
             && day.getDate() === now.getDate();
     }
-    readonly property var nextEvent: root.isToday ? AtAGlanceService.nextEvent : null
-    readonly property int todayEventCount: root.isToday ? AtAGlanceService.todayEvents.length : 0
+    readonly property var nextEvent: null
+    readonly property int todayEventCount: 0
     readonly property int overdueCount: Todo.getOverdueTasks(root.day).length
 
     visible: root.isToday

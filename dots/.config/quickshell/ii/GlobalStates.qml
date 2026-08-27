@@ -37,12 +37,7 @@ Singleton {
     }
 
     function isMediaModeActiveForScreen(screenName) {
-        if (!Config.options.background.mediaMode.togglePerMonitor) {
-            return mediaModeActive;
-        }
-        if (!screenName)
-            return false;
-        return mediaModeMonitors.includes(screenName);
+        return mediaModeActive;
     }
     property bool alarmRinging: false
     property bool cheatsheetOpen: false
@@ -116,39 +111,20 @@ Singleton {
             return false;
         return monitors.some(mon => mon.specialWorkspace && mon.specialWorkspace.name !== "");
     }
-    readonly property bool overviewBackgroundActive: {
-        const background = Config.options && Config.options.background;
-        return Boolean(background && background.zoomOutEnabled
-            && (root.overviewOpen || root.cheatsheetOpen || root.scratchpadOpen || root.usageOpen || root.modesOpen));
-    }
+    readonly property bool overviewBackgroundActive: false
 
     // BackgroundRoot owns one controller per monitor. Other background surfaces
     // retrieve that same object instead of reimplementing its preset formulas.
     property var overviewBackgroundControllers: ({})
 
     function registerOverviewBackgroundController(screenName, controller) {
-        if (!screenName || !controller)
-            return;
-        const next = ({})
-        for (const key in root.overviewBackgroundControllers)
-            next[key] = root.overviewBackgroundControllers[key];
-        next[screenName] = controller;
-        root.overviewBackgroundControllers = next;
     }
 
     function unregisterOverviewBackgroundController(screenName, controller) {
-        if (!screenName || root.overviewBackgroundControllers[screenName] !== controller)
-            return;
-        const next = ({})
-        for (const key in root.overviewBackgroundControllers) {
-            if (key !== screenName)
-                next[key] = root.overviewBackgroundControllers[key];
-        }
-        root.overviewBackgroundControllers = next;
     }
 
     function overviewBackgroundControllerFor(screenName) {
-        return root.overviewBackgroundControllers[screenName] ?? null;
+        return null;
     }
 
     property bool regionSelectorOpen: false

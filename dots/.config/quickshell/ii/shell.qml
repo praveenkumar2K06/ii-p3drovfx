@@ -45,7 +45,6 @@ ShellRoot {
         ChangelogService.load();
         SoundService.indexReady; // Instantiate: scans sound themes, plays login sound if enabled
         VideoColorSampler.active; // Touch singleton to initialize
-        WaterReminderService.enabled; // Touch singleton: drives water reminder notifications
         CalendarNotifier.enabled; // Touch singleton: evaluates calendar VALARMs every minute
         CalendarSubscriptions.enabled; // Touch singleton: keeps managed read-only ICS subscriptions reconciled
         GmailCalendarImport.enabled; // Touch singleton: imports opted-in Gmail ICS attachments idempotently
@@ -69,7 +68,7 @@ ShellRoot {
     }
 
     // Panel families
-    property var families: ["ii", "waffle"]
+    property var families: ["ii"]
     function cyclePanelFamily() {
         const currentIndex = families.indexOf(Config.options.panelFamily);
         const nextIndex = (currentIndex + 1) % families.length;
@@ -104,7 +103,7 @@ ShellRoot {
     }
 
     // Families are loaded by URL rather than as inline components: an inline `component: X {}`
-    // compiles X and its whole import closure (for Waffle: 144 files plus the FluentWinUI3/Fusion
+    // compiles X and its whole import closure (for the ii family
     // style and Kirigami plugins) at startup even when that family is never active. With a URL,
     // nothing is compiled until the family is wanted.
     //
@@ -125,10 +124,7 @@ ShellRoot {
         familyUrl: Qt.resolvedUrl("panelFamilies/IllogicalImpulseFamily.qml")
     }
 
-    PanelFamilyLoader {
-        identifier: "waffle"
-        familyUrl: Qt.resolvedUrl("panelFamilies/WaffleFamily.qml")
-    }
+    
 
     // Settings app loaded in-process once requested, then kept alive briefly
     // for fast re-opens. After the delay we drop the component to recover

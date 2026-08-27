@@ -11,30 +11,9 @@ ContentPage {
     forceWidth: false
     readonly property bool overviewLockedByAppList: Config.options.search.alwaysListApps
 
-    readonly property bool videoWallpaper: {
-        const background = Config.options && Config.options.background ? Config.options.background : null;
-        if (!background)
-            return false;
-        return background.useWallpaperEngine === true || Wallpapers.isVideoFile(background.wallpaperPath || "");
-    }
+    readonly property string overviewBackgroundStyle: "gnome"
 
-    readonly property string overviewBackgroundStyle: {
-        const background = Config.options.background;
-        const style = background.overviewBackgroundStyle;
-        if (["gnome", "soft-focus", "camera-push", "depth", "card-lift", "desaturate", "directional", "material-shape"].indexOf(style) >= 0)
-            return style;
-        switch (background.zoomOutStyle) {
-        case 0:
-            return "gnome";
-        case 1:
-            return "soft-focus";
-        case 2:
-        default:
-            return "camera-push";
-        }
-    }
-
-    readonly property bool windowTransitionAvailable: overviewBackgroundStyle === "gnome" || overviewBackgroundStyle === "soft-focus"
+    readonly property bool windowTransitionAvailable: true
 
     KeyboardShortcutBox {
         Layout.fillWidth: true
@@ -293,7 +272,7 @@ ContentPage {
                     icon: "swap_vert"
                     topLeftRadius: Appearance.rounding.verysmall
                     topRightRadius: Appearance.rounding.verysmall
-                    bottomLeftRadius: Appearance.rounding.verysmall
+                    bottomLeftRadius: Appearance.rounding.large
                     bottomRightRadius: Appearance.rounding.large
 
                     ConfigSelectionArray {
@@ -319,172 +298,15 @@ ContentPage {
                 }
             }
 
-            OverviewGridPreview {
-                id: overviewPreview
-                Layout.fillWidth: true
-                rows: Config.options.overview.rows
-                columns: Config.options.overview.columns
-                rightToLeft: Config.options.overview.orderRightLeft
-                bottomUp: Config.options.overview.orderBottomUp
-                autoScaleFactor: Config.options.overview.autoScaleFactor ?? 1.0
-            }
-        }
-    }
-
-    ContentSection {
-        title: Translation.tr("Zoom animation")
-        icon: "zoom_in_map"
-
-        NoticeBox {
-            Layout.fillWidth: true
-            visible: page.videoWallpaper
-            materialIcon: "movie"
-            text: Translation.tr("Video wallpaper is active: image-based effects use a safe fallback.")
-        }
-
-        ConfigSwitch {
-            buttonIcon: "zoom_in_map"
-            text: Translation.tr("Zoom animation when overview/cheatsheet is open (Experimental)")
-            checked: Config.options.background.zoomOutEnabled
-            onCheckedChanged: Config.options.background.zoomOutEnabled = checked
-            StyledToolTip {
-                text: Translation.tr("Scale windows with the wallpaper when Overview or the Cheat Sheet opens.")
-            }
-        }
-
-        ContentSubsection {
-            visible: Config.options.background.zoomOutEnabled || page.videoWallpaper
-            title: Translation.tr("Zoom background style")
-            icon: "style"
-            Layout.fillWidth: true
-
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: Appearance.rounding.verysmall
-
-                ConfigSelectionArray {
-                    Layout.fillWidth: true
-                    Layout.minimumWidth: 0
-                    currentValue: page.overviewBackgroundStyle
-                    onSelected: newValue => {
-                        Config.options.background.overviewBackgroundStyle = newValue;
-                        Config.options.background.zoomOutStyle = newValue === "gnome" ? 0 : newValue === "soft-focus" ? 1 : 2;
-                    }
-                    options: [
-                        {
-                            displayName: Translation.tr("Gnome Like"),
-                            icon: "blur_on",
-                            tooltip: Translation.tr("Zooms the wallpaper out with rounded corners, shadow and a blurred backing."),
-                            enabled: !page.videoWallpaper,
-                            value: "gnome"
-                        },
-                        {
-                            displayName: Translation.tr("Soft Focus"),
-                            icon: "grid_view",
-                            tooltip: Translation.tr("Adds compositor blur, dimming and gentle desaturation without clipping."),
-                            value: "soft-focus"
-                        },
-                        {
-                            displayName: Translation.tr("Camera Push"),
-                            icon: "zoom_in",
-                            tooltip: Translation.tr("Pushes the camera in with brightness and saturation adjustment; no blur."),
-                            enabled: !page.videoWallpaper,
-                            value: "camera-push"
-                        },
-                        {
-                            displayName: Translation.tr("Depth"),
-                            icon: "layers",
-                            tooltip: Translation.tr("A subtle zoom-out with compositor blur and reduced saturation."),
-                            value: "depth"
-                        },
-                        {
-                            displayName: Translation.tr("Card Lift"),
-                            icon: "style",
-                            tooltip: Translation.tr("Lifts the wallpaper into a rounded card with a blurred/dimmed backing."),
-                            value: "card-lift"
-                        },
-                        {
-                            displayName: Translation.tr("Desaturate"),
-                            icon: "tonality",
-                            tooltip: Translation.tr("Low-cost preset using desaturation and reduced brightness without blur."),
-                            value: "desaturate"
-                        },
-                        {
-                            displayName: Translation.tr("Directional"),
-                            icon: "open_in_new",
-                            tooltip: Translation.tr("Adds a small movement away from the configured bar position."),
-                            value: "directional"
-                        },
-                        {
-                            displayName: Translation.tr("Material Shape"),
-                            icon: "shapes",
-                            tooltip: Translation.tr("Cuts the wallpaper with a random Material Shape focusing on center widgets with a solid primary container background."),
-                            enabled: !page.videoWallpaper,
-                            value: "material-shape"
-                        }
-                    ]
-                }
-
-                OverviewPreviewButton {
-                    Layout.alignment: Qt.AlignVCenter
-                    enabled: Config.options.background.zoomOutEnabled
-                    tooltipText: !Config.options.background.zoomOutEnabled ? Translation.tr("Enable Zoom animation to preview this style.") : Translation.tr("Open the Overview to preview the selected zoom style")
-                }
-            }
-        }
-
-        ConfigSwitch {
-            visible: Config.options.background.zoomOutEnabled && page.overviewBackgroundStyle === "material-shape" && !page.videoWallpaper
-            enabled: !page.videoWallpaper
-            buttonIcon: "wb_twilight"
-            text: Translation.tr("Material Shape drop-shadow")
-            checked: Config.options.background.materialShapeShadow === true
-            onCheckedChanged: Config.options.background.materialShapeShadow = checked
-            StyledToolTip {
-                text: Translation.tr("Renders a subtle outer drop shadow around the material shape mask.")
-            }
-        }
-
-        ConfigSlider {
-            visible: Config.options.background.zoomOutEnabled && page.overviewBackgroundStyle === "material-shape" && !page.videoWallpaper
-            enabled: !page.videoWallpaper
-            buttonIcon: "aspect_ratio"
-            text: Translation.tr("Material Shape scale (%)")
-            usePercentTooltip: true
-            from: 30
-            to: 200
-            stepSize: 1
-            value: Math.round((Config.options.background.materialShapeScale ?? 1.0) * 100)
-            onValueChanged: {
-                Config.options.background.materialShapeScale = value / 100;
-            }
-            StyledToolTip {
-                text: Translation.tr("Adjust the scale/size of the material shape mask when overview is open.")
-            }
-        }
-
-        ConfigSwitch {
-            visible: (Config.options.background.zoomOutEnabled && page.windowTransitionAvailable) || page.videoWallpaper
-            enabled: !page.videoWallpaper
-            buttonIcon: "open_with"
-            text: Translation.tr("Scale windows with wallpaper (Experimental)")
-            checked: Config.options.background.windowZoomOnOverview
-            onCheckedChanged: Config.options.background.windowZoomOnOverview = checked
-            StyledToolTip {
-                text: Translation.tr("Show scaled window previews zooming out with the wallpaper when the overview opens.")
-            }
-        }
-
-        ConfigSwitch {
-            visible: (Config.options.background.zoomOutEnabled && page.windowTransitionAvailable && Config.options.background.windowZoomOnOverview) || page.videoWallpaper
-            enabled: !page.videoWallpaper
-            buttonIcon: "videocam"
-            text: Translation.tr("Keep screencopy live (no freeze)")
-            checked: Config.options.background.windowZoomLiveCapture
-            onCheckedChanged: Config.options.background.windowZoomLiveCapture = checked
-            StyledToolTip {
-                text: Translation.tr("Keep window previews live instead of freezing them when the overview opens.")
-            }
+            // OverviewGridPreview {
+            //     id: overviewPreview
+            //     Layout.fillWidth: true
+            //     rows: Config.options.overview.rows
+            //     columns: Config.options.overview.columns
+            //     rightToLeft: Config.options.overview.orderRightLeft
+            //     bottomUp: Config.options.overview.orderBottomUp
+            //     autoScaleFactor: Config.options.overview.autoScaleFactor ?? 1.0
+            // }
         }
     }
 

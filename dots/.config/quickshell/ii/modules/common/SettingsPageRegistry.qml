@@ -51,14 +51,6 @@ Singleton {
             "aliases": ["Bar & Status Bar", "Status Bar", "Shell mode", "Waffle"]
         },
         {
-            "id": "wallpaper",
-            "name": "Background",
-            "icon": "wallpaper",
-            "component": "modules/settings/configs/BackgroundConfig.qml",
-            "subPages": ["widgets/ParallaxConfig.qml", "widgets/MediaModeBackgroundConfig.qml"],
-            "aliases": ["Wallpaper", "Backgrounds", "Wallpaper Engine"]
-        },
-        {
             "id": "interfaceFonts",
             "name": "Interface & Fonts",
             "icon": "font_download",
@@ -105,14 +97,6 @@ Singleton {
             "component": "modules/settings/configs/OverviewConfig.qml",
             "subPages": [],
             "aliases": ["Overview Screen"]
-        },
-        {
-            "id": "widgets",
-            "name": "Desktop Widgets",
-            "icon": "widgets",
-            "component": "modules/settings/configs/WidgetsConfig.qml",
-            "subPages": ["widgets/DesktopClockWidgetConfig.qml", "widgets/DesktopWeatherWidgetConfig.qml", "widgets/DesktopMediaWidgetConfig.qml", "widgets/DesktopAtAGlanceConfig.qml"],
-            "aliases": []
         },
         {
             "id": "dynamicIsland",
@@ -325,7 +309,7 @@ Singleton {
             "name": "Lock Screen",
             "icon": "lock",
             "component": "modules/settings/configs/LockScreenConfig.qml",
-            "subPages": ["widgets/LockscreenNotificationsConfig.qml", "widgets/LockscreenEffectsConfig.qml", "widgets/LockscreenWidgetsConfig.qml", "widgets/FingerprintConfig.qml"],
+            "subPages": ["widgets/LockscreenNotificationsConfig.qml", "widgets/LockscreenEffectsConfig.qml", "widgets/FingerprintConfig.qml"],
             "aliases": ["Fingerprint", "Biometrics", "fprintd", "Fingerprint reader"]
         },
         {
@@ -370,7 +354,7 @@ Singleton {
         {
             "id": "desktopWindows",
             "name": "Desktop & Windows",
-            "pageIds": ["wallpaper", "workspaces", "overview", "windows", "tiling", "lockScreen", "widgets"]
+            "pageIds": ["workspaces", "overview", "windows", "tiling", "lockScreen"]
         },
         {
             "id": "tools",

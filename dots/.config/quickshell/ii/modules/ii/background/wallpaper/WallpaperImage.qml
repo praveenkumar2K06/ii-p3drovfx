@@ -10,7 +10,6 @@ import qs.modules.common.widgets
 import qs.modules.common.functions as CF
 import qs.modules.ii.background.blur
 import qs.modules.common.widgets.widgetCanvas
-import qs.modules.ii.background.widgets
 
 Item {
     id: wallpaperImageRoot
@@ -63,11 +62,9 @@ Item {
         return parallaxY;
     }
 
-    required property bool anyWidgetIsDragging
     required property bool mediaModeOpen
     property bool lockAnimationActive: false
     required property bool hasWindowsInActiveWorkspace
-    required property var widgetStateManager
 
     // Output aliases
     property alias wallpaperItem: wallpaper
@@ -508,7 +505,7 @@ Item {
                     id: wallpaperDimLayer
                     anchors.fill: parent
                     color: Appearance.colors.colLayer0
-                    opacity: anyWidgetIsDragging ? 0.45 : 0.0
+                    opacity: 0.0
                     visible: opacity > 0
 
                     Behavior on opacity {
