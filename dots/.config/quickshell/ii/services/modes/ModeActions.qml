@@ -275,32 +275,6 @@ QtObject {
         return Array.from(Audio.outputAppNodes).find(n => n && String(n.id) === String(id)) ?? null;
     }
 
-    // ---- earbuds: whichever supported headset is connected right now.
-    readonly property var ancModes: ({ normal: "Normal", transparency: "Transparency", anc: "NoiseCanceling" })
-
-    function earbudsService() {
-        if (SoundcoreService.isConnected)
-            return SoundcoreService;
-        if (BudsService.isConnected)
-            return BudsService;
-        return null;
-    }
-
-    function ancKey(modeName) {
-        for (const key in root.ancModes) {
-            if (root.ancModes[key] === modeName)
-                return key;
-        }
-        return "normal";
-    }
-
-    function setAnc(key) {
-        const service = root.earbudsService();
-        if (!service)
-            throw new Error("no supported earbuds connected");
-        service.setMode(service.activeDevice.address, root.ancModes[key] ?? "Normal");
-    }
-
     // ---- workspaces: a plain number, a relative step, "empty", "name:x",
     // or "special[:x]"; anything else is refused before it reaches Hyprland.
     function workspaceRequest(v) {
@@ -777,24 +751,6 @@ QtObject {
                     EasyEffects.enable();
                 else
                     EasyEffects.disable();
-            }
-        },
-        earbudsAnc: {
-            id: "earbudsAnc", category: "sound", label: "Earbuds noise control", icon: "noise_control_off",
-            editor: "segmented", choices: () => ["normal", "transparency", "anc"], volatile: false,
-            choiceLabel: v => v === "anc" ? "Noise cancelling" : (v === "transparency" ? "Transparency" : "Normal"),
-            // value: "normal" | "transparency" | "anc", on whichever supported
-            // earbuds are connected when the action runs
-            available: () => true,
-            read: () => {
-                const service = root.earbudsService();
-                return service ? root.ancKey(service.currentMode) : null;
-            },
-            normalize: v => root.ancModes[v] ? v : "normal",
-            apply: v => { root.setAnc(root.ancModes[v] ? v : "normal"); },
-            revert: was => {
-                if (was && root.earbudsService())
-                    root.setAnc(was);
             }
         },
         playSound: {

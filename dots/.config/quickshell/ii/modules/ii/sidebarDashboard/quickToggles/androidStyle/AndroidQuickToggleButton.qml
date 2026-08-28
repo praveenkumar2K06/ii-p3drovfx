@@ -29,7 +29,7 @@ Item {
     readonly property bool isWide: effectiveSizeW > 1
     readonly property bool isTall: effectiveSizeH > 1
     readonly property bool expandedSize: isWide
-    readonly property bool is3Way: (root.buttonData.type === "soundcoreAnc" || root.buttonData.type === "powerProfile" || root.buttonData.type === "keyboardBacklight")
+    readonly property bool is3Way: (root.buttonData.type === "powerProfile" || root.buttonData.type === "keyboardBacklight")
     readonly property bool is3WaySlider: is3Way && effectiveSizeW === 2 && effectiveSizeH === 1 && (Config.options.sidebar.quickToggles.useThreeWaySliders ?? false)
 
     // Use the rendered widget's hover state while keeping it in this delegate's

@@ -3080,11 +3080,6 @@ Singleton {
                 }
             }
 
-            property JsonObject soundcore: JsonObject {
-                property string macAddress: ""
-                property string model: "SoundcoreA3028"
-            }
-
             // Window tiling assistant: zone overlay while a window is dragged,
             // quick-tile on drop. Zones are stored as fractions of the usable
             // monitor area, so a layout survives resolution and scale changes.

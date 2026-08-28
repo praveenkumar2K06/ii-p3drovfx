@@ -33,7 +33,6 @@ Singleton {
         { id: "musicRecognition", model: musicRecognitionToggle, keywords: ["music", "recognition", "musica"] },
         { id: "antiFlashbang", model: antiFlashbangToggle, keywords: ["flash", "brightness", "brilho"] },
         { id: "screenShader", model: screenShaderToggle, keywords: ["shader", "screen", "tela"] },
-        { id: "soundcoreAnc", model: soundcoreAncToggle, keywords: ["anc", "noise", "cancelamento"] },
         { id: "systemSounds", model: systemSoundsToggle, keywords: ["system sounds", "sons", "sistema"] },
         { id: "keyboardBacklight", model: keyboardBacklightToggle, keywords: ["backlight", "keyboard", "teclado"] },
         { id: "modes", model: modesToggle, keywords: ["modes", "routines", "rotinas"] }
@@ -65,7 +64,6 @@ Singleton {
     MusicRecognitionToggle { id: musicRecognitionToggle }
     AntiFlashbangToggle { id: antiFlashbangToggle }
     ScreenShaderToggle { id: screenShaderToggle }
-    SoundcoreAncToggle { id: soundcoreAncToggle }
     SystemSoundsToggle { id: systemSoundsToggle }
     KeyboardBacklightToggle { id: keyboardBacklightToggle }
     ModesToggle { id: modesToggle }

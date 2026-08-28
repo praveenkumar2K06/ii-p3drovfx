@@ -29,7 +29,6 @@ var TOGGLE_TYPES = {
     musicRecognition: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     antiFlashbang: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     screenShader: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
-    soundcoreAnc: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     systemSounds: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     keyboardBacklight: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     modes: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },

@@ -74,13 +74,7 @@ Item {
 
     // Current state index based on the underlying service
     readonly property int currentStateIndex: {
-        if (toggleType === "soundcoreAnc") {
-            let mode = SoundcoreService.isConnected ? SoundcoreService.currentMode : (BudsService.isConnected ? BudsService.currentMode : "Normal");
-            if (mode === "NoiseCanceling") return 0;
-            if (mode === "Normal") return 1;
-            if (mode === "Transparency") return 2;
-            return 1;
-        } else if (toggleType === "powerProfile") {
+        if (toggleType === "powerProfile") {
             let prof = PowerProfiles.profile;
             if (prof === PowerProfile.PowerSaver) return 0;
             if (prof === PowerProfile.Balanced) return 1;
@@ -130,22 +124,13 @@ Item {
     }
 
     readonly property bool isToggled: {
-        if (toggleType === "soundcoreAnc") return hoverIndex !== 1;
         if (toggleType === "powerProfile") return hoverIndex !== 1;
         if (toggleType === "keyboardBacklight") return hoverIndex !== 0;
         return false;
     }
 
     function applyStateIndex(idx) {
-        if (toggleType === "soundcoreAnc") {
-            let targetMode = "Normal";
-            if (idx === 0) targetMode = "NoiseCanceling";
-            else if (idx === 1) targetMode = "Normal";
-            else if (idx === 2) targetMode = "Transparency";
-            
-            let activeService = SoundcoreService.isConnected ? SoundcoreService : (BudsService.isConnected ? BudsService : null);
-            if (activeService) activeService.setMode(targetMode);
-        } else if (toggleType === "powerProfile") {
+        if (toggleType === "powerProfile") {
             if (idx === 0) PowerProfiles.profile = PowerProfile.PowerSaver;
             else if (idx === 1) PowerProfiles.profile = PowerProfile.Balanced;
             else if (idx === 2) PowerProfiles.profile = PowerProfile.Performance;
@@ -158,11 +143,7 @@ Item {
     }
 
     function getIconForIndex(idx) {
-        if (toggleType === "soundcoreAnc") {
-            if (idx === 0) return "noise_control_off";
-            if (idx === 1) return "hearing";
-            if (idx === 2) return "visibility";
-        } else if (toggleType === "powerProfile") {
+        if (toggleType === "powerProfile") {
             if (idx === 0) return "energy_savings_leaf";
             if (idx === 1) return "airwave";
             if (idx === 2) return "local_fire_department";

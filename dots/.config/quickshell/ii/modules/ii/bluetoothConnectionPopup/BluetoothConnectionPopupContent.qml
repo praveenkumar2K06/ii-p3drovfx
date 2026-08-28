@@ -263,46 +263,6 @@ Item {
                 }
             }
 
-            // === HEADPHONE ANC MODE INDICATOR ===
-            Loader {
-                active: SoundcoreService.isHeadsetSupported(root.device) || BudsService.isHeadsetSupported(root.device)
-                Layout.fillWidth: true
-                Layout.topMargin: 4
-                sourceComponent: RowLayout {
-                    spacing: 8
-
-                    readonly property var service: {
-                        if (SoundcoreService.isHeadsetSupported(root.device)) return SoundcoreService;
-                        if (BudsService.isHeadsetSupported(root.device)) return BudsService;
-                        return null;
-                    }
-
-                    MaterialSymbol {
-                        text: {
-                            let mode = parent.service ? parent.service.getModeForMac(root.device?.address) : "Normal";
-                            if (mode === "Normal") return "hearing";
-                            if (mode === "Transparency") return "visibility";
-                            if (mode === "NoiseCanceling") return "noise_control_off";
-                            return "hearing";
-                        }
-                        iconSize: 18
-                        color: Appearance.colors.colPrimary
-                    }
-                    StyledText {
-                        text: {
-                            let mode = parent.service ? parent.service.getModeForMac(root.device?.address) : "Normal";
-                            if (mode === "Normal") return Translation.tr("Normal");
-                            if (mode === "Transparency") return Translation.tr("Transparency");
-                            if (mode === "NoiseCanceling") return Translation.tr("ANC");
-                            return Translation.tr("Normal");
-                        }
-                        font.pixelSize: Appearance.font.pixelSize.normal
-                        font.weight: Font.Medium
-                        color: Appearance.colors.colOnSurface
-                    }
-                }
-            }
-
             // === ACTION BUTTONS ===
             RowLayout {
                 Layout.fillWidth: true
