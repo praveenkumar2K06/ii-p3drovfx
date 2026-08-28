@@ -9,42 +9,12 @@ import qs.services
 Item {
     id: root
     property int monthShift: 0
-    property int _entranceKey: 0
-    property int entranceTrigger: -1
-    readonly property bool entranceAnimationsEnabled: Config.options.sidebar.dashboardEntranceAnimations
     property var viewingDate: CalendarLayout.getDateInXMonthsTime(monthShift)
     property var calendarLayout: CalendarLayout.getCalendarLayout(viewingDate, monthShift === 0, Config.options.time.firstDayOfWeek)
 
-    onEntranceTriggerChanged: {
-        if (entranceAnimationsEnabled && entranceTrigger >= 0)
-            _entranceKey++;
-    }
-
-    onMonthShiftChanged: {
-        if (entranceAnimationsEnabled)
-            _entranceKey++;
-    }
-
-    property real _monthTextOpacity: 1.0
-    property real _monthTextTranslateX: 0
-    property int _lastDirection: 1 // 1 = next (slide left), -1 = prev (slide right)
-
     function changeMonth(delta) {
         if (delta === 0) return;
-        _lastDirection = delta > 0 ? 1 : -1;
-        _monthTextOpacity = 0.0;
-        _monthTextTranslateX = _lastDirection * 25;
         monthShift += delta;
-        monthTextAnim.stop();
-        monthTextAnim.start();
-    }
-
-    SequentialAnimation {
-        id: monthTextAnim
-        ParallelAnimation {
-            NumberAnimation { target: root; property: "_monthTextOpacity"; from: 0.0; to: 1.0; duration: 250; easing.type: Easing.OutCubic }
-            NumberAnimation { target: root; property: "_monthTextTranslateX"; from: root._lastDirection * 25; to: 0; duration: 280; easing.type: Easing.OutCubic }
-        }
     }
 
     width: Math.max(calendarHeader.implicitWidth, calendarGridColumn.implicitWidth)
@@ -128,10 +98,6 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: Appearance.font.pixelSize.larger
                 color: Appearance.colors.colOnLayer1
-                opacity: root._monthTextOpacity
-                transform: Translate {
-                    x: root._monthTextTranslateX
-                }
             }
         }
 
@@ -220,10 +186,6 @@ Item {
                         delegate: CalendarDayButton {
                             day: calendarLayout[modelData][index].day
                             isToday: calendarLayout[modelData][index].today
-                            gridRow: modelData
-                            gridCol: index
-                            entranceKey: root._entranceKey
-                            entranceAnimationsEnabled: root.entranceAnimationsEnabled
                             cellSize: root.cellSize
                         }
                     }
