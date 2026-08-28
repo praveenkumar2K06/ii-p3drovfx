@@ -27,9 +27,6 @@ Item {
         id: fabWidget
         onClicked: e => root.clicked(e)
         baseSize: 48
-        colBackground: Appearance.colors.colTertiaryContainer
-        colBackgroundHover: Appearance.colors.colTertiaryContainerHover
-        colRipple: Appearance.colors.colTertiaryContainerActive
-        colOnBackground: Appearance.colors.colOnTertiaryContainer
+        type: FloatingActionButton.ButtonType.Tertiary
     }
 }
