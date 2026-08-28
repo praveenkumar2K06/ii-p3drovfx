@@ -61,10 +61,7 @@ Item {
                 }
             }
 
-            colBackground: Appearance.colors.colTertiaryContainer
-            colBackgroundHover: Appearance.colors.colTertiaryContainerHover
-            colRipple: Appearance.colors.colTertiaryContainerActive
-            colOnBackground: Appearance.colors.colOnTertiaryContainer
+            type: FloatingActionButton.ButtonType.Tertiary
 
             onClicked: {
                 Quickshell.execDetached(["bash", "-c", "qs kill -c ii && qs -c ii &"]);

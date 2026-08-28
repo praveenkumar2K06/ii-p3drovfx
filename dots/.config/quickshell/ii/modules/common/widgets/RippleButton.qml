@@ -23,6 +23,7 @@ Button {
     readonly property bool isPressed: root.down
     property int rippleDuration: 1200
     property bool rippleEnabled: true
+    property bool altHoverColor: false
     property var downAction
     property var releaseAction
     property var altAction
@@ -216,8 +217,8 @@ Button {
     }
 
     property color colBackground: ColorUtils.transparentize(Appearance?.colors.colLayer1Hover, 1) || "transparent"
-    property color colBackgroundHover: Appearance?.colors.colLayer1Hover ?? "#E5DFED"
-    property color colBackgroundActive: Appearance?.colors.colLayer1Active ?? colBackgroundHover
+    property color colBackgroundHover: root.altHoverColor ? Appearance?.colors.colPrimaryHover ?? "#E5DFED" : Appearance?.colors.colLayer1Hover ?? "#E5DFED"
+    property color colBackgroundActive: root.altHoverColor ? Appearance?.colors.colPrimaryActive ?? "#E5DFED" : Appearance?.colors.colLayer1Active ?? colBackgroundHover
     property color colBackgroundToggled: Appearance?.colors.colPrimary ?? "#65558F"
     property color colBackgroundToggledHover: Appearance?.colors.colPrimaryHover ?? "#77699C"
     property color colBackgroundToggledActive: Appearance?.colors.colPrimaryActive ?? colBackgroundToggledHover
@@ -232,13 +233,14 @@ Button {
 
     opacity: root.enabled ? 1 : 0.4
     property color buttonColor: ColorUtils.transparentize(root.toggled ? (root.down ? colBackgroundToggledActive : (root.hovered ? colBackgroundToggledHover : colBackgroundToggled)) : (root.down ? colBackgroundActive : (root.hovered ? colBackgroundHover : colBackground)), root.enabled ? 0 : 0)
+    property color buttonTextColor: root.enabled ? Appearance?.colors.colOnSurface ?? "#1A1A1A" : ColorUtils.transparentize(Appearance?.colors.colOnSurface ?? "#1A1A1A", 0.5)
     property color rippleColor: root.toggled ? colRippleToggled : colRipple
 
     Behavior on opacity {
         animation: Appearance.animation.elementResize.numberAnimation.createObject(this)
     }
 
-    scale: root.down ? 0.96 : (root.hovered ? 1.01 : 1.0)
+    scale: root.down ? 0.96 : 1
     Behavior on scale {
         NumberAnimation {
             duration: 150
@@ -455,6 +457,7 @@ Button {
 
     contentItem: StyledText {
         text: root.buttonText
+        color: root.buttonTextColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

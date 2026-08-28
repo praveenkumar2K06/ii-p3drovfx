@@ -48,14 +48,6 @@ Item {
                     text: Translation.tr("Start the lock screen daemon when the session begins.")
                 }
             }
-
-            ShortcutBox {
-                Layout.fillWidth: true
-                value: Translation.tr("Wallpaper zoom")
-                targetPageId: "wallpaper"
-                targetSectionTitle: Translation.tr("Parallax Engine")
-                materialIcon: "loupe"
-            }
         }
 
         ContentSection {

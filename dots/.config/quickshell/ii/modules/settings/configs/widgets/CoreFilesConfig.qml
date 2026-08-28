@@ -31,26 +31,15 @@ ContentPage {
         .arg(Config.options.screenRecord.framerate)
 
     RowLayout {
-        spacing: 12
+        spacing: Appearance.sizes.elevationMargin
 
-        RippleButton {
-            implicitWidth: implicitHeight
-            implicitHeight: 40
-            topLeftRadius: Appearance.rounding.full
-            topRightRadius: Appearance.rounding.full
-            bottomLeftRadius: Appearance.rounding.full
-            bottomRightRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colSecondaryContainer
-            colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-            colRipple: Appearance.colors.colSecondaryContainerActive
 
-            MaterialSymbol {
-                anchors.centerIn: parent
-                text: "arrow_back"
-                iconSize: Appearance.font.pixelSize.large
-                color: Appearance.colors.colOnSecondaryContainer
-            }
-
+                RippleButtonE {
+            implicitWidth: Appearance.sizes.elevationMargin * 4
+            implicitHeight: implicitWidth
+            type: RippleButtonE.ButtonType.Tonal
+            materialIcon: "arrow_back"
+            iconSize: Appearance.font.pixelSize.large
             onClicked: root.goBack()
         }
 

@@ -17,17 +17,22 @@ Item {
         RowLayout {
             visible: root.showBackButton
             spacing: Appearance.sizes.elevationMargin
-            RippleButton {
+
+            RippleButtonE {
                 implicitWidth: Appearance.sizes.elevationMargin * 4
                 implicitHeight: implicitWidth
-                buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
+                materialIcon: "arrow_back"
+                iconSize: Appearance.font.pixelSize.large
                 onClicked: root.goBack()
-                MaterialSymbol { anchors.centerIn: parent; text: "arrow_back"; iconSize: Appearance.font.pixelSize.large; color: Appearance.colors.colOnSecondaryContainer }
             }
-            StyledText { text: Translation.tr("Search modules"); font.pixelSize: Appearance.font.pixelSize.large; font.family: Appearance.font.family.title; color: Appearance.colors.colOnLayer0 }
+
+            StyledText { 
+                text: Translation.tr("Search modules"); 
+                font.pixelSize: Appearance.font.pixelSize.large; 
+                font.family: Appearance.font.family.title; 
+                color: Appearance.colors.colOnLayer0 
+            }
         }
 
         ContentSection {

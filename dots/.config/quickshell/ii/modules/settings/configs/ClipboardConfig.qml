@@ -16,21 +16,16 @@ ContentPage {
     RowLayout {
         visible: page.showBackButton
         spacing: Appearance.sizes.elevationMargin
-        RippleButton {
+        
+        RippleButtonE {
             implicitWidth: Appearance.sizes.elevationMargin * 4
             implicitHeight: implicitWidth
-            buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colSecondaryContainer
-            colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-            colRipple: Appearance.colors.colSecondaryContainerActive
+            type: RippleButtonE.ButtonType.Tonal
+            materialIcon: "arrow_back"
+            iconSize: Appearance.font.pixelSize.large
             onClicked: page.goBack()
-            MaterialSymbol {
-                anchors.centerIn: parent
-                text: "arrow_back"
-                iconSize: Appearance.font.pixelSize.large
-                color: Appearance.colors.colOnSecondaryContainer
-            }
         }
+
         StyledText {
             text: Translation.tr("Clipboard")
             font.pixelSize: Appearance.font.pixelSize.large

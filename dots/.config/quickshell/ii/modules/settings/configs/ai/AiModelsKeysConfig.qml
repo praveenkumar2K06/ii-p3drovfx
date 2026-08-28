@@ -18,23 +18,15 @@ Item {
 
         RowLayout {
             visible: root.showBackButton
-            spacing: Appearance.rounding.small
+            spacing: Appearance.sizes.elevationMargin
 
-            RippleButton {
-                implicitWidth: implicitHeight
-                implicitHeight: Math.round(Appearance.font.pixelSize.huge * 1.8)
-                buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+            RippleButtonE {
+                implicitWidth: Appearance.sizes.elevationMargin * 4
+                implicitHeight: implicitWidth
+                type: RippleButtonE.ButtonType.Tonal
+                materialIcon: "arrow_back"
+                iconSize: Appearance.font.pixelSize.large
                 onClicked: root.goBack()
-
-                MaterialSymbol {
-                    anchors.centerIn: parent
-                    text: "arrow_back"
-                    iconSize: Appearance.font.pixelSize.large
-                    color: Appearance.colors.colOnSecondaryContainer
-                }
             }
 
             StyledText {

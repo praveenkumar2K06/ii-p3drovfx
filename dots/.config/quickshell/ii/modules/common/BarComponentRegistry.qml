@@ -21,152 +21,12 @@ Singleton {
 
     readonly property var allComponents: [
         {
-            id: "policies_panel_button",
-            icon: "star",
-            title: "Policies panel button",
-            styleConfigKey: "policies",
-            styleOptions: defaultStyleOptions,
-            pageId: "privacy"
-        },
-        {
             id: "active_window",
             icon: "label",
             title: "Active window",
             styleConfigKey: "activeWindow",
             styleOptions: defaultStyleOptions,
             configPage: "ActiveWindowConfig.qml"
-        },
-        {
-            id: "music_player",
-            icon: "music_note",
-            title: "Music player",
-            styleConfigKey: "media",
-            styleOptions: [
-                {
-                    displayName: qsTr("Default"),
-                    icon: "style",
-                    value: "default"
-                },
-                {
-                    displayName: qsTr("Expressive"),
-                    icon: "fluid_med",
-                    value: "expressive"
-                },
-                {
-                    displayName: qsTr("Neural"),
-                    icon: "graphic_eq",
-                    value: "neural"
-                }
-            ],
-            configPage: "MediaPlayerConfig.qml"
-        },
-        {
-            id: "workspaces",
-            icon: "workspaces",
-            title: "Workspaces",
-            styleConfigKey: "workspaces",
-            configPage: "../WorkspacesConfig.qml",
-            styleOptions: [
-                {
-                    displayName: qsTr("Default"),
-                    icon: "workspaces",
-                    value: "default"
-                },
-                {
-                    displayName: qsTr("Minimal"),
-                    icon: "navigation",
-                    value: "minimal"
-                },
-                {
-                    displayName: qsTr("Expressive"),
-                    icon: "fluid_med",
-                    value: "expressive"
-                },
-            ]
-        },
-        {
-            id: "system_monitor",
-            icon: "monitor_heart",
-            title: "System monitor",
-            styleConfigKey: "resources",
-            styleOptions: defaultStyleOptions,
-            configPage: "SystemMonitorConfig.qml"
-        },
-        {
-            id: "clock",
-            icon: "nest_clock_farsight_analog",
-            title: "Clock",
-            styleConfigKey: "clock",
-            configPage: "ClockDateWidgetConfig.qml",
-            styleOptions: [
-                {
-                    displayName: qsTr("Default"),
-                    icon: "style",
-                    value: "default"
-                },
-                {
-                    displayName: qsTr("Material"),
-                    icon: "interests",
-                    value: "material"
-                },
-                {
-                    displayName: qsTr("Expressive"),
-                    icon: "fluid_med",
-                    value: "expressive"
-                }
-            ]
-        },
-        {
-            id: "system_tray",
-            icon: "system_update_alt",
-            title: "System tray",
-            styleConfigKey: "systray",
-            styleOptions: defaultStyleOptions,
-            configPage: "SystemTrayConfig.qml"
-        },
-        {
-            id: "dashboard_panel_button",
-            icon: "notifications",
-            title: "Dashboard panel button",
-            styleConfigKey: "dashboard",
-            styleOptions: defaultStyleOptions,
-            configPage: "DashboardButtonConfig.qml"
-        },
-        {
-            id: "record_indicator",
-            icon: "screen_record",
-            title: "Record indicator",
-            configPage: "IndicatorsConfig.qml"
-        },
-        {
-            id: "dictation_indicator",
-            icon: "mic",
-            title: "Dictation indicator",
-            pageId: "dictation"
-        },
-        {
-            id: "screen_share_indicator",
-            icon: "screen_share",
-            title: "Screen share indicator",
-            configPage: "IndicatorsConfig.qml"
-        },
-        {
-            id: "shell_update_indicator",
-            icon: "deployed_code_update",
-            title: "Shell update indicator",
-            pageId: "about"
-        },
-        {
-            id: "mode_indicator",
-            icon: "tune",
-            title: "Mode indicator",
-            configPage: "IndicatorsConfig.qml"
-        },
-        {
-            id: "date",
-            icon: "date_range",
-            title: "Date",
-            configPage: "ClockDateWidgetConfig.qml"
         },
         {
             id: "battery",
@@ -193,34 +53,56 @@ Singleton {
             ]
         },
         {
-            id: "timer",
-            icon: "timer",
-            title: "Timer & Pomodoro",
-            configPage: "IndicatorsConfig.qml"
-        },
-        {
-            id: "weather",
-            icon: "weather_mix",
-            title: "Weather",
-            styleConfigKey: "weather",
-            styleOptions: defaultStyleOptions,
-            pageId: "weather"
-        },
-        {
-            id: "utility_buttons",
-            icon: "build",
-            title: "Utility buttons",
-            styleConfigKey: "utilButtons",
-            styleOptions: defaultStyleOptions,
-            configPage: "UtilButtonsConfig.qml"
-        },
-        {
             id: "bluetooth_devices",
             icon: "bluetooth_connected",
             title: "Bluetooth Devices",
             styleConfigKey: "bluetooth",
             styleOptions: defaultStyleOptions,
             configPage: "BluetoothConfig.qml"
+        },
+        {
+            id: "clock",
+            icon: "nest_clock_farsight_analog",
+            title: "Clock",
+            styleConfigKey: "clock",
+            configPage: "ClockDateWidgetConfig.qml",
+            styleOptions: [
+                {
+                    displayName: qsTr("Default"),
+                    icon: "style",
+                    value: "default"
+                },
+                {
+                    displayName: qsTr("Material"),
+                    icon: "interests",
+                    value: "material"
+                },
+                {
+                    displayName: qsTr("Expressive"),
+                    icon: "fluid_med",
+                    value: "expressive"
+                }
+            ]
+        },
+        {
+            id: "dashboard_panel_button",
+            icon: "notifications",
+            title: "Dashboard panel button",
+            styleConfigKey: "dashboard",
+            styleOptions: defaultStyleOptions,
+            configPage: "DashboardButtonConfig.qml"
+        },
+        {
+            id: "date",
+            icon: "date_range",
+            title: "Date",
+            configPage: "ClockDateWidgetConfig.qml"
+        },
+        {
+            id: "dictation_indicator",
+            icon: "mic",
+            title: "Dictation indicator",
+            pageId: "dictation"
         },
         {
             id: "keyboard_layout",
@@ -247,12 +129,42 @@ Singleton {
             ]
         },
         {
-            id: "sports",
-            icon: "sports_soccer",
-            title: "Sports",
-            styleConfigKey: "sports",
+            id: "mode_indicator",
+            icon: "tune",
+            title: "Mode indicator",
+            configPage: "IndicatorsConfig.qml"
+        },
+        {
+            id: "music_player",
+            icon: "music_note",
+            title: "Music player",
+            styleConfigKey: "media",
+            styleOptions: [
+                {
+                    displayName: qsTr("Default"),
+                    icon: "style",
+                    value: "default"
+                },
+                {
+                    displayName: qsTr("Expressive"),
+                    icon: "fluid_med",
+                    value: "expressive"
+                },
+                {
+                    displayName: qsTr("Neural"),
+                    icon: "graphic_eq",
+                    value: "neural"
+                }
+            ],
+            configPage: "MediaPlayerConfig.qml"
+        },
+        {
+            id: "policies_panel_button",
+            icon: "star",
+            title: "Policies panel button",
+            styleConfigKey: "policies",
             styleOptions: defaultStyleOptions,
-            configPage: "SportsConfig.qml"
+            pageId: "privacy"
         },
         {
             id: "power",
@@ -261,6 +173,94 @@ Singleton {
             styleConfigKey: "power",
             styleOptions: defaultStyleOptions,
             pageId: "power"
+        },
+        {
+            id: "record_indicator",
+            icon: "screen_record",
+            title: "Record indicator",
+            configPage: "IndicatorsConfig.qml"
+        },
+        {
+            id: "screen_share_indicator",
+            icon: "screen_share",
+            title: "Screen share indicator",
+            configPage: "IndicatorsConfig.qml"
+        },
+        {
+            id: "shell_update_indicator",
+            icon: "deployed_code_update",
+            title: "Shell update indicator",
+            pageId: "about"
+        },
+        {
+            id: "sports",
+            icon: "sports_soccer",
+            title: "Sports",
+            styleConfigKey: "sports",
+            styleOptions: defaultStyleOptions,
+            configPage: "SportsConfig.qml"
+        },
+        {
+            id: "system_monitor",
+            icon: "monitor_heart",
+            title: "System monitor",
+            styleConfigKey: "resources",
+            styleOptions: defaultStyleOptions,
+            configPage: "SystemMonitorConfig.qml"
+        },
+        {
+            id: "system_tray",
+            icon: "system_update_alt",
+            title: "System tray",
+            styleConfigKey: "systray",
+            styleOptions: defaultStyleOptions,
+            configPage: "SystemTrayConfig.qml"
+        },
+        {
+            id: "timer",
+            icon: "timer",
+            title: "Timer & Pomodoro",
+            configPage: "IndicatorsConfig.qml"
+        },
+        {
+            id: "utility_buttons",
+            icon: "build",
+            title: "Utility buttons",
+            styleConfigKey: "utilButtons",
+            styleOptions: defaultStyleOptions,
+            configPage: "UtilButtonsConfig.qml"
+        },
+        {
+            id: "weather",
+            icon: "weather_mix",
+            title: "Weather",
+            styleConfigKey: "weather",
+            styleOptions: defaultStyleOptions,
+            pageId: "weather"
+        },
+        {
+            id: "workspaces",
+            icon: "workspaces",
+            title: "Workspaces",
+            styleConfigKey: "workspaces",
+            pageId: "workspaces",
+            styleOptions: [
+                {
+                    displayName: qsTr("Default"),
+                    icon: "workspaces",
+                    value: "default"
+                },
+                {
+                    displayName: qsTr("Minimal"),
+                    icon: "navigation",
+                    value: "minimal"
+                },
+                {
+                    displayName: qsTr("Expressive"),
+                    icon: "fluid_med",
+                    value: "expressive"
+                },
+            ]
         },
     ]
 

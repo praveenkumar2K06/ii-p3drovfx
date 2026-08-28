@@ -334,8 +334,8 @@ Item {
         // ── Widgets & Waffle Sub-Page ─────────────────────────────────────────
         ContentSection {
             icon: "widgets"
-            title: Translation.tr("Widgets & Waffle")
-            tooltip: Translation.tr("Configure individual bar widgets and Waffle panel tweaks.")
+            title: Translation.tr("Widgets")
+            tooltip: Translation.tr("Configure individual bar widgets.")
 
             ColumnLayout {
                 Layout.fillWidth: true
@@ -343,7 +343,7 @@ Item {
 
                 ConfigSubpageRow {
                     buttonIcon: "widgets"
-                    title: Translation.tr("Widgets & Waffle Settings")
+                    title: Translation.tr("Widgets Settings")
                     description: Translation.tr("Configure individual bar widgets panel tweaks")
                     onClicked: subPageOverlay.open(Qt.resolvedUrl("widgets/BarWidgetsConfig.qml"))
                 }
