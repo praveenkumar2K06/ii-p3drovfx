@@ -1258,14 +1258,6 @@ Singleton {
                 property int player: 0 // 0: No | 1: Yes
             }
 
-            property JsonObject localsend: JsonObject {
-                property bool autoStart: true
-                property string downloadPath: Directories.localSendDownloadPath.replace("file://", "")
-                property bool showNotifications: true
-                property bool preferPopupOverNotification: true
-            }
-
-
             property JsonObject todo: JsonObject {
                 // Only the local task provider remains.
                 property string provider: "local"
@@ -1783,8 +1775,6 @@ Singleton {
                     property bool disableDictation: false
                     property bool disableTimer: false
                     property bool disableClipboard: false
-                    property bool disableLocalSend: false
-                    property bool disableKdeConnectInLocalSend: false
                     property bool disableChecklist: true
                     property bool checklistAlwaysVisible: false
                     property bool checklistOnlyExpanded: false
@@ -1808,7 +1798,6 @@ Singleton {
                     property int heightDictation: 44
                     property int heightTimer: 36
                     property int heightClipboard: 36
-                    property int heightLocalSend: 42
                     property int heightChecklist: 36
                     property int heightCalendar: 48
                     property int heightAudio: 36

@@ -96,7 +96,6 @@ Singleton {
     property string screenshareStatePath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/screenshare/apps.txt`)
     property string geniusLyricsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/lyrics/genius-lyrics.js`)
     property string ytmusicLyricsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/lyrics/ytmusic-lyrics-wrapper.sh`)
-    property string localSendDownloadPath: FileUtils.trimFileProtocol(`${Directories.home}/Downloads/localsend`)
     property string userProfileImagePath: FileUtils.trimFileProtocol(`${Directories.shellConfig}/profile.png`)
 
     // Cleanup on init

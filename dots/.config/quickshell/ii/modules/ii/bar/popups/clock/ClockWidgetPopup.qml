@@ -205,7 +205,6 @@ StyledPopup {
             clockHero.visible,
             worldClocksLoader.visible && worldClocksLoader.active,
             columnLayout.children[2].visible, // info column Layout
-            localSendLoader.visible && localSendLoader.active,
             alarmsCard.visible
         ]
 
@@ -227,7 +226,6 @@ StyledPopup {
             clockHeroAnim.stop();
             worldClocksAnim.stop();
             infoColumnAnim.stop();
-            localSendAnim.stop();
             alarmsCardAnim.stop();
 
             clockHero.opacity = 0.0;
@@ -241,10 +239,6 @@ StyledPopup {
             infoColumn.opacity = 0.0;
             infoColumn.scale = 0.85;
             infoColumnTransform.y = 25;
-
-            localSendLoader.opacity = 0.0;
-            localSendLoader.scale = 0.85;
-            localSendTransform.y = 25;
 
             alarmsCard.opacity = 0.0;
             alarmsCard.scale = 0.85;
@@ -260,7 +254,6 @@ StyledPopup {
                 clockHeroAnim.start();
                 worldClocksAnim.start();
                 infoColumnAnim.start();
-                localSendAnim.start();
                 alarmsCardAnim.start();
             });
         }
@@ -346,10 +339,8 @@ StyledPopup {
             onStartAnimChanged: {
                 if (startAnim) {
                     infoPill.startAnim = false;
-                    localSendPill.startAnim = false;
                     Qt.callLater(function() {
                         infoPill.startAnim = true;
-                        localSendPill.startAnim = true;
                     });
                 }
             }
@@ -374,7 +365,7 @@ StyledPopup {
 
             InfoPill {
                 id: infoPill
-                visible: !root.compact ? LocalSend.currentTransfer == null || LocalSend.droppedFiles.length > 0 : false
+                visible: !root.compact ? true : false
                 
                 readonly property bool isTimerActive: TimerService.pomodoroRunning || TimerService.stopwatchRunning || root.stopwatchPaused || (TimerService.stopwatchTime > 0)
 
@@ -420,48 +411,6 @@ StyledPopup {
                     if (TimerService.pomodoroRunning) {
                         TimerService.resetPomodoro();
                     }
-                }
-            }
-
-            LocalSendPill {
-                id: localSendPill
-                visible: LocalSend.available
-            }
-        }
-
-        Component {
-            id: transferCard
-            LocalSendTransferCard {}
-        }
-
-        Component {
-            id: sendCard
-            LocalSendSendCard {}
-        }
-
-        Loader {
-            id: localSendLoader
-            Layout.fillWidth: true
-            Layout.minimumWidth: root.compact ? 320 : 360
-            visible: active
-            active: LocalSend.currentTransfer !== null || LocalSend.droppedFiles.length > 0
-            sourceComponent: LocalSend.currentTransfer !== null ? transferCard : sendCard
-            
-            opacity: 0.0
-            scale: 0.85
-            transform: Translate {
-                id: localSendTransform
-                y: 25
-            }
-            
-            SequentialAnimation {
-                id: localSendAnim
-                
-                PauseAnimation { duration: columnLayout.getDelay(3) }
-                ParallelAnimation {
-                    NumberAnimation { target: localSendLoader; property: "opacity"; to: 1.0; duration: 300 }
-                    NumberAnimation { target: localSendLoader; property: "scale"; to: 1.0; duration: 380; easing.type: Easing.OutBack }
-                    NumberAnimation { target: localSendTransform; property: "y"; to: 0; duration: 380; easing.type: Easing.OutCubic }
                 }
             }
         }

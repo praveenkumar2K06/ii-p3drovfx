@@ -319,51 +319,6 @@ ContentPage {
         }
 
         ContentSubsectionLabel {
-            text: Translation.tr("LocalSend CLI")
-        }
-
-        ConfigSwitch {
-            buttonIcon: "power_settings_new"
-            text: Translation.tr("Auto-start")
-            checked: Config.options.localsend.autoStart
-            enabled: LocalSend.available
-            onCheckedChanged: {
-                Config.options.localsend.autoStart = checked;
-            }
-        }
-
-        ConfigSwitch {
-            buttonIcon: "notifications"
-            text: Translation.tr("Show notifications")
-            checked: Config.options.localsend.showNotifications
-            enabled: LocalSend.available
-            onCheckedChanged: {
-                Config.options.localsend.showNotifications = checked;
-            }
-        }
-
-        ConfigSwitch {
-            buttonIcon: "branding_watermark"
-            text: Translation.tr("Prefer popup over notification")
-            checked: Config.options.localsend.preferPopupOverNotification
-            enabled: LocalSend.available
-            onCheckedChanged: {
-                Config.options.localsend.preferPopupOverNotification = checked;
-            }
-        }
-
-        MaterialTextArea {
-            Layout.fillWidth: true
-            placeholderText: Translation.tr("Download path")
-            text: Config.options.localsend.downloadPath
-            wrapMode: TextEdit.Wrap
-            enabled: LocalSend.available
-            onTextChanged: {
-                Config.options.localsend.downloadPath = text;
-            }
-        }
-
-        ContentSubsectionLabel {
             text: Translation.tr("Wallpaper Browser")
         }
 

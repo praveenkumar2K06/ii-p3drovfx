@@ -21,7 +21,6 @@ import qs.modules.ii.sidebarDashboard.nightLight
 import qs.modules.ii.sidebarDashboard.volumeMixer
 import qs.modules.ii.sidebarDashboard.wifiNetworks
 import qs.modules.ii.sidebarDashboard.darkMode
-import qs.modules.ii.sidebarDashboard.localSend
 import qs.modules.ii.sidebarDashboard.vpn
 import qs.modules.ii.sidebarDashboard.tailscale
 import qs.modules.ii.sidebarDashboard.dnsOverTls
@@ -39,14 +38,13 @@ Item {
     property bool showNightLightDialog: false
     property bool showWifiDialog: false
     property bool showDarkModeDialog: false
-    property bool showLocalSendDialog: false
     property bool showVpnDialog: false
     property bool showTailscaleDialog: false
     property bool showDnsOverTlsDialog: false
     property bool showIdleInhibitorDialog: false
     property bool showScreenShaderDialog: false
     property bool showModesDialog: false
-    readonly property bool anyDialogVisible: showAudioOutputDialog || showAudioInputDialog || showBluetoothDialog || showNightLightDialog || showWifiDialog || showDarkModeDialog || showLocalSendDialog || showVpnDialog || showTailscaleDialog || showDnsOverTlsDialog || showIdleInhibitorDialog || showScreenShaderDialog || showModesDialog
+    readonly property bool anyDialogVisible: showAudioOutputDialog || showAudioInputDialog || showBluetoothDialog || showNightLightDialog || showWifiDialog || showDarkModeDialog || showVpnDialog || showTailscaleDialog || showDnsOverTlsDialog || showIdleInhibitorDialog || showScreenShaderDialog || showModesDialog
     property bool editMode: false
 
     property int entranceTrigger: -1
@@ -79,7 +77,6 @@ Item {
                 root.showAudioOutputDialog = false;
                 root.showAudioInputDialog = false;
                 root.showDarkModeDialog = false;
-                root.showLocalSendDialog = false;
                 root.showVpnDialog = false;
                 root.showTailscaleDialog = false;
                 root.showDnsOverTlsDialog = false;
@@ -306,13 +303,6 @@ Item {
         shownPropertyString: "showDarkModeDialog"
         dialogRadius: sidebarRightBackground.defaultRadius
         dialog: DarkModeDialog {}
-    }
-
-    DialogHostLoader {
-        owner: root
-        shownPropertyString: "showLocalSendDialog"
-        dialogRadius: sidebarRightBackground.defaultRadius
-        dialog: LocalSendDialog {}
     }
 
     DialogHostLoader {
@@ -812,9 +802,6 @@ Item {
             }
             function onOpenDarkModeDialog() {
                 root.showDarkModeDialog = true;
-            }
-            function onOpenLocalSendDialog() {
-                root.showLocalSendDialog = true;
             }
             function onOpenIdleInhibitorDialog() {
                 root.showIdleInhibitorDialog = true;

@@ -44,7 +44,7 @@ Scope {
     readonly property bool pomodoroActive: TimerService.pomodoroRunning
     readonly property bool stopwatchActive: TimerService.stopwatchRunning
     readonly property bool aiStatusActive: AiStatusService.hasActiveAgents && !(Config.ready && Config.options.bar.floatingNotch.disableAiStatus)
-    readonly property bool continuousActivityActive: recordingActive || dictationActive || pomodoroActive || stopwatchActive || aiStatusActive || ProgressService.hasActiveJobs || LocalSend.currentTransfer !== null || LocalSend.droppedFiles.length > 0 || LocalSend.sending || root._lsServiceChoice !== 0
+    readonly property bool continuousActivityActive: recordingActive || dictationActive || pomodoroActive || stopwatchActive || aiStatusActive || ProgressService.hasActiveJobs
     readonly property bool autoHideActive: Config.options.bar.floatingNotch.autoHide
     property bool activityRevealActive: false
     property int notificationCount: Notifications.popupList.length
@@ -81,7 +81,7 @@ Scope {
     }
 
     function finishActivityReveal() {
-        if (!continuousActivityActive && !hoverActive && !isHoverExpanded && !clickedExpanded && !isDragOverNotch && root._lsServiceChoice === 0)
+        if (!continuousActivityActive && !hoverActive && !isHoverExpanded && !clickedExpanded && !isDragOverNotch)
             activityRevealActive = false;
     }
 
@@ -181,12 +181,6 @@ Scope {
     }
     property bool isDragOverNotch: false
     property bool rightClickHidden: false
-    // Reference to the currently loaded FloatingNotchLocalSend widget
-    // (or null).  Used to push the drop-side choice into the widget so
-    // the expanded picker opens on the right service tab.
-    property var _localSendWidget: null
-    property int _lsServiceChoice: 0
-    property var _lsQueueFiles: []
     readonly property var _cliphistRef: Cliphist
 
     // ── Feature 2+13: Widget Morph Transition ──────────────────────────────
@@ -396,17 +390,6 @@ Scope {
         onTriggered: root.isStartup = false
     }
 
-    // Clear LocalSend service choice when files are removed
-    Connections {
-        target: LocalSend
-        function onDroppedFilesChanged() {
-            if (LocalSend.droppedFiles.length === 0 && root._lsServiceChoice === 1) {
-                root._lsServiceChoice = 0;
-                root._lsQueueFiles = [];
-            }
-        }
-    }
-
     Connections {
         target: root._cliphistRef
         function onClipboardUpdated() {
@@ -503,16 +486,6 @@ Scope {
                 expandedH: 140,
                 contractedW: 380,
                 expandedW: 460
-            };
-        }
-        if (type === "localsend") {
-            return {
-                type: "localsend",
-                source: "widgets/FloatingNotchLocalSend.qml",
-                contractedH: root.isDragOverNotch ? 140 : Config.options.bar.floatingNotch.heightLocalSend,
-                expandedH: 160,
-                contractedW: root.isDragOverNotch ? 360 : ((LocalSend.droppedFiles.length > 0 || root._lsServiceChoice === 2) ? 220 : 180),
-                expandedW: 340
             };
         }
         if (type === "clipboard") {
@@ -717,8 +690,6 @@ Scope {
         }
         if (notificationActive && !Config.options.bar.floatingNotch.disableNotification)
             list.push(getWidgetDetails("notification"));
-        if ((LocalSend.currentTransfer !== null || LocalSend.droppedFiles.length > 0 || LocalSend.sending || root.isDragOverNotch || root._lsServiceChoice !== 0) && !Config.options.bar.floatingNotch.disableLocalSend)
-            list.push(getWidgetDetails("localsend"));
         if (ProgressService.hasActiveJobs && !Config.options.bar.floatingNotch.disableProgress)
             list.push(getWidgetDetails("progress"));
         if (clipboardNotifActive && !Config.options.bar.floatingNotch.disableClipboard)
@@ -793,19 +764,13 @@ Scope {
             hoverCollapseTimer.restart();
             return;
         }
-        if (root._lsServiceChoice !== 0) {
-            lsReadyCollapseTimer.restart();
-        } else {
-            hoverCollapseTimer.restart();
-        }
+        hoverCollapseTimer.restart();
     }
 
     onHoverActiveChanged: {
         if (hoverActive) {
             hoverCollapseTimer.stop();
             activityRevealTimer.stop();
-            if (root._lsServiceChoice !== 0)
-                lsReadyCollapseTimer.restart();
             if (!root.clickToExpandEnabled) {
                 isHoverExpanded = true;
             }
@@ -818,20 +783,6 @@ Scope {
         }
     }
 
-    on_LsServiceChoiceChanged: {
-        if (root._lsServiceChoice !== 0) {
-            lsReadyCollapseTimer.restart();
-            isHoverExpanded = true;
-            if (root.clickToExpandEnabled)
-                root.clickedExpanded = true;
-        } else {
-            lsReadyCollapseTimer.stop();
-            if (!hoverActive) {
-                hoverCollapseTimer.restart();
-            }
-        }
-    }
-
     onIsHoverExpandedChanged: {
         if (!isHoverExpanded && root.clickToExpandEnabled) {
             root.clickedExpanded = false;
@@ -839,7 +790,7 @@ Scope {
     }
 
     onIsPeekingChanged: {
-        if (!root.isPeeking && root.clickToExpandEnabled && root._lsServiceChoice === 0) {
+        if (!root.isPeeking && root.clickToExpandEnabled) {
             hoverCollapseTimer.restart();
         }
     }
@@ -852,20 +803,6 @@ Scope {
                 root.clickedExpanded = false;
             }
             isHoverExpanded = false;
-        }
-    }
-
-    property Timer lsReadyCollapseTimer: Timer {
-        id: lsReadyCollapseTimer
-        interval: 3000
-        running: false
-        onTriggered: {
-            const lsWidget = root._localSendWidget;
-            if (!hoverActive && !(lsWidget && lsWidget.kdeSent)) {
-                if (root.clickToExpandEnabled)
-                    root.clickedExpanded = false;
-                isHoverExpanded = false;
-            }
         }
     }
 
@@ -890,7 +827,7 @@ Scope {
 
     // Priority-sorted list of modes for accordion direction (Feature 13)
     readonly property bool isPrioritySwapUpward: {
-        const priorities = ["osd", "notification", "localsend", "progress", "clipboard", "workspaces", "keyboard", "mode", "wifi", "bluetooth", "stopwatch", "pomodoro", "recording", "media", "checklist", "audio", "home"];
+        const priorities = ["osd", "notification", "progress", "clipboard", "workspaces", "keyboard", "mode", "wifi", "bluetooth", "stopwatch", "pomodoro", "recording", "media", "checklist", "audio", "home"];
         const oldIdx = priorities.indexOf(root.previousWidgetType);
         const newIdx = priorities.indexOf(root.currentWidgetType);
         return oldIdx !== -1 && newIdx !== -1 && newIdx < oldIdx;
@@ -1148,73 +1085,6 @@ Scope {
             width: targetW + (2 * notchBackground.topRadius)
             height: Config.options.bar.floatingNotch.centerInBar ? root.centerBarAnimHeight : targetH
 
-            DropArea {
-                id: notchDropArea
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                width: root.isDragOverNotch ? Math.max(parent.width, root.targetW + 60) : parent.width
-                keys: ["text/uri-list"]
-                enabled: Config.options.bar.floatingNotch.enable && !Config.options.bar.floatingNotch.disableLocalSend && LocalSend.available
-                onEntered: drag => {
-                    drag.accept(Qt.CopyAction);
-                }
-                onPositionChanged: drag => {
-                    const lsWidget = root._localSendWidget;
-                    if (!lsWidget)
-                        return;
-                    const dropW = root.isDragOverNotch ? Math.max(container.width, root.targetW + 60) : container.width;
-                    const kdeReady = false;
-                    if (kdeReady) {
-                        lsWidget.rightHover = drag.x >= dropW / 2;
-                        lsWidget.leftHover = drag.x < dropW / 2;
-                    } else {
-                        lsWidget.leftHover = true;
-                        lsWidget.rightHover = false;
-                    }
-                }
-                onExited: {
-                    const lsWidget = root._localSendWidget;
-                    if (lsWidget) {
-                        lsWidget.leftHover = false;
-                        lsWidget.rightHover = false;
-                    }
-                }
-                onDropped: drop => {
-                    if (!drop.hasUrls)
-                        return;
-                    const lsWidget = root._localSendWidget;
-                    const dropW = root.isDragOverNotch ? Math.max(container.width, root.targetW + 60) : container.width;
-                    const useKde = false;
-                    const cleanPaths = drop.urls.map(function (u) {
-                        return u.toString().replace(/^file:\/\//, "");
-                    });
-                    // Set panel-level mirror first (drives widget visibility + auto-expand)
-                    root._lsServiceChoice = useKde ? 2 : 1;
-                    root._lsQueueFiles = cleanPaths;
-                    if (lsWidget) {
-                        lsWidget.serviceChoice = useKde ? 2 : 1;
-                        lsWidget.queueFiles = cleanPaths;
-                        lsWidget.leftHover = false;
-                        lsWidget.rightHover = false;
-                    }
-                    if (!useKde) {
-                        for (let i = 0; i < drop.urls.length; i++) {
-                            LocalSend.addDroppedFile(drop.urls[i]);
-                        }
-                        if (LocalSend.available)
-                            LocalSend.startScanning();
-                    }
-                    drop.accept(Qt.CopyAction);
-                }
-            }
-
-            Binding {
-                target: root
-                property: "isDragOverNotch"
-                value: notchDropArea.containsDrag
-            }
-
             Behavior on width {
                 NumberAnimation {
                     duration: 500
@@ -1301,7 +1171,6 @@ Scope {
                         root.clickedExpanded = true;
                         root.isHoverExpanded = true;
                         root.hoverCollapseTimer.stop();
-                        root.lsReadyCollapseTimer.stop();
                     }
                 }
             }
@@ -1595,7 +1464,7 @@ Scope {
                                     anchors.fill: parent
                                     anchors.margins: root.isHoverExpanded && root.activeWidgetsList.length > 1 ? 2 : 2
                                     radius: Appearance.rounding.windowRounding
-                                    readonly property bool widgetOwnsBackground: (modelData.type === "localsend" && (root.isDragOverNotch || (root.isHoverExpanded && modelData.hasExpandedVersion !== false))) || modelData.type === "notification"
+                                    readonly property bool widgetOwnsBackground: modelData.type === "notification"
                                     color: {
                                         if (widgetOwnsBackground)
                                             return "transparent";
@@ -1620,25 +1489,6 @@ Scope {
                                             scale = 1.0;
                                         }
 
-                                        onLoaded: {
-                                            if (modelData.type === "localsend") {
-                                                root._localSendWidget = item;
-                                                if (root._lsServiceChoice !== 0) {
-                                                    item.serviceChoice = root._lsServiceChoice;
-                                                    item.queueFiles = root._lsQueueFiles;
-                                                }
-                                            }
-                                        }
-                                        onItemChanged: {
-                                            if (modelData.type === "localsend") {
-                                                if (!item) {
-                                                    root._localSendWidget = null;
-                                                } else if (root._lsServiceChoice !== 0) {
-                                                    item.serviceChoice = root._lsServiceChoice;
-                                                    item.queueFiles = root._lsQueueFiles;
-                                                }
-                                            }
-                                        }
                                         Behavior on opacity {
                                             NumberAnimation {
                                                 duration: 250
@@ -1669,19 +1519,6 @@ Scope {
                                             target: widgetLoader.item && widgetLoader.item.hasOwnProperty("panelWidgetsCount") ? widgetLoader.item : null
                                             property: "panelWidgetsCount"
                                             value: root.activeWidgetsList.length
-                                        }
-
-                                        Connections {
-                                            target: widgetLoader.item && modelData.type === "localsend" ? widgetLoader.item : null
-                                            enabled: target !== null
-                                            function onServiceChoiceChanged() {
-                                                if (target && target.serviceChoice === 0) {
-                                                    root._lsServiceChoice = 0;
-                                                    root._lsQueueFiles = [];
-                                                    root._localSendWidget = target;
-                                                    target.queueFiles = [];
-                                                }
-                                            }
                                         }
                                     }
                                 }
@@ -1756,7 +1593,7 @@ Scope {
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             keys: ["text/uri-list"]
-            enabled: root.idleHidden && Config.options.bar.floatingNotch.enable && !Config.options.bar.floatingNotch.disableLocalSend && LocalSend.available
+            enabled: root.idleHidden && Config.options.bar.floatingNotch.enable
             onEntered: drag => {
                 drag.accept(Qt.CopyAction);
                 topHoverCollapseTimer.stop();
@@ -1769,27 +1606,6 @@ Scope {
             onDropped: drop => {
                 if (!drop.hasUrls)
                     return;
-                const kdeReady = false;
-                const useKde = false;
-                const cleanPaths = drop.urls.map(function (u) {
-                    return u.toString().replace(/^file:\/\//, "");
-                });
-                root._lsServiceChoice = useKde ? 2 : 1;
-                root._lsQueueFiles = cleanPaths;
-                const lsWidget = root._localSendWidget;
-                if (lsWidget) {
-                    lsWidget.serviceChoice = useKde ? 2 : 1;
-                    lsWidget.queueFiles = cleanPaths;
-                    lsWidget.leftHover = false;
-                    lsWidget.rightHover = false;
-                }
-                if (!useKde) {
-                    for (let i = 0; i < drop.urls.length; i++) {
-                        LocalSend.addDroppedFile(drop.urls[i]);
-                    }
-                    if (LocalSend.available)
-                        LocalSend.startScanning();
-                }
                 drop.accept(Qt.CopyAction);
                 topHoverCollapseTimer.restart();
             }

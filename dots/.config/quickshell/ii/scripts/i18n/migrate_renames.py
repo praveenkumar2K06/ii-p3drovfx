@@ -43,7 +43,6 @@ RENAMES = {
     "Base Icon Themes": "Icons",
     "Decorative Options": "Details",
     "Appearance Preferences": "Theme",
-    "File Paths & Transfers": "LocalSend",
     "Corner Mouse Actions": "Screen corners",
     # --- page-name renames (phases 1-5) ---
     "Backgrounds": "Wallpaper",

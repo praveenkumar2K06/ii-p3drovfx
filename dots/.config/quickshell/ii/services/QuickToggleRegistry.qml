@@ -35,7 +35,6 @@ Singleton {
         { id: "screenShader", model: screenShaderToggle, keywords: ["shader", "screen", "tela"] },
         { id: "soundcoreAnc", model: soundcoreAncToggle, keywords: ["anc", "noise", "cancelamento"] },
         { id: "systemSounds", model: systemSoundsToggle, keywords: ["system sounds", "sons", "sistema"] },
-        { id: "localSend", model: localSendToggle, keywords: ["localsend", "send", "enviar"] },
         { id: "keyboardBacklight", model: keyboardBacklightToggle, keywords: ["backlight", "keyboard", "teclado"] },
         { id: "modes", model: modesToggle, keywords: ["modes", "routines", "rotinas"] }
     ]
@@ -68,7 +67,6 @@ Singleton {
     ScreenShaderToggle { id: screenShaderToggle }
     SoundcoreAncToggle { id: soundcoreAncToggle }
     SystemSoundsToggle { id: systemSoundsToggle }
-    LocalSendToggle { id: localSendToggle }
     KeyboardBacklightToggle { id: keyboardBacklightToggle }
     ModesToggle { id: modesToggle }
 }

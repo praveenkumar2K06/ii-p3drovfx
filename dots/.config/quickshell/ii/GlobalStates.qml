@@ -300,10 +300,6 @@ Singleton {
     property string floatingNotchBtAction: "connected"
     property bool floatingNotchBtNotifActive: false
 
-    // LocalSend transfer popup
-    property bool localSendPopupOpen: false
-    property var localSendPopupTransfer: null
-
     // Media Popup placement (transient, non-persistent)
     property rect mediaPopupRect: Qt.rect(0, 0, 0, 0)
     property bool mediaWidgetHovered: false

@@ -242,7 +242,7 @@ Item {
                     cardHue: 142
                     cardShape: "Cookie9Sided"
                     title: qsTr("File Paths & Transfers")
-                    description: qsTr("Record paths, LocalSend and wallpapers")
+                    description: qsTr("Record paths and wallpapers")
                     onOpenCard: root.openSubPage("widgets/CoreFilesConfig.qml")
                 }
             }

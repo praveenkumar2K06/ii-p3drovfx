@@ -128,8 +128,6 @@ def sanitize_data(data, home_dir):
     # Keep user paths portable when a preset is imported by another account.
     normalize_path_field(data, 'screenRecord', 'savePath', home_dir, '$HOME/Videos')
     normalize_path_field(data, 'screenSnip', 'savePath', home_dir, '$HOME/Pictures/Screenshots')
-    normalize_path_field(data, 'localsend', 'downloadPath', home_dir, '$HOME/Downloads')
-
     # Monitor connector names are local to the source machine.
     reset_monitor_bindings(data)
     return data

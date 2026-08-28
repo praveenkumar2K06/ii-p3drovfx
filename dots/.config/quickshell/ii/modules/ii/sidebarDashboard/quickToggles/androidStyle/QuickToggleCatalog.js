@@ -31,7 +31,6 @@ var TOGGLE_TYPES = {
     screenShader: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     soundcoreAnc: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     systemSounds: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
-    localSend: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     keyboardBacklight: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
     modes: { kind: "toggle", defaultSize: [1, 1], maxHeight: 8 },
 

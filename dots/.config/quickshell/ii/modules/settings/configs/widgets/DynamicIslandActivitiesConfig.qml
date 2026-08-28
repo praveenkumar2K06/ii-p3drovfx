@@ -174,22 +174,6 @@ Item {
                 }
 
                 NotchCard {
-                    buttonIcon: "share"
-                    text: Translation.tr("LocalSend Share Notch")
-                    tooltip: Translation.tr("Toggle the LocalSend files sharing and receiving notch")
-                    masterEnabled: Config.options.bar.floatingNotch.enable || Config.options.bar.floatingNotch.centerInBar
-                    notchEnabled: !Config.options.bar.floatingNotch.disableLocalSend
-                    onNotchToggled: (enabled) => {
-                        Config.options.bar.floatingNotch.disableLocalSend = !enabled;
-                    }
-                    heightLabel: Translation.tr("LocalSend contracted height")
-                    contractedHeight: Config.options.bar.floatingNotch.heightLocalSend
-                    onContractedHeightEdited: (value) => {
-                        Config.options.bar.floatingNotch.heightLocalSend = value;
-                    }
-                }
-
-                NotchCard {
                     buttonIcon: "playlist_add_check"
                     text: Translation.tr("Checklist Notch")
                     tooltip: Translation.tr("Toggle the checklist notch")
@@ -306,18 +290,6 @@ Item {
                     }
                 }
 
-                ConfigSwitch {
-                    buttonIcon: "smartphone"
-                    text: Translation.tr("KDE Connect column in drag panel")
-                    visible: !Config.options.bar.floatingNotch.disableLocalSend
-                    checked: !Config.options.bar.floatingNotch.disableKdeConnectInLocalSend
-                    onCheckedChanged: {
-                        Config.options.bar.floatingNotch.disableKdeConnectInLocalSend = !checked;
-                    }
-                    StyledToolTip {
-                        text: Translation.tr("Show the KDE Connect drop column alongside LocalSend when dragging files into the notch")
-                    }
-                }
             }
         }
     }

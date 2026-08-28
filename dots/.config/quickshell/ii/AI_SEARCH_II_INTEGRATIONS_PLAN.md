@@ -966,7 +966,6 @@ Estes não estavam na v1. Todos se apoiam em serviço que já existe, e são as 
 | **Atualizações** | `updates_status` | `Updates` | sim | não | P2 | Leitura; aplicar continua sendo do usuário |
 | **Uso de apps** | `app_usage_stats` | `AppUsage`, `AppStats` | não | não | P3 | "quanto usei o Firefox essa semana" — dado local que ninguém mais tem |
 | **Histórico de clipboard** | `clipboard_history_search` | `Cliphist.fuzzyQuery()` | não | não | P3 | Sensível: só sob pedido explícito, nunca automático |
-| **Transferência** | `localsend_send_file` | `LocalSend` | LAN | sim | P3 | "manda esse arquivo pro celular" |
 | **Telefone** | `phone_contacts_search`, `phone_battery` | `PhoneContactsService`, `KdeConnectService` | LAN | não | P3 | Leitura primeiro; mandar SMS fica fora desta rodada |
 
 ### 8.4 O que **não** vira ferramenta
@@ -1154,7 +1153,7 @@ comprar pão'; id > /tmp/pwn; echo '
 
 Isso já é bug hoje, com o usuário digitando. Com a AI, o título pode vir de um email ou de uma página web — a fonte da injeção passa a ser remota. **`tasks_create` não pode ser exposto antes disso ser corrigido.**
 
-Correção, no padrão que o repo já usa em `DiscordVoice`, `LocalSend`, `TilingAssistant` e `PhoneAppIconService`:
+Correção, no padrão que o repo já usa em `DiscordVoice`, `TilingAssistant` e `PhoneAppIconService`:
 
 ```qml
 Process {
@@ -1341,7 +1340,6 @@ Base: `DarkModeService.enableDarkMode/disableDarkMode`, `Wallpapers` + `Wallpape
 - `updates_status()` sobre `Updates.refresh()` — contagem e lista curta; aplicar continua sendo do usuário.
 - `app_usage_stats({period})` sobre `AppUsage`/`AppStats` — dado local que nenhum assistente de nuvem tem.
 - `clipboard_history_search({query, limit})` sobre `Cliphist.fuzzyQuery()` — **`sensitivity: "secret"`**: histórico de clipboard costuma conter senha. Sempre pergunta, nunca "sempre permitir", resultado só com trechos, e o item completo exige um segundo toque do usuário.
-- `localsend_send_file({fileRef, deviceId})` — `externalWrite` na LAN, com preview de destino.
 
 ---
 

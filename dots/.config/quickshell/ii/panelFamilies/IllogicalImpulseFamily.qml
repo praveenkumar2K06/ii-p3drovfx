@@ -29,7 +29,6 @@ import qs.modules.ii.wallpaperSelector
 import qs.modules.ii.wrappedFrame
 import qs.modules.ii.colorPickerPopup
 import qs.modules.ii.videoEditor
-import qs.modules.ii.localSendPopup
 import qs.modules.ii.scratchpadOverlay
 import qs.modules.ii.keyboardLayoutTransitionPopup
 import qs.modules.ii.keypressDisplay
@@ -98,10 +97,6 @@ Scope {
     PanelLoader {
         extraCondition: Config.ready && !Config.options.bar.floatingNotch.enable
         component: KeyboardLayoutTransitionPopup {}
-    }
-    PanelLoader {
-        extraCondition: Config.ready && !Config.options.bar.floatingNotch.enable && GlobalStates.localSendPopupOpen
-        component: LocalSendPopup {}
     }
     PanelLoader {
         extraCondition: !(Config.ready && (Config.options.bar.floatingNotch.enable || Config.options.bar.floatingNotch.centerInBar) && !Config.options.bar.floatingNotch.disableNotification)
