@@ -215,9 +215,9 @@ Button {
         animation: Appearance?.animation.elementMoveFast.numberAnimation.createObject(root)
     }
 
-    property color colBackground: Appearance?.colors.colPrimary || "transparent"
-    property color colBackgroundHover: Appearance?.colors.colPrimaryHover ?? "#E5DFED"
-    property color colBackgroundActive: Appearance?.colors.colPrimaryActive ?? colBackgroundHover
+    property color colBackground: ColorUtils.transparentize(Appearance?.colors.colLayer1Hover, 1) || "transparent"
+    property color colBackgroundHover: Appearance?.colors.colLayer1Hover ?? "#E5DFED"
+    property color colBackgroundActive: Appearance?.colors.colLayer1Active ?? colBackgroundHover
     property color colBackgroundToggled: Appearance?.colors.colPrimary ?? "#65558F"
     property color colBackgroundToggledHover: Appearance?.colors.colPrimaryHover ?? "#77699C"
     property color colBackgroundToggledActive: Appearance?.colors.colPrimaryActive ?? colBackgroundToggledHover
