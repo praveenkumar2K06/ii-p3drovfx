@@ -73,8 +73,7 @@ Item {
                         "weeb": Config.options.policies.weeb,
                         "wallpapers": Config.options.policies.wallpapers,
                         "translator": Config.options.policies.translator,
-                        "player": Config.options.policies.player,
-                        "phone": Config.options.policies.phone
+                        "player": Config.options.policies.player
                     };
                 }
                 model: [{
@@ -141,19 +140,6 @@ Item {
                     "key": "player",
                     "name": Translation.tr("Sidebar player"),
                     "icon": "music_note",
-                    "options": [{
-                        "displayName": Translation.tr("No"),
-                        "icon": "close",
-                        "value": 0
-                    }, {
-                        "displayName": Translation.tr("Yes"),
-                        "icon": "check",
-                        "value": 1
-                    }]
-                }, {
-                    "key": "phone",
-                    "name": Translation.tr("Phone"),
-                    "icon": "smartphone",
                     "options": [{
                         "displayName": Translation.tr("No"),
                         "icon": "close",

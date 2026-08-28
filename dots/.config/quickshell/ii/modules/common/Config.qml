@@ -931,11 +931,6 @@ Singleton {
             "policies.wallpapers": [0, 1],
             "policies.translator": [0, 1, 2],
             "policies.player": [0, 1],
-            "policies.phone": [0, 1],
-            "phone.webcam.cameraFacing": ["front", "back"],
-            "phone.webcam.resolution": ["640x480", "1280x720", "1920x1080"],
-            "phone.webcam.rotateDegrees": [0, 90, 180, 270],
-            "phone.webcam.connection": ["wifi", "usb"],
             "appearance.fakeScreenRounding": [0, 1, 2, 3, 4],
             "appearance.colorEngine": ["vynx", "fork"],
             "background.zoomOutStyle": [0, 1, 2],
@@ -1261,74 +1256,6 @@ Singleton {
                 property int wallpapers: 0 // 0: No | 1: Yes
                 property int translator: 1 // 0: No | 1: Default (illogical-impulse) | 2: Expressive (reworked)
                 property int player: 0 // 0: No | 1: Yes
-                property int phone: 1 // 0: No | 1: Yes — Phone tab (future KDE Connect + scrcpy external)
-            }
-
-            property JsonObject phone: JsonObject {
-                property bool kdeconnectEnabled: true
-                property bool showPeripheralCards: true
-                property JsonObject contacts: JsonObject {
-                    property bool enabled: true
-                    property list<string> favoriteIds: []
-                    property bool showAvatars: true
-                    property string sortBy: "first" // "first" | "last"
-                    // Android exports every raw contact from every sync adapter, so
-                    // spam lists and SIM imports show up as bare phone numbers
-                    property bool hideUnnamed: true
-                }
-                property JsonObject scrcpy: JsonObject {
-                    property bool stayAwake: false  // bare scrcpy default — don't add overhead
-                    property bool turnScreenOff: false  // turning screen off causes input delay on Samsung (touch sampling rate drops)
-                    property bool noPowerOn: false  // bare scrcpy default
-                    property bool noAudio: false
-                    property bool showTouches: false
-                    property bool fullscreen: false
-                    property bool alwaysOnTop: false
-                    property int maxFps: 0  // 0 = use device's native frame rate (matches bare `scrcpy`)
-                    property string bitRate: "8M"
-                    property int maxSize: 0
-                    property int videoBuffer: 0  // scrcpy 4.0 default is 0ms — 80ms adds visible latency
-                    property bool useWireless: false
-                    property bool autoWirelessIp: true  // resolve IP live from KDE Connect instead of the manual field
-                    property string wirelessIp: ""
-                    property string wirelessPort: "5555"
-                    property bool showTerminal: false
-                    property JsonObject appMode: JsonObject {
-                        property bool enabled: true
-                        property bool showAppIcons: true // Pull each app's launcher icon off the phone over adb
-                        property string iconShape: "oneui" // Launcher-style mask for those icons, keys in AndroidIconMask.shapes
-                        property bool flexDisplay: true
-                        property int displayWidth: 1280
-                        property int displayHeight: 960
-                        property int density: 160
-                        property bool keepActive: true
-                        property bool systemDecorations: true
-                        property list<string> favoritePackages: []
-                    }
-                }
-                property JsonObject webcam: JsonObject {
-                    property bool enabled: false
-                    property string cameraFacing: "front" // "front" | "back"
-                    property string resolution: "1280x720" // "640x480" | "1280x720" | "1920x1080"
-                    property int fps: 30
-                    property string bitrate: "4M"
-                    property bool mirrorHorizontally: false
-                    property int rotateDegrees: 0 // 0 | 90 | 180 | 270
-                    property string connection: "wifi" // "wifi" | "usb"
-                    property string wifiIp: ""
-                    property int port: 4747
-                }
-                property JsonObject microphone: JsonObject {
-                    property bool enabled: false
-                    property string connection: "wifi"
-                    property string wifiIp: ""
-                    property int port: 4748
-                    property bool noiseSuppression: false
-                    property bool echoCancellation: false
-                    property bool autoGainControl: false
-                    property int micGain: 100
-                    property bool setAsDefault: false
-                }
             }
 
             property JsonObject localsend: JsonObject {
@@ -3014,7 +2941,7 @@ Singleton {
                 }
 
                 property JsonObject quickToggles: JsonObject {
-                    property string style: "android" // Options: classic, android
+                    property string style: "classic" // Options: classic, android
                     property bool useThreeWaySliders: true
                     property JsonObject classic: JsonObject {
                         // Order matters: it is the order the toggles appear in.

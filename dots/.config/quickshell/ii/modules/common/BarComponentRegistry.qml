@@ -151,12 +151,6 @@ Singleton {
             configPage: "IndicatorsConfig.qml"
         },
         {
-            id: "phone_scrcpy_indicator",
-            icon: "smart_display",
-            title: "Phone scrcpy indicator",
-            pageId: "devicesPhone"
-        },
-        {
             id: "shell_update_indicator",
             icon: "deployed_code_update",
             title: "Shell update indicator",

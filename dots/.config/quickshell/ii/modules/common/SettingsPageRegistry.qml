@@ -274,15 +274,6 @@ Singleton {
             "aliases": ["Wi-Fi", "WiFi", "Wireless", "Bluetooth", "Pairing", "Hotspot", "Tethering", "Access point", "Ethernet", "Wired", "802.1X", "Enterprise Wi-Fi", "Hidden network", "NetworkManager", "IP address", "DNS"]
         },
         {
-            "id": "devicesPhone",
-            "name": "Devices & Phone",
-            "icon": "smartphone",
-            "component": "modules/settings/configs/DevicesPhoneConfig.qml",
-            "subPages": ["widgets/KdeConnectConfig.qml"],
-            "searchSources": ["sections/PhoneBluetoothImagesSection.qml"],
-            "aliases": ["Core Services", "scrcpy", "Bluetooth Device Images", "LocalSend", "Wireless debugging", "Phone"]
-        },
-        {
             "id": "privacy",
             "name": "Privacy & Content",
             "icon": "policy",
@@ -364,7 +355,7 @@ Singleton {
         {
             "id": "system",
             "name": "System",
-            "pageIds": ["displays", "network", "soundAlerts", "power", "devicesPhone", "privacy", "about"]
+            "pageIds": ["displays", "network", "soundAlerts", "power", "privacy", "about"]
         }
     ]
 

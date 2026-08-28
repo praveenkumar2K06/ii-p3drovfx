@@ -15,8 +15,6 @@ Singleton {
     property alias sidebarRightOpen: root.dashboardPanelOpen // Until all sidebars naming is fixed
 
     property bool barOpen: true
-    property bool phoneCameraRunning: false
-    property bool phoneMicRunning: false
     property int mediaModeCount: 0
     readonly property bool mediaModeActive: mediaModeCount > 0
     property var mediaModeMonitors: []
@@ -647,8 +645,6 @@ Singleton {
         if (p.wallpapers !== 0)
             activeCount++;
         if (p.weeb !== 0 && p.weeb !== 2)
-            activeCount++;
-        if (p.phone !== 0)
             activeCount++;
 
         const minTabs = 3;

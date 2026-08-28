@@ -8,7 +8,6 @@ import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import Qt.labs.synchronizer
 import qs.modules.common.functions
-import "phone"
 
 Item {
     id: root
@@ -109,12 +108,6 @@ Item {
             name: Translation.tr("Anime"),
             enabled: root.animeEnabled && !root.animeCloset,
             component: anime
-        },
-        {
-            icon: "smartphone",
-            name: Translation.tr("Phone"),
-            enabled: Config.options.policies.phone !== 0,
-            component: phonePlaceholder
         }
     ]
 
@@ -419,7 +412,6 @@ Item {
                         required property int index
 
                         active: (root.tabsWanted && (SwipeView.isCurrentItem || !!root.visitedTabs[index]))
-                                || (modelData.icon === "smartphone" && (GlobalStates.phoneMicRunning || GlobalStates.phoneCameraRunning))
                         sourceComponent: modelData.component
 
                         transform: Translate {
@@ -521,10 +513,6 @@ Item {
         Component {
             id: anime
             Anime {}
-        }
-        Component {
-            id: phonePlaceholder
-            Phone {}
         }
         Component {
             id: placeholder

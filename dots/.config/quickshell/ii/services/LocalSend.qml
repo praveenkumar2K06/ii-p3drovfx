@@ -50,7 +50,7 @@ Singleton {
     property bool _sendWasReceiving: false
     property var _pendingSendCommand: []
 
-    // Transparency state shown in Settings (DevicesPhoneConfig.qml)
+    // Transparency state shown in Settings
     property string cliVersion: ""
     property bool pyteAvailable: false
     property bool pyteChecked: false

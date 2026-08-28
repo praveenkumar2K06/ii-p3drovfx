@@ -398,8 +398,6 @@ Item {
             return true;
         if (modelData.id === "dictation_indicator")
             return true;
-        if (modelData.id === "phone_scrcpy_indicator")
-            return true;
         if (modelData.id === "shell_update_indicator")
             return true;
         if (modelData.id === "mode_indicator")
@@ -570,8 +568,6 @@ Item {
             return recordIndicatorComp;
         case "dictation_indicator":
             return dictationIndicatorComp;
-        case "phone_scrcpy_indicator":
-            return phoneScrcpyIndicatorComp;
         case "shell_update_indicator":
             return shellUpdateIndicatorComp;
         case "mode_indicator":
@@ -651,12 +647,6 @@ Item {
     Component {
         id: dictationIndicatorComp
         DictationIndicator {
-            vertical: rootItem.vertical
-        }
-    }
-    Component {
-        id: phoneScrcpyIndicatorComp
-        PhoneScrcpyIndicator {
             vertical: rootItem.vertical
         }
     }

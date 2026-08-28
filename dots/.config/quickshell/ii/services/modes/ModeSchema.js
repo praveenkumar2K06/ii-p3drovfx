@@ -30,7 +30,6 @@ var CONDITION_SOURCES = {
     media: "conditions/MediaCondition.qml",
     deviceInUse: "conditions/DeviceInUseCondition.qml",
     discordVoice: "conditions/DiscordVoiceCondition.qml",
-    phone: "conditions/PhoneCondition.qml",
     pomodoro: "conditions/PomodoroCondition.qml",
     resource: "conditions/ResourceCondition.qml",
     vpn: "conditions/VpnCondition.qml",
@@ -79,7 +78,6 @@ var TRIGGER_TYPES = {
     wifi: { label: "Wi-Fi", icon: "wifi", editor: "wifi", group: "connectivity" },
     vpn: { label: "VPN or Tailscale", icon: "vpn_lock", editor: "vpn", group: "connectivity" },
     bluetooth: { label: "Bluetooth", icon: "bluetooth", editor: "bluetooth", group: "connectivity" },
-    phone: { label: "Phone", icon: "smartphone", editor: "phone", group: "connectivity" },
     monitors: { label: "Monitors", icon: "monitor", editor: "monitors", group: "connectivity" },
     audioDevice: { label: "Audio device", icon: "headphones", editor: "audioDevice", group: "connectivity" },
     weather: { label: "Weather", icon: "partly_cloudy_day", editor: "weather", group: "outside" },
@@ -293,10 +291,6 @@ function normalizeTrigger(raw) {
         break;
     case "deviceInUse":
         t.what = ["mic", "camera", "screen"].indexOf(t.what) !== -1 ? t.what : "mic";
-        break;
-    case "phone":
-        t.reachable = t.reachable !== false;
-        t.batteryBelow = optionalInt(t.batteryBelow, 1, 100);
         break;
     case "pomodoro":
         t.phase = ["focus", "break", "any"].indexOf(t.phase) !== -1 ? t.phase : "any";
@@ -755,13 +749,6 @@ function routineTemplates() {
                 { type: "media", value: "pause" }
             ],
             cooldownSec: 0, notify: false, end: { revert: true, strict: false }
-        },
-        {
-            template: "lock-phone-away", id: "lock-phone-away", name: "Lock when the phone is out of reach",
-            icon: "phonelink_lock", color: "blue", enabled: true, kind: "once", match: "any",
-            triggers: [{ type: "phone", reachable: false, forSec: 120 }],
-            actions: [{ type: "lock", value: null }],
-            cooldownSec: 300, notify: true, end: { revert: false, strict: false }
         },
         {
             template: "break-reminder", id: "break-reminder", name: "Break reminder after 50 min of Work",

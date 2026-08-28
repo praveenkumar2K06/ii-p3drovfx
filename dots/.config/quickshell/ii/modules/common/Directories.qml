@@ -76,7 +76,6 @@ Singleton {
     property string generateLockscreenColorsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/colors/generate-lockscreen-colors.sh`)
     property string gammaControlScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/brightness/ii-gamma-control`)
     property string swapLockscreenColorsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/colors/swap-lockscreen-colors.sh`)
-    property string generatedWallpaperCategoryPath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/wallpaper/category.txt`)
     property string cliphistDecode: FileUtils.trimFileProtocol(`/tmp/quickshell-${SystemInfo.username}/media/cliphist`)
     property string screenshotTemp: `/tmp/quickshell-${SystemInfo.username}/media/screenshot`
     property string wallpaperSwitchScriptPath: FileUtils.trimFileProtocol(
@@ -118,10 +117,6 @@ Singleton {
     property string geniusLyricsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/lyrics/genius-lyrics.js`)
     property string ytmusicLyricsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/lyrics/ytmusic-lyrics-wrapper.sh`)
     property string localSendDownloadPath: FileUtils.trimFileProtocol(`${Directories.home}/Downloads/localsend`)
-    // Widget extensions
-    property string userWidgetsPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/user_widgets`)
-    property string widgetExtensionsPath: `${Directories.shellConfig}/widget_extensions.json`
-    property string widgetBackupsPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/user_widgets/.backups`)
     property string userProfileImagePath: FileUtils.trimFileProtocol(`${Directories.shellConfig}/profile.png`)
 
     // Cleanup on init
@@ -139,7 +134,6 @@ Singleton {
         Quickshell.execDetached(["mkdir", "-p", `${aiDrafts}`]);
         Quickshell.execDetached(["mkdir", "-p", `${FileUtils.parentDirectory(holidaysCachePath)}`]);
         Quickshell.execDetached(["mkdir", "-p", `${userActions}`]);
-        Quickshell.execDetached(["mkdir", "-p", `${userWidgetsPath}`]);
         Quickshell.execDetached(["rm", "-rf", `${tempImages}`]);
         Quickshell.execDetached(["mkdir", "-p", `${screenshotTemp}`]);
     }

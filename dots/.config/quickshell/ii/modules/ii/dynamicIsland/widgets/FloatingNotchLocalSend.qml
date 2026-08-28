@@ -36,17 +36,14 @@ Item {
     property bool rightHover: false
 
     // ── KDE helpers ──────────────────────────────────────────────────────
+    // The KDE Connect ("KDE Phone") feature was removed, so these are
+    // hardcoded to the unavailable state.
     readonly property bool kdeEnabled:
         !Config.options.bar.floatingNotch.disableKdeConnectInLocalSend
 
-    readonly property bool kdeAvailable: kdeEnabled
-        && typeof KdeConnectService !== "undefined"
-        && KdeConnectService.available
-        && KdeConnectService.activeReachable
+    readonly property bool kdeAvailable: false
 
-    readonly property var kdeDevice: kdeAvailable
-        ? KdeConnectService.activeDevice
-        : null
+    readonly property var kdeDevice: null
 
     // ── KDE send state ───────────────────────────────────────────────────
     property bool kdeSending: false
@@ -1080,12 +1077,6 @@ Item {
                         if (!root.kdeAvailable || root.queueFiles.length === 0) return
                         root.kdeSending = true
                         root.kdeFilesSent = root.queueFiles.length
-                        for (let i = 0; i < root.queueFiles.length; i++) {
-                            KdeConnectService.shareUrl(
-                                KdeConnectService.activeDeviceId,
-                                "file://" + root.queueFiles[i]
-                            )
-                        }
                         Qt.callLater(function() {
                             root.kdeSending = false
                             root.kdeSent = true

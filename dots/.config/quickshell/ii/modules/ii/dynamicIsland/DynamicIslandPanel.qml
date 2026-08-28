@@ -1164,7 +1164,7 @@ Scope {
                     if (!lsWidget)
                         return;
                     const dropW = root.isDragOverNotch ? Math.max(container.width, root.targetW + 60) : container.width;
-                    const kdeReady = !Config.options.bar.floatingNotch.disableKdeConnectInLocalSend && typeof KdeConnectService !== "undefined" && KdeConnectService.available && KdeConnectService.activeReachable && KdeConnectService.activeDevice;
+                    const kdeReady = false;
                     if (kdeReady) {
                         lsWidget.rightHover = drag.x >= dropW / 2;
                         lsWidget.leftHover = drag.x < dropW / 2;
@@ -1185,7 +1185,7 @@ Scope {
                         return;
                     const lsWidget = root._localSendWidget;
                     const dropW = root.isDragOverNotch ? Math.max(container.width, root.targetW + 60) : container.width;
-                    const useKde = !Config.options.bar.floatingNotch.disableKdeConnectInLocalSend && typeof KdeConnectService !== "undefined" && KdeConnectService.available && KdeConnectService.activeReachable && KdeConnectService.activeDevice && drop.x >= dropW / 2;
+                    const useKde = false;
                     const cleanPaths = drop.urls.map(function (u) {
                         return u.toString().replace(/^file:\/\//, "");
                     });
@@ -1769,8 +1769,8 @@ Scope {
             onDropped: drop => {
                 if (!drop.hasUrls)
                     return;
-                const kdeReady = !Config.options.bar.floatingNotch.disableKdeConnectInLocalSend && typeof KdeConnectService !== "undefined" && KdeConnectService.available && KdeConnectService.activeReachable && KdeConnectService.activeDevice;
-                const useKde = kdeReady && drop.x >= width / 2;
+                const kdeReady = false;
+                const useKde = false;
                 const cleanPaths = drop.urls.map(function (u) {
                     return u.toString().replace(/^file:\/\//, "");
                 });

@@ -347,11 +347,6 @@ QtObject {
         return Math.max(1000, Math.min(10000, Math.round((Number(v) || 5000) / 100) * 100));
     }
 
-    function phoneRequest(v) {
-        const obj = root.asObject(v);
-        return { kind: obj.kind === "ring" ? "ring" : "ping", message: root.nonEmpty(obj.message) ? obj.message : "" };
-    }
-
     // ---------------------------------------------------------------- registry
 
     readonly property var registry: ({
@@ -1162,23 +1157,6 @@ QtObject {
                     DnsOverTls.enable();
                 else
                     DnsOverTls.disable();
-            }
-        },
-
-        pingPhone: {
-            id: "pingPhone", category: "radios", label: "Phone", icon: "smartphone",
-            editor: "phone", volatile: false,
-            // value: { kind: "ping" | "ring", message }, via KDE Connect
-            available: () => KdeConnectService.available,
-            apply: v => {
-                const req = root.phoneRequest(v);
-                const id = KdeConnectService.activeDeviceId;
-                if (!id.length || !KdeConnectService.activeReachable)
-                    throw new Error("phone not reachable");
-                if (req.kind === "ring")
-                    KdeConnectService.findMyPhone(id);
-                else
-                    KdeConnectService.sendPing(id, req.message);
             }
         },
 

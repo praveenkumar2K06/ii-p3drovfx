@@ -210,15 +210,6 @@ Singleton {
         const groups = {};
         list.forEach((notif) => {
             if (!notif) return;
-            const appNameLower = (notif.appName || "").toLowerCase();
-            const isKdeConnect = appNameLower === "kdeconnect"
-                || appNameLower === "kde connect"
-                || appNameLower === "org.kde.kdeconnect"
-                || KdeConnectService.devices.some(d => d.name && d.name.toLowerCase() === appNameLower);
-
-            if (isKdeConnect && KdeConnectService._enabled && KdeConnectService.activeReachable) {
-                return;
-            }
 
             if (!groups[notif.appName]) {
                 groups[notif.appName] = {
@@ -423,17 +414,6 @@ Singleton {
         persistenceSupported: true
 
         onNotification: (notification) => {
-            const appNameLower = (notification.appName || "").toLowerCase();
-            const isKdeConnect = appNameLower === "kdeconnect"
-                || appNameLower === "kde connect"
-                || appNameLower === "org.kde.kdeconnect"
-                || KdeConnectService.devices.some(d => d.name && d.name.toLowerCase() === appNameLower);
-
-            if (isKdeConnect && KdeConnectService._enabled && KdeConnectService.activeReachable) {
-                notification.tracked = true;
-                return;
-            }
-
             notification.tracked = true
             const notificationId = notification.id + root.idOffset;
             const existingNotifObject = root.findTrackedNotification(notificationId);
