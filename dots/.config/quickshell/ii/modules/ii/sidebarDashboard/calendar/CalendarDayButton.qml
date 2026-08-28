@@ -11,8 +11,6 @@ RippleButton {
     property string day
     property int isToday
     property bool bold
-    readonly property int taskMargin: 5
-    property bool showPopup: false
 
     property int gridRow: -1
     property int gridCol: -1
@@ -70,51 +68,6 @@ RippleButton {
     implicitHeight: cellSize
     toggled: (isToday == 1)
     buttonRadius: Appearance.rounding.small
-
-    LazyLoader {
-        id: popupLoader
-        active: itemScale > 0.9
-
-        property real itemScale: button.showPopup ? 1 : 0.85
-        property real itemOpacity: button.showPopup ? 1 : 0
-        
-        Behavior on itemScale {
-            animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)
-        }
-        Behavior on itemOpacity {
-            animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)
-        }
-
-        component: CalendarPopup {
-            id: popup
-            parent: button.QsWindow?.contentItem // i cant believe this works..
-            scale: popupLoader.itemScale
-            opacity: popupLoader.itemOpacity
-            
-
-            x: {
-                if (!button.QsWindow) return 0;
-                const buttonPos = button.QsWindow.contentItem.mapFromItem(button, 0, 0);
-                const centeredX = buttonPos.x + (button.width / 2) - (popup.width / 2);
-                return Math.max(0, Math.min(centeredX, parent.width - popup.width));
-            }
-            
-            y: {
-                if (!button.QsWindow) return 0;
-                const buttonPos = button.QsWindow.contentItem.mapFromItem(button, 0, 0);
-                return buttonPos.y - popup.height - 4; 
-            }
-        }
-        
-    }
-    
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered: {
-        }
-        onExited: button.showPopup = false
-    }
     
     StyledText {
         anchors.centerIn: parent
