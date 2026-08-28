@@ -157,11 +157,7 @@ ContentPage {
                     values: BluetoothStatus.connectedDevices
                 }
 
-                delegate: BluetoothDeviceRow {
-                    required property BluetoothDevice modelData
-                    required property int index
-
-                    device: modelData
+                delegate: BluetoothConnectedDeviceDelegate {
                     isFirst: index === 0
                     isLast: index === connectedRepeater.count - 1
                 }

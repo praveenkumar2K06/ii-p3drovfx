@@ -18,6 +18,9 @@ Rectangle {
     property bool isFirst: false
     property bool isLast: false
     property bool expanded: false
+    // Sticky: the actions panel below is built once, on first expand.
+    property bool wasExpanded: false
+    onExpandedChanged: if (root.expanded) root.wasExpanded = true
 
     readonly property string deviceName: {
         const name = root.device?.name ?? "";
@@ -37,6 +40,7 @@ Rectangle {
 
     readonly property real outerRadius: Appearance.rounding.normal
     readonly property real innerRadius: Appearance.rounding.verysmall
+    readonly property bool performanceMode: Config.options?.appearance?.settingsPerformanceMode ?? false
 
     // An unpaired device has to be paired before it can carry anything, so the
     // obvious action on it is pairing rather than a connection that would fail.
@@ -67,7 +71,12 @@ Rectangle {
     clip: true
 
     Behavior on color {
-        animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
+        // createObject runs once per row at construction regardless of
+        // `enabled`, so performance mode skips it outright — with several
+        // devices around that's several fewer objects built the moment the
+        // list mounts.
+        animation: root.performanceMode ? null
+            : Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
     }
 
     ColumnLayout {
@@ -180,6 +189,7 @@ Rectangle {
                     rotation: root.expanded ? 0 : -90
 
                     Behavior on rotation {
+                        enabled: !root.performanceMode
                         NumberAnimation {
                             duration: Appearance.animation.elementMoveFast.duration
                             easing.type: Appearance.animation.elementMoveFast.type
@@ -192,10 +202,11 @@ Rectangle {
 
         Item {
             Layout.fillWidth: true
-            implicitHeight: root.expanded ? actions.implicitHeight + 16 : 0
+            implicitHeight: root.expanded && actionsLoader.item ? actionsLoader.item.implicitHeight + 16 : 0
             clip: true
 
             Behavior on implicitHeight {
+                enabled: !root.performanceMode
                 NumberAnimation {
                     duration: Appearance.animation.elementMove.duration
                     easing.type: Appearance.animation.elementMove.type
@@ -203,129 +214,30 @@ Rectangle {
                 }
             }
 
-            ColumnLayout {
-                id: actions
+            // Deferred: most discovered/paired devices are never opened, and
+            // this panel builds a MaterialTextField plus several buttons and
+            // switches. Building all of that immediately for every device the
+            // moment the list mounts is what made the Bluetooth tab heavy to
+            // open with several devices around. Built once on first expand.
+            Loader {
+                id: actionsLoader
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.leftMargin: 16
                 anchors.rightMargin: 16
+                active: root.wasExpanded
                 opacity: root.expanded ? 1 : 0
-                spacing: 8
 
                 Behavior on opacity {
+                    enabled: !root.performanceMode
                     NumberAnimation {
                         duration: Appearance.animation.elementMoveFast.duration
                     }
                 }
 
-                MaterialTextField {
-                    id: renameField
-                    Layout.fillWidth: true
-                    visible: root.isPaired
-                    placeholderText: Translation.tr("Name shown for this device")
-                    text: root.deviceName
-                    onAccepted: {
-                        if (root.device && renameField.text.length > 0)
-                            root.device.name = renameField.text;
-                    }
-                }
-
-                RowLayout {
-                    Layout.fillWidth: true
-                    spacing: 8
-
-                    RippleButtonWithIcon {
-                        materialIcon: root.isPairing ? "close"
-                            : !root.isPaired ? "add_link"
-                            : root.isConnected ? "link_off" : "link"
-                        mainText: root.isPairing ? Translation.tr("Cancel")
-                            : !root.isPaired ? Translation.tr("Pair")
-                            : root.isConnected ? Translation.tr("Disconnect") : Translation.tr("Connect")
-                        colBackground: root.isConnected || root.isPairing ? Appearance.colors.colLayer2Hover
-                            : Appearance.colors.colPrimary
-                        colText: root.isConnected || root.isPairing ? Appearance.colors.colOnLayer1
-                            : Appearance.colors.colOnPrimary
-                        onClicked: root.primaryAction()
-                    }
-
-                    RippleButtonWithIcon {
-                        visible: root.isPaired && !root.isPairing
-                        materialIcon: "delete"
-                        mainText: Translation.tr("Forget")
-                        onClicked: root.device?.forget()
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-                }
-
-                RowLayout {
-                    Layout.fillWidth: true
-                    visible: root.isPaired
-                    spacing: 8
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        spacing: 0
-
-                        StyledText {
-                            text: Translation.tr("Trusted")
-                            font.pixelSize: Appearance.font.pixelSize.smaller
-                            color: Appearance.colors.colOnLayer1
-                        }
-
-                        StyledText {
-                            Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            text: Translation.tr("Reconnects on its own and stops asking for permission.")
-                            font.pixelSize: Appearance.font.pixelSize.smaller
-                            color: Appearance.colors.colSubtext
-                        }
-                    }
-
-                    StyledSwitch {
-                        checked: root.device?.trusted ?? false
-                        onToggled: {
-                            if (root.device)
-                                root.device.trusted = checked;
-                            checked = Qt.binding(() => root.device?.trusted ?? false);
-                        }
-                    }
-                }
-
-                RowLayout {
-                    Layout.fillWidth: true
-                    spacing: 8
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        spacing: 0
-
-                        StyledText {
-                            text: Translation.tr("Blocked")
-                            font.pixelSize: Appearance.font.pixelSize.smaller
-                            color: Appearance.colors.colOnLayer1
-                        }
-
-                        StyledText {
-                            Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            text: Translation.tr("Refuses every connection from this device until it is unblocked.")
-                            font.pixelSize: Appearance.font.pixelSize.smaller
-                            color: Appearance.colors.colSubtext
-                        }
-                    }
-
-                    StyledSwitch {
-                        checked: root.device?.blocked ?? false
-                        onToggled: {
-                            if (root.device)
-                                root.device.blocked = checked;
-                            checked = Qt.binding(() => root.device?.blocked ?? false);
-                        }
-                    }
+                sourceComponent: BluetoothDeviceActions {
+                    device: root.device
                 }
             }
         }

@@ -17,11 +17,16 @@ Item {
     readonly property string deviceName: device ? (device.name || device.alias || "Device") : ""
     readonly property var activeDevice: device
 
+    readonly property bool hasBattery: root.activeDevice && root.activeDevice.batteryAvailable
+    readonly property real batteryFraction: root.activeDevice?.battery ?? 0
+
     function getDeviceImageSource(device) {
         if (!device) return "";
-        let custom = Config.options.bluetoothDeviceImages.find(d => d.mac === device.address);
-        if (custom) {
-            return "file://" + Directories.shellConfig + "/bluetooth_images/" + custom.image;
+        if (Config.options && Config.options.bluetoothDeviceImages) {
+            let custom = Config.options.bluetoothDeviceImages.find(d => d.mac === device.address);
+            if (custom && custom.image) {
+                return "file://" + Directories.shellConfig + "/bluetooth_images/" + custom.image;
+            }
         }
         return "";
     }
@@ -129,22 +134,20 @@ Item {
                         valueBarHeight: 6
                         from: 0
                         to: 1
-                        value: root.activeDevice ? root.activeDevice.battery : 0
+                        value: root.batteryFraction
                         highlightColor: {
-                            const battery = root.activeDevice ? root.activeDevice.battery : 0;
-                            if (battery <= 0.15) return Appearance.m3colors.m3error;
+                            if (root.batteryFraction <= 0.15) return Appearance.m3colors.m3error;
                             return Appearance.colors.colPrimary;
                         }
                         trackColor: Appearance.colors.colSurfaceContainerHighest
                     }
 
                     StyledText {
-                        text: root.activeDevice ? Math.round(root.activeDevice.battery * 100) + "%" : ""
+                        text: Math.round(root.batteryFraction * 100) + "%"
                         font.pixelSize: Appearance.font.pixelSize.smaller
                         font.weight: Font.Bold
                         color: {
-                            const battery = root.activeDevice ? root.activeDevice.battery : 0;
-                            if (battery <= 0.15) return Appearance.m3colors.m3error;
+                            if (root.batteryFraction <= 0.15) return Appearance.m3colors.m3error;
                             return Appearance.colors.colOnSurfaceVariant;
                         }
                     }
@@ -241,7 +244,7 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 RowLayout {
-                    visible: root.activeDevice ? root.activeDevice.batteryAvailable : false
+                    visible: (!root.devBattery || !root.devBattery.available || root.devBattery.components.length <= 1) && root.hasBattery
                     spacing: 6
 
                     StyledProgressBar {
@@ -250,22 +253,20 @@ Item {
                         valueBarHeight: 8
                         from: 0
                         to: 1
-                        value: root.activeDevice ? root.activeDevice.battery : 0
+                        value: root.batteryFraction
                         highlightColor: {
-                            const battery = root.activeDevice ? root.activeDevice.battery : 0;
-                            if (battery <= 0.15) return Appearance.m3colors.m3error;
+                            if (root.batteryFraction <= 0.15) return Appearance.m3colors.m3error;
                             return Appearance.colors.colPrimary;
                         }
                         trackColor: Appearance.colors.colSurfaceContainerHighest
                     }
 
                     StyledText {
-                        text: root.activeDevice ? Math.round(root.activeDevice.battery * 100) + "%" : ""
+                        text: Math.round(root.batteryFraction * 100) + "%"
                         font.pixelSize: Appearance.font.pixelSize.small
                         font.weight: Font.Bold
                         color: {
-                            const battery = root.activeDevice ? root.activeDevice.battery : 0;
-                            if (battery <= 0.15) return Appearance.m3colors.m3error;
+                            if (root.batteryFraction <= 0.15) return Appearance.m3colors.m3error;
                             return Appearance.colors.colOnSurface;
                         }
                     }
