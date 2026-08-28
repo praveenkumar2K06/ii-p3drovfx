@@ -37,15 +37,15 @@ DelegateChooser {
         roleValue: "screenShader"
         AndroidScreenShaderToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -61,15 +61,15 @@ DelegateChooser {
         roleValue: "antiFlashbang"
         AndroidAntiFlashbangToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -85,15 +85,15 @@ DelegateChooser {
         roleValue: "audio"
         AndroidAudioToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -109,15 +109,15 @@ DelegateChooser {
         roleValue: "bluetooth"
         AndroidBluetoothToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -133,15 +133,15 @@ DelegateChooser {
         roleValue: "cloudflareWarp"
         AndroidCloudflareWarpToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -154,15 +154,15 @@ DelegateChooser {
         roleValue: "colorPicker"
         AndroidColorPickerToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -175,15 +175,15 @@ DelegateChooser {
         roleValue: "videoEditor"
         AndroidVideoEditorToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -196,15 +196,15 @@ DelegateChooser {
         roleValue: "darkMode"
         AndroidDarkModeToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -220,15 +220,15 @@ DelegateChooser {
         roleValue: "easyEffects"
         AndroidEasyEffectsToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -241,15 +241,15 @@ DelegateChooser {
         roleValue: "gameMode"
         AndroidGameModeToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -262,15 +262,15 @@ DelegateChooser {
         roleValue: "modes"
         AndroidModesToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -286,15 +286,15 @@ DelegateChooser {
         roleValue: "idleInhibitor"
         AndroidIdleInhibitorToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -310,15 +310,15 @@ DelegateChooser {
         roleValue: "mic"
         AndroidMicToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -334,15 +334,15 @@ DelegateChooser {
         roleValue: "musicRecognition"
         AndroidMusicRecognition {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -355,15 +355,15 @@ DelegateChooser {
         roleValue: "network"
         AndroidNetworkToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -379,15 +379,15 @@ DelegateChooser {
         roleValue: "nightLight"
         AndroidNightLightToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -403,15 +403,15 @@ DelegateChooser {
         roleValue: "notifications"
         AndroidNotificationToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -424,15 +424,15 @@ DelegateChooser {
         roleValue: "autoDnd"
         AndroidAutoDndToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -445,15 +445,15 @@ DelegateChooser {
         roleValue: "keypressDisplay"
         AndroidKeypressDisplayToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -466,15 +466,15 @@ DelegateChooser {
         roleValue: "powerProfile"
         AndroidPowerProfileToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -487,15 +487,15 @@ DelegateChooser {
         roleValue: "screenRecord"
         AndroidScreenRecordToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -508,15 +508,15 @@ DelegateChooser {
         roleValue: "screenSnip"
         AndroidScreenSnipToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -529,15 +529,15 @@ DelegateChooser {
         roleValue: "systemSounds"
         AndroidSystemSoundsToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -550,15 +550,15 @@ DelegateChooser {
         roleValue: "mediaWidget"
         AndroidMediaWidgetToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -570,15 +570,15 @@ DelegateChooser {
         roleValue: "volumeSlider"
         AndroidVolumeSliderToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -594,15 +594,15 @@ DelegateChooser {
         roleValue: "micSlider"
         AndroidMicSliderToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -618,15 +618,15 @@ DelegateChooser {
         roleValue: "brightnessSlider"
         AndroidBrightnessSliderToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -639,15 +639,15 @@ DelegateChooser {
         roleValue: "gammaSlider"
         AndroidGammaSliderToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -660,15 +660,15 @@ DelegateChooser {
         roleValue: "keyboardBacklight"
         AndroidKeyboardBacklightToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -681,15 +681,15 @@ DelegateChooser {
         roleValue: "vpn"
         AndroidVpnToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -705,15 +705,15 @@ DelegateChooser {
         roleValue: "tailscale"
         AndroidTailscaleToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel
@@ -729,15 +729,15 @@ DelegateChooser {
         roleValue: "dnsOverTls"
         AndroidDnsOverTlsToggle {
             required property int index
-            required property var modelData
+            required property var data
             buttonIndex: index
             isUnused: root.isUnused
-            buttonData: modelData
+            buttonData: data
             editMode: root.editMode
             baseCellWidth: root.baseCellWidth
             baseCellHeight: root.baseCellHeight
             cellSpacing: root.spacing
-            cellSize: modelData.sizeW
+            cellSize: data.sizeW
             pageIndex: root.pageIndex
             gridColumns: root.gridColumns
             panel: root.panel

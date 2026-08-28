@@ -39,7 +39,7 @@ ListModel {
         return {
             itemId: payload.id,
             toggleType: payload.type,
-            modelData: payload
+            data: payload
         };
     }
 
@@ -113,8 +113,8 @@ ListModel {
 
             if (existingIndex !== desiredIndex)
                 root.move(existingIndex, desiredIndex, 1);
-            if (!root.samePayload(root.get(desiredIndex).modelData, wanted.modelData))
-                root.setProperty(desiredIndex, "modelData", wanted.modelData);
+            if (!root.samePayload(root.get(desiredIndex).data, wanted.data))
+                root.set(desiredIndex, wanted);
         }
 
         root.syncing = false;
