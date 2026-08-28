@@ -247,14 +247,6 @@ Singleton {
             property JsonObject sidebar: JsonObject {
                 property JsonObject policies: JsonObject {
                     property int tab: 0
-                        property JsonObject phone: JsonObject {
-                            property string activeDeviceId: ""
-                            property list<string> recentDeviceIds: []
-                            property string cachedNotificationsJson: ""
-                            property JsonObject scrcpy: JsonObject {
-                                property list<string> recentPackages: []
-                            }
-                        }
                 }
                 property JsonObject bottomGroup: JsonObject {
                     property bool collapsed: false
@@ -393,20 +385,6 @@ Singleton {
                     property real width: 344
                     property real height: 200
                 }
-            }
-
-            property JsonObject phoneCamera: JsonObject {
-                property string lastMode: "wifi"   // "wifi" | "usb"
-                property string lastIp: ""
-                property int lastPort: 4747
-            }
-
-            property JsonObject phoneMic: JsonObject {
-                property string originalDefaultSink: ""
-                property string lastBackend: ""     // "scrcpy" | "droidcam"
-                property string lastMode: "wifi"
-                property string lastIp: ""
-                property int lastPort: 4748
             }
 
             property JsonObject screenRecord: JsonObject {

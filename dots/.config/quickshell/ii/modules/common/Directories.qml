@@ -25,16 +25,6 @@ Singleton {
 
     readonly property string cliPath: FileUtils.trimFileProtocol(`${Directories.home}/.local/bin/vynx`)
 
-    // Config paths
-
-    property string generalConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/GeneralConfig.qml`)
-    property string barConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/BarConfig.qml`)
-    property string backgroundConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/BackgroundConfig.qml`)
-    property string interfaceConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/InterfaceConfig.qml`)
-    property string hyprlandConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/HyprlandConfig.qml`)
-    property string servicesConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/ServicesConfig.qml`)
-    property string advancedConfigPath: FileUtils.trimFileProtocol(`${Directories.config}/quickshell/ii/modules/settings/AdvancedConfig.qml`)
-
     // Other dirs used by the shell, without "file://"
     property string assetsPath: Quickshell.shellPath("assets")
     property string scriptPath: FileUtils.trimFileProtocol(Quickshell.shellPath("scripts"))
@@ -58,21 +48,14 @@ Singleton {
     property string keybindImporterPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/keybinds/import_keybinds.py`)
     property string keybindAiCategorizerPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/keybinds/ai_categorize.py`)
     property string notesPath: FileUtils.trimFileProtocol(`${Directories.state}/user/notes.json`)
-    property string conflictCachePath: FileUtils.trimFileProtocol(`${Directories.cache}/conflict-killer`)
     property string notificationsPath: FileUtils.trimFileProtocol(`${Directories.cache}/notifications/notifications.json`)
     property string lyricsPath: FileUtils.trimFileProtocol(`${Directories.cache}/lyrics/lyrics.json`)
     property string generatedMaterialThemePath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/colors.json`)
     property string wallpaperPreviewColorsPath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/wallpaper_preview_colors.json`)
     property string lockscreenColorsPath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/lockscreen_colors.json`)
-    property string desktopColorsBackupPath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/desktop_colors.json`)
-    // Public holidays fetched from Nager.Date, one entry per "<COUNTRY>-<YEAR>".
-    property string holidaysCachePath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/holidays.json`)
     // ESPN scoreboards and per-game summaries shared by the sports widgets
     // and the timetable. Kept outside calendar storage by design.
     property string sportsCachePath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/sports.json`)
-    // iCalUID -> Google colorId, plus the account palette. The synced .ics files
-    // carry no COLOR, so this is the only place that mapping can live locally.
-    property string googleCalendarColorsPath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/google_calendar_colors.json`)
     property string generateLockscreenColorsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/colors/generate-lockscreen-colors.sh`)
     property string gammaControlScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/brightness/ii-gamma-control`)
     property string swapLockscreenColorsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/colors/swap-lockscreen-colors.sh`)
@@ -98,7 +81,6 @@ Singleton {
     property string aiSessionsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/ai/ai_sessions.py`)
     property string aiDraftsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/ai/ai_drafts.py`)
     property string aiAttachScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/ai/ai_attach.py`)
-    property string aiSettingsIndexPath: FileUtils.trimFileProtocol(`${Directories.state}/user/ai/settings_index.json`)
     property string aiLastAnswer: FileUtils.trimFileProtocol(`${Directories.state}/user/ai/last_answer.json`)
     property string aiSettingsIndexScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/ai/ai_settings_index.py`)
     property string aiWebScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/ai/ai_web.py`)
@@ -110,8 +92,6 @@ Singleton {
     property string extractColorsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/wallpapers/extract-colors.sh`)
     property string colorCachePath: FileUtils.trimFileProtocol(`${Directories.cache}/wallpapers/colors.json`)
     property string userAvatarPathAccountsService: FileUtils.trimFileProtocol(`/var/lib/AccountsService/icons/${SystemInfo.username}`)
-    property string userAvatarPathRicersAndWeirdSystems: FileUtils.trimFileProtocol(`${Directories.home}.face`)
-    property string userAvatarPathRicersAndWeirdSystems2: FileUtils.trimFileProtocol(`${Directories.home}.face.icon`)
     property string screenshareStateScript: FileUtils.trimFileProtocol(`${Directories.scriptPath}/screenShare/screensharestate.sh`)
     property string screenshareStatePath: FileUtils.trimFileProtocol(`${Directories.state}/user/generated/screenshare/apps.txt`)
     property string geniusLyricsScriptPath: FileUtils.trimFileProtocol(`${Directories.scriptPath}/lyrics/genius-lyrics.js`)
@@ -132,7 +112,6 @@ Singleton {
         Quickshell.execDetached(["mkdir", "-p", `${FileUtils.parentDirectory(keybindsPath)}`]);
         Quickshell.execDetached(["mkdir", "-p", `${aiRagIndexDir}`]);
         Quickshell.execDetached(["mkdir", "-p", `${aiDrafts}`]);
-        Quickshell.execDetached(["mkdir", "-p", `${FileUtils.parentDirectory(holidaysCachePath)}`]);
         Quickshell.execDetached(["mkdir", "-p", `${userActions}`]);
         Quickshell.execDetached(["rm", "-rf", `${tempImages}`]);
         Quickshell.execDetached(["mkdir", "-p", `${screenshotTemp}`]);
