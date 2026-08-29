@@ -284,15 +284,13 @@ Item {
     }
 
     // ── Genetic code button ──────────────────────────────────────────────────
-    RippleButton {
+    RippleButtonE {
         id: codonButton
         z: 2
         implicitWidth: 44
         implicitHeight: 44
         buttonRadius: Appearance.rounding.full
-        colBackground: Appearance.colors.colSecondaryContainer
-        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-        colRipple: Appearance.colors.colSecondaryContainerActive
+        type: RippleButtonE.ButtonType.Tonal
         onClicked: root.codonTableOpen = true
 
         anchors {

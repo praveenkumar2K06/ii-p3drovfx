@@ -137,10 +137,9 @@ Item {
                 text: "<b>" + Translation.tr("Experimental Feature!") + "</b><br>" +
                       Translation.tr("Bugs and performance issues are expected. Not all features of the ii shell (such as background animations) are supported by the live Wallpaper Engine window, and it will consume significantly more CPU/GPU resources.")
 
-                RippleButton {
+                RippleButtonE {
                     buttonText: Translation.tr("GitHub Repository")
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: {
                         Quickshell.execDetached(["xdg-open", "https://github.com/Almamu/linux-wallpaperengine"]);
                     }
@@ -214,13 +213,11 @@ Item {
                     }
                 }
 
-                rightAction: RippleButton {
+                rightAction: RippleButtonE {
                     implicitWidth: 36
                     implicitHeight: 36
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimaryContainer
-                    colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                    colRipple: Appearance.colors.colPrimaryContainerActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: {
                         var newText = wpeIdField.textField.text;
                         if (Config.options.background.wallpaperEngineId === newText) return;

@@ -84,15 +84,13 @@ Rectangle {
                 }
             }
 
-            RippleButton {
+            RippleButtonE {
                 leftPadding: Appearance.rounding.small
                 rightPadding: Appearance.rounding.small
                 topPadding: Appearance.rounding.unsharpenmore / 2
                 bottomPadding: Appearance.rounding.unsharpenmore / 2
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimary
-                colBackgroundHover: Appearance.colors.colPrimaryHover
-                colRipple: Appearance.colors.colPrimaryActive
+                type: RippleButtonE.ButtonType.Filled
                 onClicked: Ai.approveFileAttach(root.messageData)
 
                 contentItem: StyledText {

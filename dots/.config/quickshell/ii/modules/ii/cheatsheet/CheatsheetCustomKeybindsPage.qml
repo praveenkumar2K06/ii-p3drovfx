@@ -462,14 +462,12 @@ Item {
                 Layout.alignment: Qt.AlignVCenter
                 spacing: 4
 
-                RippleButton {
+                RippleButtonE {
                     id: saveButton
                     implicitWidth: 28
                     implicitHeight: 28
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colBackgroundActive: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     Accessible.name: Translation.tr("Save changes")
                     onClicked: inlineEditField.commitEdit()
 

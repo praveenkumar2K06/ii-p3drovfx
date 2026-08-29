@@ -6,7 +6,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 
-RippleButton {
+RippleButtonE {
     id: button
 
     property bool isExpanded: false
@@ -21,10 +21,7 @@ RippleButton {
     buttonRadius: expandedProgress > 0.01 ? Appearance.rounding.windowRounding : buttonHeight / 2
     rippleEnabled: true
 
-    // Standard colors per Task C.1
-    colBackground: Appearance.colors.colSecondaryContainer
-    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-    colRipple: Appearance.colors.colSecondaryContainerActive
+    type: RippleButtonE.ButtonType.Tonal
 
     contentItem: RowLayout {
         spacing: 8 * button.expandedProgress

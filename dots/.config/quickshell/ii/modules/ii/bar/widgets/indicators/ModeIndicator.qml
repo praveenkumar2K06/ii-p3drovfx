@@ -151,12 +151,11 @@ MouseArea {
                 Layout.fillWidth: true
                 spacing: 12
 
-                RippleButton {
+                RippleButtonE {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 38
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                    type: RippleButtonE.ButtonType.Tonal
                     onClicked: {
                         modePopup.close();
                         GlobalStates.modesOpen = true;
@@ -181,12 +180,10 @@ MouseArea {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 38
-                    buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colErrorContainer
-                    colBackgroundHover: Appearance.colors.colErrorContainerHover
+                    type: RippleButtonE.ButtonType.ErrorTonal
                     onClicked: {
                         modePopup.close();
                         Modes.deactivate("manual");

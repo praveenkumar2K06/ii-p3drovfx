@@ -119,15 +119,13 @@ Rectangle {
                     color: Appearance.m3colors.m3onSecondaryContainer
                 }
             }
-            RippleButton {
+            RippleButtonE {
                 leftPadding: Appearance.rounding.small
                 rightPadding: Appearance.rounding.small
                 topPadding: Appearance.rounding.unsharpenmore / 2
                 bottomPadding: Appearance.rounding.unsharpenmore / 2
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimary
-                colBackgroundHover: Appearance.colors.colPrimaryHover
-                colRipple: Appearance.colors.colPrimaryActive
+                type: RippleButtonE.ButtonType.Filled
                 onClicked: root.calendarMutation ? Ai.approveCalendarMutation(root.messageData) : Ai.approveTaskMutation(root.messageData)
                 contentItem: StyledText {
                     text: root.operation === "delete" ? Translation.tr("Delete")

@@ -416,13 +416,11 @@ Item {
                     }
 
                     // Paste button — pill shape, vibrant
-                    RippleButton {
+                    RippleButtonE {
                         implicitWidth: pasteRow.implicitWidth + 20
                         implicitHeight: 38
                         buttonRadius: Appearance.rounding.large
-                        colBackground: Appearance.colors.colPrimaryContainer
-                        colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                        colRipple: Appearance.colors.colOnPrimaryContainer
+                        type: RippleButtonE.ButtonType.Filled
 
                         HoverHandler { cursorShape: Qt.PointingHandCursor }
 

@@ -103,15 +103,13 @@ Rectangle {
             }
         }
 
-        RippleButton {
+        RippleButtonE {
             leftPadding: Appearance.rounding.small
             rightPadding: Appearance.rounding.small
             topPadding: 4
             bottomPadding: 4
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colPrimary
-            colBackgroundHover: Appearance.colors.colPrimaryHover
-            colRipple: Appearance.colors.colPrimaryActive
+            type: RippleButtonE.ButtonType.Filled
             // Queues it the same way the picker does: through the composer's
             // own probe → attachment pipeline, model-compat checks included.
             onClicked: Ai.attachFile(root.path)

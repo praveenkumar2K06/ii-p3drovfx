@@ -590,13 +590,10 @@ Item { // Fullscreen MediaMode instance
                             }
 
                             // Close / Exit Media Mode Button
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: 42
                                 implicitHeight: 42
-                                buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colErrorContainer
-                                colBackgroundHover: Appearance.colors.colErrorContainerHover
-                                colBackgroundActive: Appearance.colors.colErrorContainerActive
+                                type: RippleButtonE.ButtonType.ErrorTonal
 
                                 MaterialSymbol {
                                     anchors.centerIn: parent

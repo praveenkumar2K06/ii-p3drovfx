@@ -67,12 +67,10 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitHeight: Appearance.font.pixelSize.huge + Appearance.font.pixelSize.smallest
                     buttonRadius: Appearance.rounding.full
-                    colBackground: root.soundsEnabled ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: root.soundsEnabled ? Appearance.colors.colPrimaryHover : Appearance.colors.colSecondaryContainerHover
-                    colRipple: root.soundsEnabled ? Appearance.colors.colPrimaryActive : Appearance.colors.colSecondaryContainerActive
+                    type: root.soundsEnabled ? RippleButtonE.ButtonType.Filled : RippleButtonE.ButtonType.Tonal
                     Accessible.name: Translation.tr("Preview system sound")
                     Accessible.description: Translation.tr("Play a preview using the %1 sound theme at %2 percent volume.").arg(root.themeName).arg(String(root.volume))
                     onClicked: SoundService.preview(root.themeId, root.previewEvents)

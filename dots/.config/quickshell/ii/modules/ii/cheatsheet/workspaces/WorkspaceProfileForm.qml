@@ -1239,12 +1239,11 @@ Item {
                                                 Layout.preferredHeight: 36
                                                 spacing: 6
 
-                                                RippleButton {
+                                                RippleButtonE {
                                                     implicitWidth: 36
                                                     implicitHeight: 36
                                                     buttonRadius: Appearance.rounding.full
-                                                    colBackground: Appearance.colors.colPrimary
-                                                    colBackgroundHover: Appearance.colors.colPrimaryHover
+                                                    type: RippleButtonE.ButtonType.Filled
                                                     enabled: root.newAppClass.trim().length > 0 && root.newAppWorkspace.trim().length > 0
                                                     onClicked: {
                                                         let ws = root.newAppWorkspace.trim();

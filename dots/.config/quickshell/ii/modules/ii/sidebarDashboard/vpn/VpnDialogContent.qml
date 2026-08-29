@@ -180,11 +180,11 @@ StyledFlickable {
                 }
 
                 // External Action Button (Disconnect)
-                RippleButton {
+                RippleButtonE {
                     Layout.preferredWidth: 56
                     Layout.fillHeight: true
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
+                    type: RippleButtonE.ButtonType.Filled
                     contentItem: MaterialSymbol {
                         anchors.centerIn: parent
                         text: "check"
@@ -239,11 +239,11 @@ StyledFlickable {
                 font.bold: true
                 color: Appearance.colors.colSubtext
             }
-            RippleButton {
+            RippleButtonE {
                 implicitHeight: 36
                 implicitWidth: importText.implicitWidth + 28
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
+                type: RippleButtonE.ButtonType.Tonal
                 enabled: !VpnService.loading
                 contentItem: StyledText {
                     id: importText
@@ -325,12 +325,12 @@ StyledFlickable {
                     color: Appearance.colors.colError
                     wrapMode: Text.WordWrap
                 }
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignLeft
                     implicitHeight: 34
                     implicitWidth: refreshText.implicitWidth + 24
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
+                    type: RippleButtonE.ButtonType.Tonal
                     enabled: !VpnService.loading
                     contentItem: StyledText {
                         id: refreshText

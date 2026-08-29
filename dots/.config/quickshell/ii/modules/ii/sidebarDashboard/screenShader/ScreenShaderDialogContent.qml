@@ -192,11 +192,11 @@ StyledFlickable {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     Layout.preferredWidth: 56
                     Layout.fillHeight: true
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
+                    type: RippleButtonE.ButtonType.Filled
                     contentItem: MaterialSymbol {
                         anchors.centerIn: parent
                         text: "close"

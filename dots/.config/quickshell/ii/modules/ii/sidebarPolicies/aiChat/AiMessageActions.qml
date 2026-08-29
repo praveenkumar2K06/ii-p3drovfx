@@ -94,7 +94,7 @@ Rectangle {
         anchors.rightMargin: root.inset
         spacing: root.controlGap
 
-        RippleButton {
+        RippleButtonE {
             // Which model wrote this, and a way to answer with another one
             // next time without leaving the transcript.
             id: modelPill
@@ -118,9 +118,7 @@ Rectangle {
             bottomPadding: 0
             leftPadding: root.showModelName ? root.pillPadding : 0
             rightPadding: root.showModelName ? root.pillPadding : 0
-            colBackground: Appearance.colors.colPrimary
-            colBackgroundHover: Appearance.colors.colPrimaryHover
-            colRipple: Appearance.colors.colPrimaryActive
+            type: RippleButtonE.ButtonType.Filled
             onClicked: root.modelPickerRequested()
 
             contentItem: RowLayout {

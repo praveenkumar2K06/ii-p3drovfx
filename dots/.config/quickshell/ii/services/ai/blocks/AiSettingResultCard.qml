@@ -472,14 +472,12 @@ Rectangle {
                 color: Appearance.colors.colSubtext
             }
 
-            RippleButton {
+            RippleButtonE {
                 implicitHeight: 28
                 leftPadding: 10
                 rightPadding: 10
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
                 onClicked: root.explain()
 
                 contentItem: StyledText {

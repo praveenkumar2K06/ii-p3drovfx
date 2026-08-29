@@ -33,15 +33,12 @@ Item {
                 anchors.margins: Appearance.rounding.small
                 spacing: Appearance.rounding.normal
 
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignTop
                     implicitWidth: Appearance.rounding.verylarge
                     implicitHeight: Appearance.rounding.verylarge
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    colBackgroundActive: Appearance.colors.colSecondaryContainerActive
-                    colRipple: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
                     Accessible.name: Translation.tr("Back to tutorials")
                     onClicked: root.backRequested()
 

@@ -194,15 +194,13 @@ WindowDialog {
         }
     }
 
-    RippleButton {
+    RippleButtonE {
         id: startButton
         Layout.fillWidth: true
         Layout.topMargin: 4
         implicitHeight: 48
         buttonRadius: Appearance.rounding.full
-        colBackground: Appearance.colors.colPrimary
-        colBackgroundHover: Appearance.colors.colPrimaryHover
-        colRipple: Appearance.colors.colPrimaryActive
+        type: RippleButtonE.ButtonType.Filled
         onClicked: Idle.inhibitFor(root.customMinutes)
 
         contentItem: StyledText {
@@ -271,12 +269,10 @@ WindowDialog {
             Layout.fillWidth: true
         }
 
-        RippleButton {
+        RippleButtonE {
             id: doneButton
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colPrimary
-            colBackgroundHover: Appearance.colors.colPrimaryHover
-            colRipple: Appearance.colors.colPrimaryActive
+            type: RippleButtonE.ButtonType.Filled
             implicitHeight: 36
             implicitWidth: doneText.implicitWidth + 48
             onClicked: root.dismiss()

@@ -272,15 +272,14 @@ Rectangle {
                 }
 
                 // Delete (red/toggle) button
-                RippleButton {
+                RippleButtonE {
                     id: deleteButton
-                    Layout.preferredWidth: 32
-                    Layout.preferredHeight: 32
                     buttonRadius: 16
-                    colBackground: root.deleteMode ? Appearance.colors.colError : Appearance.colors.colErrorContainer
-                    colBackgroundHover: root.deleteMode ? Appearance.colors.colErrorHover : Appearance.colors.colErrorContainerHover
+                    type: root.deleteMode ? RippleButtonE.ButtonType.Error : RippleButtonE.ButtonType.ErrorTonal
                     scale: 1.0
                     opacity: 1.0
+                    materialIcon: "delete"
+                    iconSize: 20
                     
                     SequentialAnimation {
                         id: deleteBtnAnim
@@ -291,28 +290,20 @@ Rectangle {
                         }
                     }
 
-                    MaterialSymbol {
-                        anchors.centerIn: parent
-                        text: "delete"
-                        iconSize: 16
-                        color: root.deleteMode ? Appearance.colors.colOnError : Appearance.colors.colOnErrorContainer
-                    }
-
                     onClicked: {
                         root.deleteMode = !root.deleteMode;
                     }
                 }
 
                 // Add (blue) button
-                RippleButton {
+                RippleButtonE {
                     id: addButton
-                    Layout.preferredWidth: 32
-                    Layout.preferredHeight: 32
                     buttonRadius: 16
-                    colBackground: Appearance.colors.colPrimaryContainer
-                    colBackgroundHover: Appearance.colors.colPrimaryContainerHover
+                    type: RippleButtonE.ButtonType.FilledTonal
                     scale: 1.0
                     opacity: 1.0
+                    materialIcon: "add"
+                    iconSize: 20
                     
                     SequentialAnimation {
                         id: addBtnAnim
@@ -321,13 +312,6 @@ Rectangle {
                             NumberAnimation { target: addButton; property: "scale"; from: 0.8; to: 1.0; duration: 320; easing.type: Easing.OutBack }
                             NumberAnimation { target: addButton; property: "opacity"; from: 0.0; to: 1.0; duration: 280 }
                         }
-                    }
-
-                    MaterialSymbol {
-                        anchors.centerIn: parent
-                        text: "add"
-                        iconSize: 16
-                        color: Appearance.colors.colOnPrimaryContainer
                     }
 
                     onClicked: {
@@ -512,12 +496,9 @@ Rectangle {
 
                     Component {
                         id: stopButtonComponent
-                        RippleButton {
-                            width: 64
-                            height: 32
+                        RippleButtonE {
                             buttonRadius: 16
-                            colBackground: Appearance.colors.colError
-                            colBackgroundHover: Appearance.colors.colErrorHover
+                            type: RippleButtonE.ButtonType.Error
 
                             contentItem: StyledText {
                                 text: Translation.tr("STOP")
@@ -536,19 +517,11 @@ Rectangle {
 
                     Component {
                         id: deleteItemButtonComponent
-                        RippleButton {
-                            width: 32
-                            height: 32
+                        RippleButtonE {
                             buttonRadius: 16
-                            colBackground: Appearance.colors.colErrorContainer
-                            colBackgroundHover: Appearance.colors.colErrorContainerHover
-
-                            MaterialSymbol {
-                                anchors.centerIn: parent
-                                text: "delete"
-                                iconSize: 16
-                                color: Appearance.colors.colOnErrorContainer
-                            }
+                            type: RippleButtonE.ButtonType.ErrorTonal
+                            materialIcon: "delete"
+                            iconSize: 20
 
                             onClicked: {
                                 AlarmService.deleteAlarm(alarmCard.index);
@@ -695,20 +668,12 @@ Rectangle {
                 Layout.topMargin: 4
 
                 // Delete button in edit form
-                RippleButton {
+                RippleButtonE {
                     visible: root.mode === "edit"
-                    Layout.preferredWidth: 36
-                    Layout.preferredHeight: 36
                     buttonRadius: 18
-                    colBackground: Appearance.colors.colErrorContainer
-                    colBackgroundHover: Appearance.colors.colErrorContainerHover
-
-                    MaterialSymbol {
-                        anchors.centerIn: parent
-                        text: "delete"
-                        iconSize: 18
-                        color: Appearance.colors.colOnErrorContainer
-                    }
+                    type: RippleButtonE.ButtonType.ErrorTonal
+                    materialIcon: "delete"
+                    iconSize: 20
 
                     onClicked: {
                         AlarmService.deleteAlarm(root.editingIndex);
@@ -751,31 +716,15 @@ Rectangle {
                     }
                 }
 
-                RippleButton {
-                    colBackground: Appearance.colors.colPrimaryContainer
-                    colBackgroundHover: Appearance.colors.colPrimaryContainerHover
+                RippleButtonE {
+                    type: RippleButtonE.ButtonType.FilledTonal
                     Layout.fillWidth: root.mode === "add"
                     Layout.preferredWidth: root.mode === "edit" ? 110 : -1
                     Layout.preferredHeight: 40
                     buttonRadius: 20
-
-                    contentItem: RowLayout {
-                        spacing: 6
-                        RowLayout {
-                            Layout.alignment: Qt.AlignCenter
-                            spacing: 6
-                            MaterialSymbol {
-                                text: "check"
-                                iconSize: 18
-                                color: Appearance.colors.colOnPrimaryContainer
-                            }
-                            StyledText {
-                                text: Translation.tr("Save")
-                                font.weight: Font.Bold
-                                color: Appearance.colors.colOnPrimaryContainer
-                            }
-                        }
-                    }
+                    materialIcon: "check"
+                    iconSize: 20
+                    buttonText: Translation.tr("Save")
 
                     onClicked: {
                         // JS Validation

@@ -310,11 +310,10 @@ Item {
                         }
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitWidth: 36; implicitHeight: 36
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                        type: RippleButtonE.ButtonType.Tonal
                         onClicked: root.editRequested()
                         StyledToolTip { text: "Edit profile" }
                         MaterialSymbol {
@@ -507,15 +506,14 @@ Item {
                         easing.type: Easing.OutCubic
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         id: scrollLeftBtn
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         implicitWidth: 32
                         implicitHeight: 32
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                        type: RippleButtonE.ButtonType.Tonal
                         visible: chipsFlickable.showLeftFade
                         onClicked: {
                             scrollAnim.stop();
@@ -530,15 +528,14 @@ Item {
                         }
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         id: scrollRightBtn
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         implicitWidth: 32
                         implicitHeight: 32
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                        type: RippleButtonE.ButtonType.Tonal
                         visible: chipsFlickable.showRightFade
                         onClicked: {
                             scrollAnim.stop();

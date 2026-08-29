@@ -328,13 +328,11 @@ ContentPage {
                         }
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitWidth: 36
                         implicitHeight: 36
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colErrorContainer
-                        colBackgroundHover: Appearance.colors.colErrorContainerHover
-                        colRipple: Appearance.colors.colErrorContainerActive
+                        type: RippleButtonE.ButtonType.Error
                         onClicked: AiRagService.removeCollection(collectionRow.modelData.id)
 
                         Accessible.name: Translation.tr("Remove")
@@ -354,13 +352,11 @@ ContentPage {
             }
         }
 
-        RippleButton {
+        RippleButtonE {
             Layout.fillWidth: true
             implicitHeight: 40
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colPrimaryContainer
-            colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-            colRipple: Appearance.colors.colPrimaryContainerActive
+            type: RippleButtonE.ButtonType.Filled
             onClicked: page.openFolderPicker()
 
             contentItem: RowLayout {

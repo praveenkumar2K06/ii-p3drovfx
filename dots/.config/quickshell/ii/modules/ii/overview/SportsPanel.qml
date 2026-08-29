@@ -301,15 +301,13 @@ Item {
                 text: Translation.tr("There are no scheduled games in your selected leagues")
                 color: Appearance.colors.colSubtext
             }
-            RippleButton {
+            RippleButtonE {
                 Layout.alignment: Qt.AlignHCenter
                 visible: !SportsService.searchLoading && SportsService.searchError.length > 0
                 implicitWidth: retryLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                 implicitHeight: Appearance.sizes.elevationMargin * 3
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colErrorContainer
-                colBackgroundHover: Appearance.colors.colErrorContainerHover
-                colRipple: Appearance.colors.colErrorContainerActive
+                type: RippleButtonE.ButtonType.Error
                 onClicked: SportsService.fetchSearchGamesForToday()
                 StyledText { id: retryLabel; anchors.centerIn: parent; text: Translation.tr("Try again"); color: Appearance.colors.colOnErrorContainer }
             }

@@ -104,14 +104,12 @@ Item {
                     : Translation.tr("Your system prompt does not include active-window metadata.")
             }
 
-            RippleButton {
+            RippleButtonE {
                 Layout.fillWidth: true
                 visible: String(Config.options.ai.systemPrompt ?? "").includes("{WINDOWCLASS}")
                 implicitHeight: 40
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
                 onClicked: Config.options.ai.systemPrompt = String(Config.options.ai.systemPrompt ?? "").replace("{WINDOWCLASS}", "")
 
                 contentItem: RowLayout {

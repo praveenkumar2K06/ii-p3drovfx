@@ -582,11 +582,11 @@ FloatingWindow {
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: 180
                                 implicitHeight: 48
                                 buttonRadius: 24
-                                colBackground: Appearance.colors.colPrimary
+                                type: RippleButtonE.ButtonType.Filled
                                 Layout.alignment: Qt.AlignHCenter
                                 contentItem: Item {
                                     RowLayout {
@@ -773,11 +773,10 @@ FloatingWindow {
 
                         Item { Layout.fillWidth: true }
 
-                        RippleButton {
+                        RippleButtonE {
                             implicitWidth: 160
                             implicitHeight: 56
                             buttonRadius: 28
-                            colBackground: Appearance.colors.colPrimary
                             contentItem: Item {
                                 RowLayout {
                                     anchors.centerIn: parent
@@ -927,11 +926,11 @@ FloatingWindow {
                                 onClicked: root.save(false)
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: 220
                                 implicitHeight: 56
                                 buttonRadius: 28
-                                colBackground: Appearance.colors.colPrimary
+                                type: RippleButtonE.ButtonType.Filled
                                 contentItem: Item {
                                     RowLayout {
                                         anchors.centerIn: parent

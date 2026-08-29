@@ -360,13 +360,11 @@ Item {
                         color: Appearance.colors.colOnTertiaryContainer
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitHeight: 32
                         implicitWidth: applyNowText.implicitWidth + 24
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colTertiary
-                        colBackgroundHover: Appearance.colors.colTertiaryHover
-                        colRipple: Appearance.colors.colTertiaryActive
+                        type: RippleButtonE.ButtonType.Tertiary
                         onClicked: {
                             Modes.restartActive();
                             root.actionsEdited = false;

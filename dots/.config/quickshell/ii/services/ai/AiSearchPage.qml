@@ -312,14 +312,12 @@ Item {
                             StyledToolTip { text: Translation.tr("Move to trash") }
                         }
 
-                        RippleButton {
+                        RippleButtonE {
                             visible: root.pendingTrashId === sessionRow.modelData.id
                             implicitWidth: 34
                             implicitHeight: 34
                             buttonRadius: Appearance.rounding.full
-                            colBackground: Appearance.m3colors.m3error
-                            colBackgroundHover: Appearance.m3colors.m3error
-                            colRipple: Appearance.colors.colLayer2Active
+                            type: RippleButtonE.ButtonType.Error
                             onClicked: {
                                 Ai.sessions.trash(sessionRow.modelData.id);
                                 root.pendingTrashId = "";
@@ -352,21 +350,21 @@ Item {
                     color: Appearance.colors.colSubtext
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: 76
                     implicitHeight: 32
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    colRipple: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
                     onClicked: Ai.sessions.undoDelete()
 
                     Accessible.name: Translation.tr("Undo trash")
 
                     contentItem: StyledText {
+                        anchors.centerIn: parent
                         text: Translation.tr("Undo")
-                        horizontalAlignment: Text.AlignHCenter
-                        color: Appearance.m3colors.m3onSecondaryContainer
+                        font.pixelSize: Appearance.font.pixelSize.smallie
+                        font.weight: Font.DemiBold
+                        color: Appearance.colors.colOnSecondaryContainer
                     }
                 }
 
@@ -414,13 +412,11 @@ Item {
                         ]
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         id: toolProfileButton
                         required property var modelData
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                        colRipple: Appearance.colors.colSecondaryContainerActive
+                        type: RippleButtonE.ButtonType.Tonal
                         onClicked: {
                             if (toolProfileButton.modelData.id === "response")
                                 root.cycleResponseMode();

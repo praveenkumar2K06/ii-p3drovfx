@@ -113,14 +113,12 @@ ContentPage {
                 return line + " " + Translation.tr("Nothing is on right now.");
             }
 
-            RippleButton {
+            RippleButtonE {
                 id: openButton
                 implicitHeight: 34
                 horizontalPadding: 16
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimary
-                colBackgroundHover: Appearance.colors.colPrimaryHover
-                colRipple: Appearance.colors.colPrimaryActive
+                type: RippleButtonE.ButtonType.Filled
                 enabled: page.opts.overlayEnabled
                 opacity: enabled ? 1 : 0.5
                 onClicked: GlobalStates.modesOpen = true

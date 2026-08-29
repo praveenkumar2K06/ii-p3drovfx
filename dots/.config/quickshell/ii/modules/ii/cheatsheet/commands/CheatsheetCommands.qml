@@ -178,12 +178,11 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitHeight: 44
                     implicitWidth: 44
                     buttonRadius: Appearance.rounding.full
-                    colBackground: root.importError ? Appearance.colors.colError : (root.importSuccess ? Appearance.colors.colTertiary : Appearance.colors.colSecondaryContainer)
-                    colBackgroundHover: root.importError ? Appearance.colors.colErrorHover : (root.importSuccess ? Appearance.colors.colTertiaryHover : Appearance.colors.colSecondaryContainerHover)
+                    type: root.importError ? RippleButtonE.ButtonType.Error : (root.importSuccess ? RippleButtonE.ButtonType.Tertiary : RippleButtonE.ButtonType.Tonal)
                     onClicked: qmlFilePicker.visible = true
 
                     MaterialSymbol {

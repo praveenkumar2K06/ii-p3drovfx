@@ -101,9 +101,8 @@ Scope {
                 Item { Layout.fillHeight: true }
 
                 // Stop Button
-                RippleButton {
-                    colBackground: Appearance.colors.colError
-                    colBackgroundHover: Appearance.colors.colErrorHover
+                RippleButtonE {
+                    type: RippleButtonE.ButtonType.Error
                     Layout.fillWidth: true
                     Layout.preferredHeight: 52
                     buttonRadius: 26

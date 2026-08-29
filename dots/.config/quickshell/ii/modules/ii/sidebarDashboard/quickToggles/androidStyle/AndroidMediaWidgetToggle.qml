@@ -289,13 +289,12 @@ Item {
                     anchors.rightMargin: 12
                     spacing: 12
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitWidth: 36
                         implicitHeight: 36
                         Layout.alignment: Qt.AlignVCenter
                         buttonRadius: 12
-                        colBackground: Appearance.colors.colPrimary
-                        colRipple: Appearance.colors.colPrimaryActive
+                        type: RippleButtonE.ButtonType.Filled
                         contentItem: MaterialSymbol {
                             text: widgetRoot2x1.player?.isPlaying ? "pause" : "play_arrow"
                             color: Appearance.colors.colOnPrimary
@@ -454,12 +453,11 @@ Item {
                             }
                             onClicked: widgetRoot.player?.previous()
                         }
-                        RippleButton {
+                        RippleButtonE {
                             implicitWidth: 44
                             implicitHeight: 44
                             buttonRadius: 22
-                            colBackground: Appearance.colors.colPrimary
-                            colRipple: Appearance.colors.colPrimaryActive
+                            type: RippleButtonE.ButtonType.Filled
                             contentItem: MaterialSymbol {
                                 text: widgetRoot.player?.isPlaying ? "pause" : "play_arrow"
                                 color: Appearance.colors.colOnPrimary

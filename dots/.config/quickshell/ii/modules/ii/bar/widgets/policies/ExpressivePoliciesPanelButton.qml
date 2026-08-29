@@ -40,15 +40,14 @@ Item {
         }
     }
 
-    RippleButton {
+    RippleButtonE {
         id: button
         anchors.fill: parent
         buttonRadius: Appearance.rounding.full
 
+
         // Approach 1 Vibrant Dynamic Colors
-        colBackground: GlobalStates.sidebarLeftOpen ? Appearance.colors.colPrimary : Appearance.colors.colTertiary
-        colBackgroundHover: GlobalStates.sidebarLeftOpen ? Appearance.colors.colPrimaryHover : Appearance.colors.colTertiaryHover
-        colRipple: GlobalStates.sidebarLeftOpen ? Appearance.colors.colPrimaryActive : Appearance.colors.colTertiaryActive
+        type: GlobalStates.sidebarLeftOpen ? RippleButtonE.ButtonType.Filled : RippleButtonE.ButtonType.Tertiary
 
         onPressed: {
             GlobalStates.toggleLeftSidebar(root.screenName);

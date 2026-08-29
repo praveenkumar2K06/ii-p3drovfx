@@ -468,15 +468,13 @@ Item {
                     Layout.fillWidth: true
                 }
 
-                RippleButton {
+                RippleButtonE {
                     leftPadding: 14
                     rightPadding: 14
                     topPadding: 6
                     bottomPadding: 6
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: {
                         Ai.setPromptOverride(promptInput.text, false);
                         root.closed();

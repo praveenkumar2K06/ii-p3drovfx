@@ -1039,7 +1039,7 @@ Item {
         onClicked: choiceChip.triggered()
     }
 
-    component IconChoice: RippleButton {
+    component IconChoice: RippleButtonE {
         id: iconChoice
         property string symbol: ""
         property string choiceValue: ""
@@ -1050,9 +1050,7 @@ Item {
         implicitWidth: 40
         implicitHeight: 40
         buttonRadius: Appearance.rounding.full
-        colBackground: iconChoice.selected ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
-        colBackgroundHover: iconChoice.selected ? Appearance.colors.colPrimaryHover : Appearance.colors.colSecondaryContainerHover
-        colBackgroundActive: iconChoice.selected ? Appearance.colors.colPrimaryActive : Appearance.colors.colSecondaryContainerActive
+        type: iconChoice.selected ? RippleButtonE.ButtonType.Filled : RippleButtonE.ButtonType.Tonal
         Accessible.name: iconChoice.label
         Accessible.checked: iconChoice.selected
         onClicked: iconChoice.triggered()

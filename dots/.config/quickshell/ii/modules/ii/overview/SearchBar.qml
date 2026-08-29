@@ -704,16 +704,14 @@ RowLayout {
         }
     }
 
-    RippleButton {
+    RippleButtonE {
         id: categoryFilterChip
         visible: root.showCategoryFilter
         Layout.alignment: Qt.AlignVCenter
         implicitWidth: categoryFilterContent.implicitWidth + Appearance.sizes.elevationMargin * 2
         implicitHeight: searchInput.implicitHeight
         buttonRadius: Appearance.rounding.full
-        colBackground: Appearance.colors.colSecondaryContainer
-        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-        colRipple: Appearance.colors.colSecondaryContainerActive
+        type: RippleButtonE.ButtonType.Tonal
         onClicked: root.cycleCategoryFilter(1)
 
         contentItem: RowLayout {

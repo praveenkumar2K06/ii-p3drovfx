@@ -160,7 +160,7 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             spacing: 10
 
-            RippleButton {
+            RippleButtonE {
                 contentItem: StyledText {
                     anchors.centerIn: parent
                     horizontalAlignment: Text.AlignHCenter
@@ -171,11 +171,10 @@ Item {
                 implicitWidth: 90
                 font.pixelSize: Appearance.font.pixelSize.larger
                 onClicked: TimerService.togglePomodoro()
-                colBackground: TimerService.pomodoroRunning ? Appearance.colors.colSecondaryContainer : Appearance.colors.colPrimary
-                colBackgroundHover: TimerService.pomodoroRunning ? Appearance.colors.colSecondaryContainer : Appearance.colors.colPrimary
+                type: TimerService.pomodoroRunning ? RippleButtonE.ButtonType.Tonal : RippleButtonE.ButtonType.Filled
             }
 
-            RippleButton {
+            RippleButtonE {
                 implicitHeight: 35
                 implicitWidth: 90
 
@@ -183,9 +182,7 @@ Item {
                 enabled: (TimerService.pomodoroSecondsLeft < TimerService.pomodoroLapDuration) || TimerService.pomodoroCycle > 0 || TimerService.pomodoroBreak
 
                 font.pixelSize: Appearance.font.pixelSize.larger
-                colBackground: Appearance.colors.colErrorContainer
-                colBackgroundHover: Appearance.colors.colErrorContainerHover
-                colRipple: Appearance.colors.colErrorContainerActive
+                type: RippleButtonE.ButtonType.Error
 
                 contentItem: StyledText {
                     anchors.centerIn: parent

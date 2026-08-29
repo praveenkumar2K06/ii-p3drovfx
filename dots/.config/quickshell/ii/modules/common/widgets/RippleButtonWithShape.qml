@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import qs.modules.common
 import qs.modules.common.widgets
 
-RippleButton {
+RippleButtonE {
     id: buttonWithShapeRoot
 
     property string shapeString: ""
@@ -23,11 +23,8 @@ RippleButton {
     implicitWidth: contentLayout.implicitWidth + horizontalPadding * 2
     implicitHeight: 35
     horizontalPadding: 10
-    buttonRadius: Appearance.rounding.full
 
-    colBackground: Appearance.colors.colSecondaryContainer
-    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-    colRipple: Appearance.colors.colSecondaryContainerActive
+    type: RippleButtonE.ButtonType.Tonal
 
     contentItem: RowLayout {
         id: contentLayout

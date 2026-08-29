@@ -70,14 +70,11 @@ Item {
             Layout.fillWidth: true
             spacing: Appearance.rounding.small
 
-            RippleButton {
+            RippleButtonE {
                 Layout.preferredWidth: Appearance.rounding.verylarge
                 Layout.preferredHeight: Appearance.rounding.verylarge
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colBackgroundActive: Appearance.colors.colSecondaryContainerActive
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
                 Accessible.name: Translation.tr("Back to essentials")
                 onClicked: root.goBack()
 

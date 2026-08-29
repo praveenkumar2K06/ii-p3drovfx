@@ -186,7 +186,7 @@ Item {
                 Layout.fillWidth: true
                 spacing: 6
 
-                RippleButton {
+                RippleButtonE {
                     id: saveButton
                     leftPadding: 12
                     rightPadding: 12
@@ -195,9 +195,7 @@ Item {
                     buttonRadius: Appearance.rounding.full
                     enabled: card.dirty
                     opacity: enabled ? 1 : 0.4
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: Ai.setApiKeyFor(card.keyId, keyInput.text)
 
                     contentItem: StyledText {

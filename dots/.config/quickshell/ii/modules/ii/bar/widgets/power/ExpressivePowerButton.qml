@@ -11,12 +11,10 @@ Item {
     implicitWidth: vertical ? Appearance.sizes.verticalBarWidth - 8 : Appearance.sizes.baseBarHeight - 8
     implicitHeight: vertical ? Appearance.sizes.verticalBarWidth - 8 : Appearance.sizes.baseBarHeight - 8
 
-    RippleButton {
+    RippleButtonE {
         anchors.fill: parent
         buttonRadius: Appearance.rounding.full
-        colBackground: Appearance.colors.colPrimary
-        colBackgroundHover: Appearance.colors.colPrimaryHover
-        colRipple: Appearance.colors.colPrimaryActive
+        type: RippleButtonE.ButtonType.Filled
         onPressed: {
             GlobalStates.sessionOpen = !GlobalStates.sessionOpen
         }

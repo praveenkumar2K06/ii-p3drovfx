@@ -2471,7 +2471,7 @@ Inline w/ backslash and round brackets \\(e^{i\\pi} + 1 = 0\\)
 
                                     // Which model is answering, and a way to
                                     // change it without leaving the composer.
-                                    RippleButton {
+                                    RippleButtonE {
                                         id: composerModelPill
 
                                         /**
@@ -2488,20 +2488,22 @@ Inline w/ backslash and round brackets \\(e^{i\\pi} + 1 = 0\\)
                                          * keeps a long model name cutting itself
                                          * instead of cutting the send button.
                                          */
-                                        readonly property int fixedCircles: 2 + (voiceButton.visible ? 1 : 0)
-                                        readonly property real widthLimit: Math.max(root.composerControlExtent,
-                                            composerControlsRow.width
-                                                - root.composerControlExtent * composerModelPill.fixedCircles
-                                                - root.composerGap * (composerModelPill.fixedCircles + 1))
+                                        readonly property real widthLimit: {
+                                            const outer = controlBar.width;
+                                            const used = root.composerControlExtent * 3
+                                                + controlBarLayout.spacing * 4
+                                                + controlBarLayout.anchors.margins * 2;
+                                            return Math.max(root.composerControlExtent, outer - used);
+                                        }
 
                                         Layout.alignment: Qt.AlignVCenter
                                         Layout.maximumWidth: composerModelPill.widthLimit
-                                        // Says the pill may be squeezed. Without it the
-                                        // layout would rather overflow than shrink it.
+                                        // A layout may shrink an item below its implicit
+                                        // width; saying so explicitly is what stops the
+                                        // pill and the circles from ever sharing pixels.
                                         Layout.minimumWidth: root.composerControlExtent
                                         implicitHeight: root.composerControlExtent
-                                        // Measured off the label rather than off the row
-                                        // it sits in: a filling child inside a Control's
+                                        // Measured off its parts: a filling child in a
                                         // content item feeds the Control's own width back
                                         // into itself, and Layouts abort the pass.
                                         implicitWidth: Math.min(composerModelPill.widthLimit,
@@ -2510,9 +2512,7 @@ Inline w/ backslash and round brackets \\(e^{i\\pi} + 1 = 0\\)
                                         buttonRadius: Appearance.rounding.full
                                         topPadding: 0
                                         bottomPadding: 0
-                                        colBackground: Appearance.colors.colPrimary
-                                        colBackgroundHover: Appearance.colors.colPrimaryHover
-                                        colRipple: Appearance.colors.colPrimaryActive
+                                        type: RippleButtonE.ButtonType.Filled
                                         onClicked: controlBar.togglePopover("model")
 
                                         contentItem: RowLayout {

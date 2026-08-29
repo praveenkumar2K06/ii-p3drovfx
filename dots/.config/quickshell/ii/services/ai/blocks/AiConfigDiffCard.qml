@@ -210,7 +210,7 @@ Rectangle {
                 }
             }
 
-            RippleButton {
+            RippleButtonE {
                 enabled: root.keptCount > 0
                 opacity: enabled ? 1 : 0.5
                 leftPadding: 12
@@ -218,9 +218,7 @@ Rectangle {
                 topPadding: 5
                 bottomPadding: 5
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimary
-                colBackgroundHover: Appearance.colors.colPrimaryHover
-                colRipple: Appearance.colors.colPrimaryActive
+                type: RippleButtonE.ButtonType.Filled
                 onClicked: root.card?.tool === "settings_propose_changes"
                     ? Ai.applySettingsChanges(root.messageData, root.keptChanges())
                     : Ai.applyConfigChanges(root.messageData, root.keptChanges())

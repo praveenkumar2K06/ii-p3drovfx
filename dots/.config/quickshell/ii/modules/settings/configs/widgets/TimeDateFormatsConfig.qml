@@ -210,13 +210,11 @@ ContentPage {
                             onEditingFinished: card.commit(input.text)
                         }
 
-                        RippleButton {
+                        RippleButtonE {
                             implicitWidth: 40
                             implicitHeight: 40
                             buttonRadius: Appearance.rounding.full
-                            colBackground: Appearance.colors.colSecondaryContainer
-                            colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                            colRipple: Appearance.colors.colSecondaryContainerActive
+                            type: RippleButtonE.ButtonType.Tonal
                             enabled: card.draft !== card.defaultValue
                             opacity: enabled ? 1 : 0.4
                             onClicked: card.reset()

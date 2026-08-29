@@ -553,13 +553,11 @@ Item {
                             }
 
                             // 3. Re-run / Generate again button
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: Appearance.sizes.elevationMargin * 4.2
                                 implicitHeight: implicitWidth
                                 buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colSecondaryContainer
-                                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                                colRipple: Appearance.colors.colSecondaryContainerActive
+                                type: RippleButtonE.ButtonType.Tonal
                                 onClicked: root.execute(true)
 
                                 MaterialSymbol {
@@ -577,13 +575,11 @@ Item {
                             }
 
                             // 4. Copy Output (Primary prominent circle button)
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: Appearance.sizes.elevationMargin * 4.2
                                 implicitHeight: implicitWidth
                                 buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colPrimary
-                                colBackgroundHover: Appearance.colors.colPrimaryHover
-                                colRipple: Appearance.colors.colPrimaryActive
+                                type: RippleButtonE.ButtonType.Filled
                                 onClicked: root.copyOutput()
 
                                 MaterialSymbol {

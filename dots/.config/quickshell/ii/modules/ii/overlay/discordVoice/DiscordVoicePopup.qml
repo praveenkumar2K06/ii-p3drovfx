@@ -111,14 +111,13 @@ StyledPopup {
             Layout.topMargin: 4
             spacing: 12
             Item { visible: DiscordVoice.inVoice; Layout.fillWidth: true }
-            RippleButton {
+            RippleButtonE {
                 visible: DiscordVoice.status === "auth_required" || DiscordVoice.status === "authorizing"
                 enabled: DiscordVoice.status !== "authorizing"
                 Layout.fillWidth: true
                 implicitHeight: 44
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimary
-                colBackgroundHover: Appearance.colors.colPrimaryHover
+                type: RippleButtonE.ButtonType.Filled
                 onClicked: root.beginAuthorization()
                 StyledText {
                     anchors.centerIn: parent
@@ -127,12 +126,12 @@ StyledPopup {
                     font.weight: Font.DemiBold
                 }
             }
-            RippleButton {
+            RippleButtonE {
                 visible: DiscordVoice.status !== "auth_required" && !DiscordVoice.inVoice
                 Layout.fillWidth: true
                 implicitHeight: 44
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
+                type: RippleButtonE.ButtonType.Tonal
                 onClicked: DiscordVoice.connect()
                 StyledText { anchors.centerIn: parent; text: "Reconnect"; color: Appearance.colors.colOnSecondaryContainer; font.weight: Font.DemiBold }
             }

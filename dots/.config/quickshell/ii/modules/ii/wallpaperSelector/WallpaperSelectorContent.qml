@@ -949,16 +949,13 @@ function moveToTrashFile(modelData) {
                                 }
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 visible: emptyStateRegion.showAction
                                 Layout.alignment: Qt.AlignHCenter
                                 implicitHeight: Appearance.sizes.barHeight
                                 implicitWidth: emptyActionContent.implicitWidth + Appearance.font.pixelSize.huge
                                 buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colPrimary
-                                colBackgroundHover: Appearance.colors.colPrimaryHover
-                                colBackgroundActive: Appearance.colors.colPrimaryActive
-                                colRipple: Appearance.colors.colPrimaryActive
+                                type: RippleButtonE.ButtonType.Filled
 
                                 contentItem: RowLayout {
                                     id: emptyActionContent

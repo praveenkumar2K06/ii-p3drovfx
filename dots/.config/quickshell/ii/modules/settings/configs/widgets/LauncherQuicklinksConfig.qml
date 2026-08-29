@@ -89,13 +89,11 @@ Item {
                 ConfigTextField { text: Translation.tr("Alias"); icon: "alternate_email"; inputText: root.aliasDraft; textField.onTextChanged: root.aliasDraft = textField.text }
                 ConfigTextField { text: Translation.tr("URL"); icon: "link"; inputText: root.urlDraft; textField.onTextChanged: root.urlDraft = textField.text }
                 ConfigTextField { text: Translation.tr("Custom image path or URL (optional)"); icon: "image"; inputText: root.iconPathDraft; textField.onTextChanged: root.iconPathDraft = textField.text }
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: imagePickerLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                     implicitHeight: imagePickerLabel.implicitHeight + Appearance.sizes.elevationMargin
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    colRipple: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
                     onClicked: quicklinkImageDialog.open()
                     RowLayout {
                         anchors.centerIn: parent
@@ -104,13 +102,11 @@ Item {
                         StyledText { id: imagePickerLabel; text: Translation.tr("Choose image"); color: Appearance.colors.colOnSecondaryContainer }
                     }
                 }
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: addLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                     implicitHeight: addLabel.implicitHeight + Appearance.sizes.elevationMargin
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimaryContainer
-                    colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                    colRipple: Appearance.colors.colPrimaryContainerActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: root.addLink()
                     StyledText { id: addLabel; anchors.centerIn: parent; text: Translation.tr("Add quicklink"); color: Appearance.colors.colOnPrimaryContainer }
                 }

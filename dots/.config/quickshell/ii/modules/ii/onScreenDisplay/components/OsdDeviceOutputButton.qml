@@ -8,7 +8,7 @@ import Quickshell.Wayland
 import Quickshell.Services.Pipewire
 import "../popups"
 
-RippleButton {
+RippleButtonE {
     id: button
 
     property real buttonHeight: 56
@@ -17,9 +17,7 @@ RippleButton {
     Layout.fillWidth: true
     Layout.preferredHeight: buttonHeight
     buttonRadius: Appearance.rounding.normal
-    colBackground: Appearance.colors.colSecondaryContainer
-    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-    colRipple: Appearance.colors.colSecondaryContainerActive
+    type: RippleButtonE.ButtonType.Tonal
 
     // Clip the painted button face to its allocated layout height during the OSD
     // expand/collapse animation (when the parent layout reserves less than the

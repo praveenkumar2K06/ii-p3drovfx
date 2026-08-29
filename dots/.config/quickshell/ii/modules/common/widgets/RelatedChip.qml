@@ -14,7 +14,7 @@ import qs.modules.common
  *       sectionHighlight: Translation.tr("Weather")
  *   }
  */
-RippleButton {
+RippleButtonE {
     id: root
 
     property string pageId: ""
@@ -24,9 +24,7 @@ RippleButton {
     property string chipIcon: "arrow_outward"
 
     implicitHeight: 28
-    buttonRadius: Appearance.rounding.full
-    colBackground: Appearance.colors.colSecondaryContainer
-    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+    type: RippleButtonE.ButtonType.Tonal
     onClicked: {
         const win = root.QsWindow.window;
         if (!win || win.pageIndexById === undefined)

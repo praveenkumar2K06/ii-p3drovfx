@@ -545,16 +545,13 @@ Item {
                                 Repeater {
                                     model: root.suggestions
 
-                                    delegate: RippleButton {
+                                    delegate: RippleButtonE {
                                         id: suggestionButton
                                         required property string modelData
                                         implicitWidth: suggestionLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                                         implicitHeight: Appearance.sizes.elevationMargin * 4
                                         buttonRadius: Appearance.rounding.full
-                                        colBackground: Appearance.colors.colSecondaryContainer
-                                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                                        colBackgroundActive: Appearance.colors.colSecondaryContainerActive
-                                        colRipple: Appearance.colors.colSecondaryContainerActive
+                                        type: RippleButtonE.ButtonType.Tonal
                                         onClicked: root.useSuggestion(modelData)
 
                                         StyledText {

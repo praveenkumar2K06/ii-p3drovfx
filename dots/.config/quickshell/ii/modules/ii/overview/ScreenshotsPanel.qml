@@ -320,14 +320,12 @@ Item {
                             text: Translation.tr("Preview could not be decoded")
                             color: Appearance.colors.colOnSurfaceVariant
                         }
-                        RippleButton {
+                        RippleButtonE {
                             Layout.alignment: Qt.AlignHCenter
                             implicitWidth: retryLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                             implicitHeight: Appearance.sizes.elevationMargin * 3
                             buttonRadius: Appearance.rounding.full
-                            colBackground: Appearance.colors.colErrorContainer
-                            colBackgroundHover: Appearance.colors.colErrorContainerHover
-                            colRipple: Appearance.colors.colErrorContainerActive
+                            type: RippleButtonE.ButtonType.Error
                             onClicked: previewImage.requestDecode()
                             StyledText {
                                 id: retryLabel

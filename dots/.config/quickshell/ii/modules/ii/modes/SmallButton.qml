@@ -3,15 +3,13 @@ import qs.modules.common.widgets
 import QtQuick
 
 /** Tonal pill button for a form ("Add", "Use current"). Text in `buttonText`. */
-RippleButton {
+RippleButtonE {
     id: root
 
     implicitHeight: 36
     implicitWidth: label.implicitWidth + 28
     buttonRadius: Appearance.rounding.full
-    colBackground: Appearance.colors.colSecondaryContainer
-    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-    colRipple: Appearance.colors.colSecondaryContainerActive
+    type: RippleButtonE.ButtonType.Tonal
 
     contentItem: StyledText {
         id: label

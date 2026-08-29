@@ -229,16 +229,11 @@ ContentPage {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: 120
                     implicitHeight: 36
-                    topLeftRadius: Appearance.rounding.full
-                    topRightRadius: Appearance.rounding.full
-                    bottomLeftRadius: Appearance.rounding.full
-                    bottomRightRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Qt.lighter(Appearance.colors.colPrimary, 1.15)
-                    colRipple: Appearance.colors.colPrimaryContainer
+                    buttonRadius: Appearance.rounding.full
+                    type: RippleButtonE.ButtonType.Filled
 
                     property string targetLeague: {
                         let leagues = root.espnData[root.selectedSport] || [];

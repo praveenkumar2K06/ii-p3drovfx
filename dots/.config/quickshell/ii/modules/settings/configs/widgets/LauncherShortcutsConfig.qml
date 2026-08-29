@@ -105,13 +105,11 @@ Item {
                         textField.onEditingFinished: root.saveShortcut(modelData.actionId, inputText)
                     }
                 }
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: restoreText.implicitWidth + Appearance.sizes.elevationMargin * 2
                     implicitHeight: Appearance.sizes.elevationMargin * 4
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    colRipple: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
                     onClicked: root.restoreDefaults()
                     StyledText { id: restoreText; anchors.centerIn: parent; text: Translation.tr("Restore defaults"); color: Appearance.colors.colOnSecondaryContainer }
                 }

@@ -52,13 +52,11 @@ Item {
                 StyledText { Layout.fillWidth: true; text: Translation.tr("Tokens: {clipboard}, {date}, and {cursor}."); wrapMode: Text.Wrap; font.pixelSize: Appearance.font.pixelSize.small; color: Appearance.colors.colSubtext }
                 ConfigTextField { text: Translation.tr("Alias"); icon: "alternate_email"; inputText: root.aliasDraft; textField.onTextChanged: root.aliasDraft = textField.text }
                 ConfigTextField { text: Translation.tr("Text"); icon: "notes"; inputText: root.textDraft; textField.onTextChanged: root.textDraft = textField.text }
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: addLabel.implicitWidth + Appearance.sizes.elevationMargin * 2
                     implicitHeight: addLabel.implicitHeight + Appearance.sizes.elevationMargin
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimaryContainer
-                    colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                    colRipple: Appearance.colors.colPrimaryContainerActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: root.addSnippet()
                     StyledText { id: addLabel; anchors.centerIn: parent; text: Translation.tr("Add snippet"); color: Appearance.colors.colOnPrimaryContainer }
                 }

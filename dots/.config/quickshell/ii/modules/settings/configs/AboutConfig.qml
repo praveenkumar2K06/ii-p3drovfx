@@ -544,14 +544,12 @@ ContentPage {
                 spacing: 12
 
                 // Main update button — single button, fork+branch current.
-                RippleButton {
+                RippleButtonE {
                     id: updateBtn
                     Layout.fillWidth: true
                     Layout.preferredHeight: 48
                     buttonRadius: Appearance.rounding.large
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
 
                     contentItem: StyledText {
                         text: {

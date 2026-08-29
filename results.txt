@@ -1,0 +1,530 @@
+dots/.config/quickshell/ii/killDialog.qml:87 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/killDialog.qml:99 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/killDialog.qml:109 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/AttachedFileIndicator.qml:107 -> highlight ? Appearance.m3colors.m3background : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/ColorPreviewButton.qml:10 -> toggled ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/ConfigLightDarkToggle.qml:17 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/ConfigPresetsView.qml:174 -> "transparent"
+dots/.config/quickshell/ii/modules/common/widgets/ConfigSubpageRow.qml:14 -> normalColor
+dots/.config/quickshell/ii/modules/common/widgets/ConfigSwitch.qml:9 -> normalColor
+dots/.config/quickshell/ii/modules/common/widgets/ConfigWallpaperSelector.qml:110 -> "transparent"
+dots/.config/quickshell/ii/modules/common/widgets/DialogButton.qml:9 -> ColorUtils.transparentize(Appearance.colors.colLayer3)
+dots/.config/quickshell/ii/modules/common/widgets/DialogListItem.qml:6 -> ColorUtils.transparentize(Appearance.colors.colLayer3)
+dots/.config/quickshell/ii/modules/common/widgets/FabMenu.qml:134 -> root.colMiniFabBackground
+dots/.config/quickshell/ii/modules/common/widgets/FabMenu.qml:167 -> root.colBackground
+dots/.config/quickshell/ii/modules/common/widgets/FloatingActionButton.qml:9 -> root.colCustomBackground
+dots/.config/quickshell/ii/modules/common/widgets/HelperCodeBox.qml:242 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/common/widgets/LightDarkPreferenceButton.qml:9 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/NotificationActionButton.qml:6 -> (urgency == NotificationUrgency.Critical) ? Appearance.colors.colSecondaryContainer : Appearance.colors.colLayer4
+dots/.config/quickshell/ii/modules/common/widgets/NotificationGroup.qml:390 -> "transparent"
+dots/.config/quickshell/ii/modules/common/widgets/NotificationGroupExpandButton.qml:7 -> ColorUtils.mix(Appearance?.colors.colLayer2, Appearance?.colors.colLayer2Hover, 0.5)
+dots/.config/quickshell/ii/modules/common/widgets/RippleButtonWithIcon.qml:6 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/common/widgets/RippleButtonWithShape.qml:6 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/common/widgets/SelectionDialog.qml:173 -> pressed ? Appearance.colors.colSurfaceContainerHighestActive : (hovered ? Appearance.colors.colSurfaceContainerHighestHover : Appearance.colors.colSurfaceContainerHighest)
+dots/.config/quickshell/ii/modules/common/widgets/ServiceCard.qml:7 -> normalColor
+dots/.config/quickshell/ii/modules/common/widgets/SubPageEntryButton.qml:12 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/common/widgets/ToolbarTabButton.qml:9 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/bar/shared/cards/AlarmsCard.qml:275 -> root.deleteMode ? Appearance.colors.colError : Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/bar/shared/cards/AlarmsCard.qml:647 -> selected ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/bar/shared/cards/AlarmsCard.qml:720 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/bar/widgets/media/ExpressiveMedia.qml:292 -> Appearance.colors.colTertiaryContainer
+dots/.config/quickshell/ii/modules/ii/bar/widgets/media/ExpressiveMedia.qml:611 -> Appearance.colors.colTertiaryContainer
+dots/.config/quickshell/ii/modules/ii/bar/widgets/media/ExpressiveMediaCard.qml:274 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/bar/widgets/media/ExpressiveMediaCard.qml:352 -> root.colBtnPlayBg
+dots/.config/quickshell/ii/modules/ii/bar/widgets/resources/DockerSection.qml:139 -> DockerService.dockerRunning ? Appearance.colors.colPrimary : Qt.rgba(Appearance.colors.colOnLayer1.r, Appearance.colors.colOnLayer1.g, Appearance.colors.colOnLayer1.b, 0.12)
+dots/.config/quickshell/ii/modules/ii/bar/widgets/resources/DockerSection.qml:580 -> card.containerData?.isRunning ? Qt.rgba(Appearance.m3colors.m3onPrimary.r, Appearance.m3colors.m3onPrimary.g, Appearance.m3colors.m3onPrimary.b, 0.15) : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/bar/widgets/resources/DockerSection.qml:634 -> modelData.isCollapse ? Appearance.colors.colSurfaceContainerHighest : (modelData.isRamGauge ? Appearance.colors.colTertiaryContainer : (modelData.isSecondaryContainer ? Appearance.colors.colSecondaryContainer : Appearance.colors.colPrimary))
+dots/.config/quickshell/ii/modules/ii/bar/widgets/tray/SysTrayMenuEntry.qml:12 -> menuEntry.isSeparator ? Appearance.m3colors.m3outlineVariant : ColorUtils.transparentize(Appearance.colors.colLayer0)
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetAminoAcids.qml:121 -> chip.picked ? ColorUtils.transparentize(chip.tint, 0.55) : Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:487 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:517 -> modeOrEditButton.hovered ? ColorUtils.transparentize(Appearance.colors.colOnSurface, 0.90) : "transparent"
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:575 -> chevronButton.hovered ? ColorUtils.transparentize(Appearance.colors.colOnSurface, 0.90) : "transparent"
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:820 -> isDone
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:896 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:915 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetCustomKeybindsPage.qml:951 -> root.confirmingDelete ? Appearance.colors.colSecondaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindEditorSidebar.qml:330 -> root.confirmingDelete ? Appearance.colors.colError : "transparent"
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindEditorSidebar.qml:352 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindEditorSidebar.qml:531 -> root.recordingKeys ? Appearance.colors.colPrimary : Appearance.m3colors.m3surfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindEditorSidebar.qml:615 -> root.detailsExpanded ? Appearance.colors.colPrimaryContainer : Appearance.m3colors.m3surfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybinds.qml:253 -> ColorUtils.transparentize(Appearance.colors.colSurfaceContainerHighest, 1)
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybinds.qml:419 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybinds.qml:563 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybinds.qml:790 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindsPageForm.qml:347 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindsPageForm.qml:425 -> toggled ? Appearance.colors.colSecondaryContainer : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindsPageForm.qml:649 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindsPageForm.qml:770 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetWorkspaces.qml:413 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/cheatsheet/ElementTile.qml:6 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/aminoacids/AminoAcidCard.qml:8 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CheatsheetCommands.qml:219 -> root.colAccent
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CheatsheetCommands.qml:776 -> Appearance.colors.colLayer2Base
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CommandCard.qml:103 -> root.colEditBtnBg
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CommandCard.qml:118 -> root.colDeleteBtnBg
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CommandCard.qml:158 -> root.colCopyBtnBg
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CommandForm.qml:237 -> root.isSavedFeedback ? root.colSaveFeedbackBg : (commandField.text.trim().length > 0 ? root.colSaveBtnBg : root.colSaveBtnDisabledBg)
+dots/.config/quickshell/ii/modules/ii/cheatsheet/commands/CommandForm.qml:263 -> root.colCloseBtnBg
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/ProfileCard.qml:297 -> root.pinned ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/ProfileCard.qml:313 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/ProfileCard.qml:328 -> root.showDeleteConfirm
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/ProfileCard.qml:510 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/ProfileCard.qml:533 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/WorkspaceProfileForm.qml:370 -> root.isSavedFeedback ? root.colSaveFeedbackBg : (nameField.text.trim().length > 0 ? root.colSaveBtnBg : root.colSaveBtnDisabledBg)
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/WorkspaceProfileForm.qml:396 -> root.colCloseBtnBg
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/WorkspaceProfileForm.qml:1046 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/WorkspaceProfileForm.qml:1242 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/cheatsheet/workspaces/WorkspaceProfileForm.qml:1271 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchMedia.qml:1197 -> root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchMedia.qml:1381 -> root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchMedia.qml:1422 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchMedia.qml:1495 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchRecording.qml:198 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/dynamicIsland/widgets/FloatingNotchRecording.qml:224 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/lock/LockContextMenu.qml:247 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/lock/LockSurface.qml:95 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/lock/LockSurface.qml:1277 -> isActive ? Appearance.colors.colPrimary : "transparent"
+dots/.config/quickshell/ii/modules/ii/mediaControls/AndroidMediaPopup.qml:336 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/mediaControls/AndroidMediaPopup.qml:357 -> root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/mediaControls/AndroidMediaPopup.qml:534 -> root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/mediaControls/AndroidMediaPopup.qml:573 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/mediaControls/AndroidMediaPopup.qml:646 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/mediaControls/PlayerControl.qml:40 -> ColorUtils.transparentize(blendedColors.colSecondaryContainer, 1)
+dots/.config/quickshell/ii/modules/ii/mediaControls/PlayerControl.qml:306 -> root.player?.isPlaying ? blendedColors.colPrimary : blendedColors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/ActivityPage.qml:426 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/AddRowButton.qml:10 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/ChipInput.qml:140 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/modes/FooterButton.qml:10 -> filled ? Appearance.colors.colError : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/modes/FormIconButton.qml:6 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/IconPicker.qml:228 -> cell.isCurrent ? Appearance.colors.colPrimaryContainer : "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/ModeEditor.qml:198 -> ModeUi.container(root.colorKey)
+dots/.config/quickshell/ii/modules/ii/modes/ModeEditor.qml:295 -> root.isActive ? Appearance.colors.colSecondaryContainer : ModeUi.accent(root.colorKey)
+dots/.config/quickshell/ii/modules/ii/modes/ModeEditor.qml:363 -> Appearance.colors.colTertiary
+dots/.config/quickshell/ii/modules/ii/modes/ModeList.qml:234 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/modes/ModesPage.qml:140 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/modes/ModesPage.qml:158 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/RoutineEditor.qml:196 -> ModeUi.container(root.colorKey)
+dots/.config/quickshell/ii/modules/ii/modes/RoutineEditor.qml:291 -> root.isRunning ? Appearance.colors.colSecondaryContainer : ModeUi.accent(root.colorKey)
+dots/.config/quickshell/ii/modules/ii/modes/RoutineEditor.qml:356 -> Appearance.colors.colTertiary
+dots/.config/quickshell/ii/modules/ii/modes/RoutineTemplates.qml:39 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/RoutineTemplates.qml:183 -> row.copied ? Appearance.colors.colLayer2 : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/RoutinesPage.qml:168 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/modes/RoutinesPage.qml:186 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/SmallButton.qml:6 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/modes/TemplatePreview.qml:162 -> ModeUi.accent(root.colorKey)
+dots/.config/quickshell/ii/modules/ii/modes/TypeMenu.qml:184 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/forms/ActionAudioDevice.qml:38 -> on ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/modes/forms/ActionHyprland.qml:32 -> on ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/modes/forms/ActionLaunch.qml:120 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/modes/forms/ActionWorkspace.qml:41 -> on ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/modes/forms/TriggerSchedule.qml:70 -> on ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/OnScreenDisplay.qml:672 -> toggledState ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/OnScreenDisplay.qml:865 -> toggledState ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/OnScreenDisplay.qml:1543 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/components/OsdCollapseButton.qml:9 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/components/OsdDeviceOutputButton.qml:11 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/components/OsdToggleRow.qml:25 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/components/OsdTopButton.qml:9 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/onScreenDisplay/popups/OsdDeviceOutputItem.qml:10 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/DiscordVoicePopup.qml:114 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/DiscordVoicePopup.qml:130 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/DiscordVoicePopup.qml:139 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/DiscordVoicePopup.qml:159 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/Widget.qml:182 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/Widget.qml:204 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overlay/discordVoice/Widget.qml:253 -> {
+dots/.config/quickshell/ii/modules/ii/overlay/recorder/Recorder.qml:66 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/overlay/recorder/Recorder.qml:95 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:483 -> brainBackButton.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:553 -> historyToggleBtn.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:600 -> newChatBtn.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:741 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:797 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1068 -> sessionRow.isActive ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1110 -> sessionRow.isActive ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1250 -> modelRow.isActive ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1315 -> modelRow.isActive ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1392 -> shortcutsBackButton.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiChatPanel.qml:1490 -> capabilitiesBackButton.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiSearchComposer.qml:887 -> iconButton.activeFocus
+dots/.config/quickshell/ii/modules/ii/overview/AiSearchComposer.qml:934 -> textButton.highlightTertiary
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:446 -> (root.selectedIndex === -1 || scanBtn.hovered) ? Appearance.colors.colSurfaceContainerHighest : (root.isScanning ? Appearance.colors.colPrimaryContainer : "transparent")
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:503 -> (root.selectedIndex === -2 || powerBtn.hovered) ? Appearance.colors.colSurfaceContainerHighest : "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:1023 -> isSelected ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:1496 -> {
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:1585 -> (forgetActionBtn.isActionSelected || forgetActionBtn.hovered) ? Appearance.m3colors.m3error : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/BluetoothPanel.qml:1623 -> (copyMacActionBtn.isActionSelected || copyMacActionBtn.hovered) ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:531 -> isSelected ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:1168 -> root.selectedActionIndex === 0 ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:1212 -> root.selectedActionIndex === 1 ? Appearance.colors.colPrimary : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:1256 -> root.selectedActionIndex === root.smartIndex ? Appearance.colors.colPrimary : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:1337 -> root.selectedActionIndex === root.pinIndex ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/ClipboardPanel.qml:1371 -> root.selectedActionIndex === root.deleteIndex ? Appearance.colors.colErrorContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/CommandsPanel.qml:155 -> root.activeTag === modelData ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/CommandsPanel.qml:185 -> root.selectedIndex === index ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/EmojiPanel.qml:274 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/EmojiPanel.qml:348 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:925 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:939 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:989 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1012 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1087 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1425 -> root.actionIndex === index ? Appearance.colors.colTertiaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1536 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1537 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1593 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/FileBrowserPanel.qml:1594 -> Appearance.colors.colError
+dots/.config/quickshell/ii/modules/ii/overview/KeybindsPanel.qml:326 -> root.selectedCategory === modelData.id
+dots/.config/quickshell/ii/modules/ii/overview/KeybindsPanel.qml:401 -> root.selectedIndex === rowLoader.index
+dots/.config/quickshell/ii/modules/ii/overview/MaterialSymbolsPanel.qml:579 -> delegateItem.isFocused ? root.colItemSelected : "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:398 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:419 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:599 -> isFocused
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:726 -> (isFocused || isSelected)
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:773 -> (isFocused || isSelected)
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:820 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:967 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:1066 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:1321 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:1485 -> root.focusedControlIndex === root.downloadButtonIndex
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:1534 -> root.focusedControlIndex === root.cancelButtonIndex
+dots/.config/quickshell/ii/modules/ii/overview/MediaDownloaderPanel.qml:1584 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/ScreenshotsPanel.qml:194 -> root.selectedIndex === index
+dots/.config/quickshell/ii/modules/ii/overview/ScreenshotsPanel.qml:323 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/overview/SearchBar.qml:707 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/SearchBestMatch.qml:26 -> root.isSelected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/SearchItem.qml:16 -> isSelected ? Appearance.colors.colPrimary : (root.isBuiltinItem ? ((root.down || root.keyboardDown) ? Appearance.colors.colTertiaryContainerActive : Appearance.colors.colTertiaryContainer) : ((root.down || root.keyboardDown) ? Appearance.colors.colPrimaryContainerActive : Appearance.colors.colSurfaceContainerHigh))
+dots/.config/quickshell/ii/modules/ii/overview/SearchNowPlaying.qml:311 -> root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/SearchWidget.qml:2412 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/SettingsTogglesPanel.qml:209 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/SettingsTogglesPanel.qml:380 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/SettingsTogglesPanel.qml:548 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/SportsPanel.qml:122 -> root.selectedIndex === index ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/SportsPanel.qml:304 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/overview/TasksPanel.qml:201 -> root.selectedIndex === index
+dots/.config/quickshell/ii/modules/ii/overview/TimersPanel.qml:325 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/TimersPanel.qml:359 -> root.selectedIndex === index ? Appearance.colors.colSecondaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:316 -> root.selectedCategory === modelData.id
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:388 -> root.selectedIndex === index
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:506 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:529 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:556 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:580 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:639 -> isSelected ? Appearance.colors.colSecondaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/ToolsPanel.qml:665 -> isChecked ? Appearance.colors.colSecondaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:302 -> pressed ? colLangBtnActive : (hovered ? colLangBtnHover : colLangBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:350 -> pressed ? colSwapBtnActive : (hovered ? colSwapBtnHover : colSwapBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:382 -> pressed ? colLangBtnActive : (hovered ? colLangBtnHover : colLangBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:478 -> pressed ? colBtnActive : (hovered ? colBtnHover : colBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:512 -> pressed ? colBtnActive : (hovered ? colBtnHover : colBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:625 -> pressed ? colBtnActive : (hovered ? colBtnHover : colBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:665 -> pressed ? colBtnActive : (hovered ? colBtnHover : colBtn)
+dots/.config/quickshell/ii/modules/ii/overview/TranslatorPanel.qml:700 -> pressed ? colBtnActive : (hovered ? colBtnHover : colBtn)
+dots/.config/quickshell/ii/modules/ii/overview/WindowManagementPanel.qml:349 -> root.targetIndex === index ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/WindowManagementPanel.qml:391 -> root.categoryIndex === index
+dots/.config/quickshell/ii/modules/ii/overview/WindowManagementPanel.qml:440 -> root.selectedIndex === index
+dots/.config/quickshell/ii/modules/ii/overview/calendar/CalendarCreateForm.qml:278 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/overview/calendar/CalendarCreateForm.qml:363 -> toggled
+dots/.config/quickshell/ii/modules/ii/overview/calendar/CalendarEventBlock.qml:10 -> root.selected
+dots/.config/quickshell/ii/modules/ii/overview/calendar/CalendarQuickCreate.qml:18 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/regionSelector/RegionSelection.qml:2158 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/sessionScreen/SessionActionButton.qml:6 -> button.keyboardDown ? Appearance.colors.colSecondaryContainerActive :
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/bluetoothDevices/BluetoothDialog.qml:331 -> scanMouseArea.containsPress ? Appearance.colors.colSurfaceContainerHighestActive
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/bluetoothDevices/BluetoothDialog.qml:408 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/bluetoothDevices/BluetoothDialog.qml:455 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/idleInhibitor/IdleInhibitorDialog.qml:21 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/idleInhibitor/IdleInhibitorDialog.qml:98 -> enabled ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/idleInhibitor/IdleInhibitorDialog.qml:197 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/idleInhibitor/IdleInhibitorDialog.qml:226 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/idleInhibitor/IdleInhibitorDialog.qml:274 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/modes/ModesDialog.qml:58 -> tile.isActive ? ModeUi.accent(tile.colorKey) : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/modes/ModesDialog.qml:186 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/modes/ModesDialog.qml:222 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/pomodoro/PomodoroTimer.qml:163 -> TimerService.pomodoroRunning ? Appearance.colors.colSecondaryContainer : Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/pomodoro/PomodoroTimer.qml:178 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/pomodoro/Stopwatch.qml:264 -> TimerService.stopwatchRunning ? Appearance.colors.colSecondaryContainer : Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/pomodoro/Stopwatch.qml:284 -> TimerService.stopwatchRunning ? Appearance.colors.colLayer2 : Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/AndroidQuickPanel.qml:487 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/AndroidQuickPanel.qml:531 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/AndroidQuickPanel.qml:552 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/AndroidQuickPanel.qml:575 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidMediaWidgetToggle.qml:292 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidMediaWidgetToggle.qml:457 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/screenShader/ScreenShaderDialog.qml:52 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/screenShader/ScreenShaderDialog.qml:106 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/screenShader/ScreenShaderDialogContent.qml:195 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/screenShader/ScreenShaderDialogContent.qml:277 -> shaderRow.selected ? Appearance.colors.colSecondaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialog.qml:55 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialog.qml:95 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:179 -> TailscaleService.active ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:221 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:310 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:330 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:434 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:456 -> TailscaleService.currentExitNode === modelData.hostname ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:509 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:542 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:577 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/tailscale/TailscaleDialogContent.qml:647 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/volumeMixer/AudioDeviceSelectorButton.qml:8 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/volumeMixer/VolumeDialog.qml:33 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/volumeMixer/VolumeDialog.qml:80 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/volumeMixer/VolumeDialogMedia.qml:404 -> cardRoot.useDynamicColors ? cardRoot.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialog.qml:52 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialog.qml:92 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialogContent.qml:183 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialogContent.qml:242 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialogContent.qml:328 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/vpn/VpnDialogContent.qml:424 -> isSelected ? Appearance.colors.colErrorContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/wifiNetworks/WifiDialog.qml:67 -> "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/wifiNetworks/WifiDialog.qml:108 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarDashboard/calendar/CalendarHeaderButton.qml:5 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:959 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:1002 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:1049 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:1086 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:1338 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/AiChat.qml:2474 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/ScrollToBottomButton.qml:7 -> Appearance.colors.colSecondary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:528 -> ColorUtils.transparentize(root.activeContainerColor, 0.7)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:550 -> (root.player && root.player.isPlaying) ? root.activeColor : root.activeContainerColor
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:576 -> ColorUtils.transparentize(root.activeContainerColor, 0.7)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:611 -> ColorUtils.transparentize(root.activeContainerColor, 0.7)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:635 -> ColorUtils.transparentize(root.activeContainerColor, 0.7)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/SidebarPlayerControl.qml:657 -> ColorUtils.transparentize(root.activeContainerColor, 0.7)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:312 -> pressed ? colLangBtnActive : (hovered ? colLangBtnHover : colLangBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:362 -> pressed ? colSwapBtnActive : (hovered ? colSwapBtnHover : colSwapBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:406 -> pressed ? colLangBtnActive : (hovered ? colLangBtnHover : colLangBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:503 -> pressed ? colPasteBtnActive : (hovered ? colPasteBtnHover : colPasteBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:524 -> pressed ? colPasteBtnActive : (hovered ? colPasteBtnHover : colPasteBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:634 -> pressed ? colResultActionBtnActive : (hovered ? colResultActionBtnHover : colResultActionBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:672 -> pressed ? colResultActionBtnActive : (hovered ? colResultActionBtnHover : colResultActionBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/Translator.qml:693 -> pressed ? colResultActionBtnActive : (hovered ? colResultActionBtnHover : colResultActionBtn)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/WallpaperBrowserUI.qml:429 -> enabled ? Appearance.colors.colPrimary : "transparent"
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiCapabilitiesSheet.qml:244 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiDiagnosticsPage.qml:191 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiDiagnosticsPage.qml:374 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMemoryView.qml:109 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMemoryView.qml:202 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:488 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1051 -> Appearance.colors.colTertiaryContainerHover
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1070 -> Appearance.colors.colTertiaryContainerHover
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1203 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1732 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1750 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1852 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1878 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1897 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1937 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:1996 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:2032 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessage.qml:2056 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessageActions.qml:97 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiMessageActions.qml:241 -> actionButton.accented ? Appearance.colors.colPrimary : root.buttonColor
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiProjectView.qml:132 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiProjectView.qml:162 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/AiProjectView.qml:237 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/ChatAdvancedPopover.qml:101 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/ChatAdvancedPopover.qml:173 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/ChatControlBar.qml:389 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/ChatControlBar.qml:809 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/ChatControlBar.qml:872 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/PersonaLibrary.qml:234 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/PersonaLibrary.qml:378 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/PersonaLibrary.qml:445 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/PersonaLibrary.qml:471 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/aiChat/SessionList.qml:245 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/anime/BooruImage.qml:81 -> ColorUtils.transparentize(Appearance.m3colors.m3surface, 0.3)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/anime/BooruResponse.qml:242 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/translator/LanguageSelectorButton.qml:9 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/wallpaperBrowser/WallpaperImage.qml:60 -> ColorUtils.transparentize(Appearance.m3colors.m3surface, 0.3)
+dots/.config/quickshell/ii/modules/ii/sidebarPolicies/wallpaperBrowser/WallpaperResponse.qml:246 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:400 -> root.infoPopupOpen ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:420 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:585 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:605 -> "#aa000000"
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:776 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:812 -> isActive ? Appearance.colors.colPrimary : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:837 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:847 -> root.rotation !== 0 ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:857 -> root.flipHorizontal ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:868 -> root.flipVertical ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:879 -> root.muteAudio ? Appearance.colors.colPrimaryContainer : Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:898 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:914 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/modules/ii/videoEditor/VideoEditor.qml:930 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/wallpaperSelector/WallpaperDirectoryItem.qml:256 -> root.containsMouse ? Appearance.colors.colSecondaryContainerHover : "transparent"
+dots/.config/quickshell/ii/modules/ii/wallpaperSelector/WallpaperSelectorContent.qml:737 -> isCurrentFolderFavorited ? Appearance.colors.colPrimary : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/wallpaperSelector/WallpaperSelectorContent.qml:952 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/ii/wallpaperSelector/WallpaperSortToolbar.qml:90 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/wallpaperSelector/WallpaperSortToolbar.qml:211 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:369 -> isActive ? root.dynamicAccentColor : ColorUtils.transparentize(Appearance.colors.colLayer2, 0.4)
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:420 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:454 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:485 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:513 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:537 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:563 -> root.dynamicAccentContainer
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:768 -> isActive ? ColorUtils.transparentize(root.dynamicAccentColor, 0.25) : ColorUtils.transparentize(Appearance.colors.colLayer2, 0.5)
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:797 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 0.5)
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:817 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 0.5)
+dots/.config/quickshell/ii/modules/ii/background/MediaMode.qml:838 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 0.5)
+dots/.config/quickshell/ii/modules/ii/background/MediaModeCoverArt.qml:292 -> (root.player?.shuffle ?? false) ? coverArt.accentColor : ColorUtils.transparentize(coverArt.accentColor, 0.2)
+dots/.config/quickshell/ii/modules/ii/background/MediaModeCoverArt.qml:312 -> ColorUtils.transparentize(coverArt.accentColor, 0.25)
+dots/.config/quickshell/ii/modules/ii/background/MediaModeCoverArt.qml:331 -> coverArt.accentColor
+dots/.config/quickshell/ii/modules/ii/background/MediaModeCoverArt.qml:350 -> ColorUtils.transparentize(coverArt.accentColor, 0.25)
+dots/.config/quickshell/ii/modules/ii/background/MediaModeCoverArt.qml:369 -> (root.player?.loopState ?? 0) !== 0 ? coverArt.accentColor : ColorUtils.transparentize(coverArt.accentColor, 0.2)
+dots/.config/quickshell/ii/modules/settings/ConfigHealthBanner.qml:60 -> Appearance.colors.colError
+dots/.config/quickshell/ii/modules/settings/ConfigHealthBanner.qml:85 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/ConfigHealthBanner.qml:108 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/SearchBar.qml:293 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/AboutConfig.qml:547 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/settings/configs/AppSearchConfig.qml:429 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/settings/configs/AppSearchConfig.qml:470 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/settings/configs/AppSearchConfig.qml:652 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:64 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:105 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:146 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:187 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:228 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:269 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:310 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:351 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:392 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ClipboardConfig.qml:530 -> page.confirmWipe ? Appearance.colors.colErrorContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/DisplaysConfig.qml:671 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/settings/configs/DisplaysConfig.qml:687 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/settings/configs/DisplaysConfig.qml:703 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/settings/configs/DisplaysConfig.qml:719 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/settings/configs/LanguageTimeConfig.qml:151 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/ModesConfig.qml:116 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/settings/configs/ModesConfig.qml:194 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ModesConfig.qml:446 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ScreenCaptureConfig.qml:53 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ScreenCaptureConfig.qml:99 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ScreenCaptureConfig.qml:145 -> active ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/SoundAlertsConfig.qml:202 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/settings/configs/SoundsConfig.qml:307 -> Appearance.colors.colLayer3
+dots/.config/quickshell/ii/modules/settings/configs/SoundsConfig.qml:632 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/SoundsConfig.qml:652 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/SoundsConfig.qml:674 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/ai/AiPromptPrivacyConfig.qml:107 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/ai/CustomModelsConfig.qml:364 -> Appearance.colors.colLayer2Active
+dots/.config/quickshell/ii/modules/settings/configs/ai/CustomModelsConfig.qml:659 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:117 -> modelRow.modelData === AiRagService.embeddingModel ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:151 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:283 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:307 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:331 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/modules/settings/configs/ai/RagConfig.qml:357 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/BarAppearanceConfig.qml:476 -> Appearance.colors.colTertiary
+dots/.config/quickshell/ii/modules/settings/configs/widgets/ConfigBannerSelector.qml:64 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/widgets/CoreLanguageConfig.qml:178 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/CustomSoundsConfig.qml:125 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/CustomSoundsConfig.qml:144 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/CustomSoundsConfig.qml:165 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherAliasesConfig.qml:170 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherAliasesConfig.qml:215 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherAliasesConfig.qml:406 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherDataConfig.qml:107 -> Appearance.colors.colSurfaceContainerHigh
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherQuicklinksConfig.qml:92 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherQuicklinksConfig.qml:107 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherShortcutsConfig.qml:108 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/LauncherSnippetsConfig.qml:55 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/NotificationPositionPicker.qml:28 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/OsdPositionPicker.qml:35 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/PrivacyConnectionCards.qml:148 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/SoundStatusHeader.qml:70 -> root.soundsEnabled ? Appearance.colors.colPrimary : Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/SportsConfig.qml:232 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/settings/configs/widgets/SportsConfig.qml:436 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/widgets/TimeDateFormatsConfig.qml:213 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/TranslatorDefaultsPicker.qml:80 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WallpaperEngineConfig.qml:140 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WallpaperEngineConfig.qml:217 -> Appearance.colors.colPrimaryContainer
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WallpaperEngineConfig.qml:323 -> "transparent"
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WallpaperEngineConfig.qml:491 -> Appearance.colors.colLayer0
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WallpaperEngineConfig.qml:519 -> Appearance.colors.colLayer0
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WeatherLocationCard.qml:147 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WeatherLocationCard.qml:189 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/settings/configs/widgets/WeekStartPicker.qml:35 -> selected ? Appearance.colors.colSecondaryContainer : Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeActionCard.qml:6 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeDisplaysPage.qml:174 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeDisplaysPage.qml:189 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeDisplaysPage.qml:204 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeDisplaysPage.qml:219 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeHeader.qml:145 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeIntegrationCard.qml:7 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeKeybindCard.qml:7 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeKeyboardLayoutPage.qml:147 -> toggled ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeLanguagePage.qml:70 -> toggled ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/WelcomeLanguageTimePage.qml:73 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/modules/welcome/WelcomeLightDarkToggle.qml:27 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/modules/welcome/WelcomeQuickToggle.qml:6 -> root.checked
+dots/.config/quickshell/ii/modules/welcome/WelcomeShellModeCard.qml:7 -> root.selected
+dots/.config/quickshell/ii/modules/welcome/WelcomeTimePage.qml:37 -> selected ? Appearance.colors.colPrimaryContainer : Appearance.colors.colLayer1
+dots/.config/quickshell/ii/modules/welcome/tutorials/WelcomeTutorialPage.qml:36 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:79 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:183 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:232 -> Ai.sessions.currentId === sessionRow.modelData.id
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:277 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:295 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:315 -> Appearance.m3colors.m3error
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:355 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:373 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/services/ai/AiSearchPage.qml:417 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/services/ai/blocks/AiAnnotationSourceButton.qml:8 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/services/ai/blocks/AiApiKeyManager.qml:159 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiApiKeyManager.qml:189 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiApiKeyManager.qml:210 -> Appearance.colors.colLayer1
+dots/.config/quickshell/ii/services/ai/blocks/AiApiKeyManager.qml:256 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiApiKeyManager.qml:279 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiAttachmentTray.qml:242 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiAttachmentTray.qml:324 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiConfigDiffCard.qml:91 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiConfigDiffCard.qml:195 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiConfigDiffCard.qml:213 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiFileAttachCard.qml:69 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiFileAttachCard.qml:87 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiFileResultCard.qml:75 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiFileResultCard.qml:106 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiMediaControlCard.qml:66 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiMediaControlCard.qml:83 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiMessageTableBlock.qml:194 -> ColorUtils.transparentize(Appearance.colors.colLayer3, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiMessageThinkBlock.qml:44 -> button.parentHovered ? Appearance.colors.colLayer2Hover : ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiModelPickerPopover.qml:381 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiModelPickerPopover.qml:436 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiModelPickerPopover.qml:533 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/services/ai/blocks/AiModelPickerPopover.qml:730 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/services/ai/blocks/AiModelPickerPopover.qml:775 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/services/ai/blocks/AiNotesCard.qml:78 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiNotesCard.qml:96 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiOllamaModelsPage.qml:104 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiOllamaModelsPage.qml:238 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/services/ai/blocks/AiOllamaModelsPage.qml:354 -> enabled ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/services/ai/blocks/AiOllamaModelsPage.qml:379 -> Appearance.colors.colLayer2
+dots/.config/quickshell/ii/services/ai/blocks/AiOpenRouterModelsPage.qml:171 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiOpenRouterModelsPage.qml:208 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiOpenRouterModelsPage.qml:277 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiOpenRouterModelsPage.qml:316 -> Appearance.colors.colErrorContainer
+dots/.config/quickshell/ii/services/ai/blocks/AiOpenRouterModelsPage.qml:492 -> enabled ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
+dots/.config/quickshell/ii/services/ai/blocks/AiReminderCard.qml:75 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiReminderCard.qml:93 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiSearchQueryButton.qml:10 -> Appearance.colors.colSurfaceContainerHighest
+dots/.config/quickshell/ii/services/ai/blocks/AiSettingResultCard.qml:373 -> root.isSelected ? root.selectedAccentColor : root.idleAccentColor
+dots/.config/quickshell/ii/services/ai/blocks/AiSettingResultCard.qml:475 -> Appearance.colors.colSecondaryContainer
+dots/.config/quickshell/ii/services/ai/blocks/AiSongIdentifyCard.qml:78 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiSongIdentifyCard.qml:96 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiSongIdentifyCard.qml:114 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiSystemControlCard.qml:74 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiSystemControlCard.qml:91 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiTaskCard.qml:93 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiTaskCard.qml:111 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiTaskMutationCard.qml:106 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiTaskMutationCard.qml:122 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiTimerCard.qml:66 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiTimerCard.qml:84 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiToolsPopover.qml:251 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiWallpaperCard.qml:78 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiWallpaperCard.qml:95 -> Appearance.colors.colPrimary
+dots/.config/quickshell/ii/services/ai/blocks/AiWindowMoveCard.qml:66 -> ColorUtils.transparentize(Appearance.colors.colLayer2, 1)
+dots/.config/quickshell/ii/services/ai/blocks/AiWindowMoveCard.qml:83 -> Appearance.colors.colPrimary

@@ -649,16 +649,14 @@ ContentPage {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     Layout.preferredWidth: 64
                     Layout.preferredHeight: 48
                     topLeftRadius: Appearance.rounding.verysmall
                     bottomLeftRadius: Appearance.rounding.verysmall
                     topRightRadius: Appearance.rounding.full
                     bottomRightRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    rippleColor: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
 
                     contentItem: Item {
                         anchors.fill: parent

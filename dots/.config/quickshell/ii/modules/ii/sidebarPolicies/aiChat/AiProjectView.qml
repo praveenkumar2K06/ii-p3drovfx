@@ -234,7 +234,7 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitHeight: Math.round(root.rowHeight * 0.6)
                     leftPadding: Appearance.rounding.small
                     rightPadding: Appearance.rounding.small
@@ -242,9 +242,7 @@ Item {
                     bottomPadding: 0
                     buttonRadius: Appearance.rounding.full
                     enabled: newProjectField.text.trim().length > 0
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: {
                         root.addProject(newProjectField.text);
                         newProjectField.clear();

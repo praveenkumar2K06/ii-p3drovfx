@@ -656,15 +656,12 @@ ContentPage {
             text: page.formSuccess
         }
 
-        RippleButton {
+        RippleButtonE {
             Layout.fillWidth: true
             Layout.topMargin: 8
             implicitHeight: 48
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colPrimaryContainer
-            colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-            colBackgroundActive: Appearance.colors.colPrimaryContainerActive
-            colRipple: Appearance.colors.colPrimaryContainerActive
+            type: RippleButtonE.ButtonType.Filled
             onClicked: page.submitModel()
 
             contentItem: RowLayout {

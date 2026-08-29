@@ -549,7 +549,7 @@ AbstractQuickPanel {
                 }
 
                 // Add page button
-                RippleButton {
+                RippleButtonE {
                     Layout.preferredWidth: root.baseCellHeight
                     Layout.preferredHeight: root.baseCellHeight * 0.6
                     bottomLeftRadius: Appearance.rounding.verysmall
@@ -557,8 +557,7 @@ AbstractQuickPanel {
                     bottomRightRadius: Appearance.rounding.verysmall
                     topRightRadius: Appearance.rounding.verysmall
                     buttonRadiusPressed: height / 2
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: root.addPage()
                     contentItem: MaterialSymbol {
                         text: "add"
@@ -572,7 +571,7 @@ AbstractQuickPanel {
                 }
 
                 // Delete current page (only if >1 pages and current is empty)
-                RippleButton {
+                RippleButtonE {
                     Layout.preferredWidth: root.baseCellHeight
                     Layout.preferredHeight: root.baseCellHeight * 0.6
                     visible: root.displayPages.length > 1
@@ -581,8 +580,7 @@ AbstractQuickPanel {
                     bottomRightRadius: Appearance.rounding.full
                     topRightRadius: Appearance.rounding.full
                     buttonRadiusPressed: height / 2
-                    colBackground: Appearance.colors.colErrorContainer
-                    colBackgroundHover: Appearance.colors.colErrorContainerHover
+                    type: RippleButtonE.ButtonType.Error
                     onClicked: root.removePage(root.currentPage)
                     contentItem: MaterialSymbol {
                         text: "delete"

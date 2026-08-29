@@ -188,7 +188,7 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     id: runAllButton
 
                     Layout.alignment: Qt.AlignVCenter
@@ -197,9 +197,7 @@ Item {
                     enabled: !root.diag.anyRunning
                     opacity: enabled ? 1 : 0.55
                     buttonRadius: height / 2
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: root.diag.runAll()
 
                     Accessible.name: Translation.tr("Test everything")

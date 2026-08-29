@@ -1747,15 +1747,13 @@ Item {
                                     }
                                 }
 
-                                RippleButton {
+                                RippleButtonE {
                                     leftPadding: Appearance.rounding.small
                                     rightPadding: Appearance.rounding.small
                                     topPadding: Appearance.rounding.unsharpenmore / 2
                                     bottomPadding: Appearance.rounding.unsharpenmore / 2
                                     buttonRadius: Appearance.rounding.full
-                                    colBackground: Appearance.colors.colPrimary
-                                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                                    colRipple: Appearance.colors.colPrimaryActive
+                                    type: RippleButtonE.ButtonType.Filled
                                     onClicked: Ai.commitMemory(root.messageData)
 
                                     contentItem: StyledText {
@@ -1894,15 +1892,13 @@ Item {
                             }
                         }
 
-                        RippleButton {
+                        RippleButtonE {
                             leftPadding: Appearance.rounding.small
                             rightPadding: Appearance.rounding.small
                             topPadding: Appearance.rounding.unsharpenmore / 2
                             bottomPadding: Appearance.rounding.unsharpenmore / 2
                             buttonRadius: Appearance.rounding.full
-                            colBackground: Appearance.colors.colPrimary
-                            colBackgroundHover: Appearance.colors.colPrimaryHover
-                            colRipple: Appearance.colors.colPrimaryActive
+                            type: RippleButtonE.ButtonType.Filled
                             onClicked: Ai.retryMessage(root.messageId)
 
                             contentItem: RowLayout {
@@ -1934,15 +1930,13 @@ Item {
             active: (root.messageData?.notice ?? "") === "apiKey"
             visible: active
 
-            sourceComponent: RippleButton {
+            sourceComponent: RippleButtonE {
                 leftPadding: Appearance.rounding.small
                 rightPadding: Appearance.rounding.small
                 topPadding: Appearance.rounding.unsharpenmore
                 bottomPadding: Appearance.rounding.unsharpenmore
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
                 onClicked: Ai.keyManagerRequested()
 
                 contentItem: RowLayout {
@@ -1993,14 +1987,12 @@ Item {
             active: root.isAssistant && root.done && Ai.wasTruncated(root.messageData)
             visible: active
 
-            sourceComponent: RippleButton {
+            sourceComponent: RippleButtonE {
                 implicitHeight: Math.round(Appearance.font.pixelSize.huge * 1.7)
                 leftPadding: Appearance.rounding.small
                 rightPadding: Appearance.rounding.small
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
                 onClicked: Ai.continueMessage(root.messageId)
 
                 Accessible.name: Translation.tr("Continue this answer")

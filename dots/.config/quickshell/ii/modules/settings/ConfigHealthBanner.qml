@@ -57,12 +57,11 @@ Loader {
             materialIcon: "error"
             text: root.bannerText
 
-            RippleButton {
+            RippleButtonE {
                 Layout.alignment: Qt.AlignRight
                 Layout.preferredHeight: 32
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colError
-                colBackgroundHover: Appearance.colors.colError
+                type: RippleButtonE.ButtonType.Error
                 contentItem: RowLayout {
                     spacing: 6
                     MaterialSymbol {

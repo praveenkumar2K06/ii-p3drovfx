@@ -922,15 +922,13 @@ Item {
                 Layout.fillWidth: true
                 spacing: Appearance.sizes.elevationMargin / 2
 
-                RippleButton {
+                RippleButtonE {
                     enabled: root.backHistory.length > 0 || (backend.currentPath !== root.homePath && backend.currentPath !== "/")
                     Accessible.name: Translation.tr("Back to the previous folder")
                     implicitWidth: Appearance.sizes.elevationMargin * 4
                     implicitHeight: implicitWidth
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                    colRipple: Appearance.colors.colSecondaryContainerActive
+                    type: RippleButtonE.ButtonType.Tonal
                     onClicked: root.navigateBack()
                     MaterialSymbol { anchors.centerIn: parent; text: "arrow_back"; iconSize: Appearance.font.pixelSize.large; color: Appearance.colors.colOnSecondaryContainer }
                     StyledToolTip { text: Translation.tr("Back to the previous folder · Backspace") }

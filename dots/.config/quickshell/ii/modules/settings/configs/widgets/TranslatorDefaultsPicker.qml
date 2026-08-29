@@ -77,14 +77,12 @@ GridLayout {
         }
     }
 
-    RippleButton {
+    RippleButtonE {
         Layout.alignment: Qt.AlignCenter
         implicitWidth: 48
         implicitHeight: 48
         buttonRadius: Appearance.rounding.full
-        colBackground: Appearance.colors.colPrimary
-        colBackgroundHover: Appearance.colors.colPrimaryHover
-        colRipple: Appearance.colors.colPrimaryActive
+        type: RippleButtonE.ButtonType.Filled
         onClicked: root.swapLanguages()
 
         contentItem: MaterialSymbol {

@@ -94,7 +94,8 @@ MouseArea {
                 text: indicator.isLoading 
                     ? "progress_activity" 
                     : (indicator.showHoverState ? "stop" : "fiber_manual_record")
-                iconSize: indicator.isLoading ? 16 : (indicator.showHoverState ? 14 : 12)
+                iconSize: parent.width * 0.6
+                fill: 1
                 color: indicator.isLoading 
                     ? Appearance.colors.colOnSecondaryContainer 
                     : Appearance.colors.colOnErrorContainer
@@ -177,7 +178,6 @@ MouseArea {
                 text: indicator.isLoading 
                     ? "progress_activity" 
                     : (indicator.showHoverState ? "stop" : "fiber_manual_record")
-                iconSize: indicator.isLoading ? 16 : (indicator.showHoverState ? 14 : 12)
                 color: indicator.isLoading 
                     ? Appearance.colors.colOnSecondaryContainer 
                     : Appearance.colors.colOnErrorContainer
@@ -400,7 +400,7 @@ MouseArea {
                 // Keystroke display, for this recording only. It is re-seeded
                 // from the persistent setting whenever a recording starts, so
                 // switching it on here never carries over to the next one.
-                RippleButton {
+                RippleButtonE {
                     id: keysBtn
                     Layout.preferredWidth: 38
                     Layout.preferredHeight: 38
@@ -409,8 +409,7 @@ MouseArea {
                     readonly property bool showingKeys: KeypressService.recordingEnabled
 
                     toggled: keysBtn.showingKeys
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                    type: RippleButtonE.ButtonType.Tonal
 
                     onClicked: KeypressService.toggleForRecording()
 
@@ -435,14 +434,12 @@ MouseArea {
                 }
 
                 // Pause / Resume Button (Vibrant & fully rounded pill)
-                RippleButton {
+                RippleButtonE {
                     id: pauseBtn
                     Layout.fillWidth: true
                     Layout.preferredHeight: 38
-                    buttonRadius: Appearance.rounding.full 
-                    
-                    colBackground: Appearance.colors.colSecondaryContainer
-                    colBackgroundHover: Appearance.colors.colSecondaryContainerHover
+                    buttonRadius: Appearance.rounding.full
+                    type: RippleButtonE.ButtonType.Tonal
                     
                     onClicked: {
                         Quickshell.execDetached([Directories.recordScriptPath, "--pause"])
@@ -476,14 +473,12 @@ MouseArea {
                 }
 
                 // Stop Button (Premium red Container styling, fully rounded pill)
-                RippleButton {
+                RippleButtonE {
                     id: stopBtn
                     Layout.fillWidth: true
                     Layout.preferredHeight: 38
                     buttonRadius: Appearance.rounding.full 
-                    
-                    colBackground: Appearance.colors.colErrorContainer
-                    colBackgroundHover: Appearance.colors.colErrorContainerHover
+                    type: RippleButtonE.ButtonType.ErrorTonal
                     
                     onClicked: {
                         Quickshell.execDetached([Directories.recordScriptPath])

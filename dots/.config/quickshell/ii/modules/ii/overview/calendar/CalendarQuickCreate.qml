@@ -15,12 +15,10 @@ Item {
     implicitHeight: parsed ? content.implicitHeight + Appearance.sizes.elevationMargin * 2 : 0
     visible: parsed !== null
 
-    RippleButton {
+    RippleButtonE {
         anchors.fill: parent
         buttonRadius: Appearance.rounding.normal
-        colBackground: Appearance.colors.colPrimaryContainer
-        colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-        colRipple: Appearance.colors.colPrimaryContainerActive
+        type: RippleButtonE.ButtonType.Filled
         onClicked: root.createRequested()
 
         RowLayout {

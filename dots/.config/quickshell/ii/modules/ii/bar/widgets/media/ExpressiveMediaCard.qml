@@ -332,14 +332,12 @@ Item {
                             Layout.preferredHeight: root.btnRowHeight
                             spacing: root.controlsSpacing
 
-                            RippleButton {
+                            RippleButtonE {
                                 Layout.fillWidth: true
                                 Layout.preferredWidth: 0
                                 Layout.preferredHeight: root.btnPlayWidth
                                 Layout.alignment: Qt.AlignVCenter
-                                colBackground: root.colBtnSecondary
-                                colBackgroundHover: root.colBtnSecondaryHover
-                                colRipple: root.colBtnSecondaryActive
+                                type: RippleButtonE.ButtonType.Tonal
                                 buttonRadius: root.btnRadius
                                 contentItem: MaterialSymbol {
                                     text: "skip_previous"
@@ -375,14 +373,12 @@ Item {
                                 onClicked: root.player?.togglePlaying()
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 Layout.fillWidth: true
                                 Layout.preferredWidth: 0
                                 Layout.preferredHeight: root.btnPlayWidth
                                 Layout.alignment: Qt.AlignVCenter
-                                colBackground: root.colBtnSecondary
-                                colBackgroundHover: root.colBtnSecondaryHover
-                                colRipple: root.colBtnSecondaryActive
+                                type: RippleButtonE.ButtonType.Tonal
                                 buttonRadius: root.btnRadius
                                 contentItem: MaterialSymbol {
                                     text: "skip_next"

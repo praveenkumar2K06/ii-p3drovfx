@@ -106,7 +106,7 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     implicitHeight: Math.round(root.rowHeight * 0.72)
                     leftPadding: Appearance.rounding.small
                     rightPadding: Appearance.rounding.small
@@ -114,9 +114,7 @@ Item {
                     bottomPadding: 0
                     buttonRadius: Appearance.rounding.full
                     enabled: newFactField.text.trim().length > 0
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: {
                         if (AiMemory.remember(newFactField.text, "user"))
                             newFactField.clear();

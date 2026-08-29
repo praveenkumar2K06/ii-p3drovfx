@@ -473,11 +473,9 @@ Item {
                     materialIcon: "info"
                     text: Translation.tr("Browse thousands of Google Material Symbols to customize your top-left bar icon.")
 
-                    RippleButton {
+                    RippleButtonE {
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colTertiary
-                        colBackgroundHover: Appearance.colors.colTertiaryHover
-                        colRipple: Appearance.colors.colTertiaryActive
+                        type: RippleButtonE.ButtonType.Tertiary
                         implicitHeight: 32
                         implicitWidth: linkRow.implicitWidth + 20
                         onClicked: Quickshell.execDetached(["xdg-open", "https://fonts.google.com/icons"])

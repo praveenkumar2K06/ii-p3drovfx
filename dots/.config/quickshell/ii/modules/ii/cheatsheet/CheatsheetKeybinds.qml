@@ -842,15 +842,13 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.bottomMargin: 4
                     implicitWidth: 42
                     implicitHeight: 42
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colBackgroundActive: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     Accessible.name: Translation.tr("New page")
                     enabled: KeybindsService.ready && KeybindsService.writable
                     onClicked: pageForm.openCreate()

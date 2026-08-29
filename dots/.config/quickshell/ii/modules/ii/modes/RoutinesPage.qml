@@ -165,13 +165,11 @@ Item {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: 8
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitHeight: 40
                         implicitWidth: templateText.implicitWidth + 32
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colPrimary
-                        colBackgroundHover: Appearance.colors.colPrimaryHover
-                        colRipple: Appearance.colors.colPrimaryActive
+                        type: RippleButtonE.ButtonType.Filled
                         onClicked: list.footerItem.expanded = true
 
                         contentItem: StyledText {
@@ -183,13 +181,11 @@ Item {
                         }
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         implicitHeight: 40
                         implicitWidth: newText.implicitWidth + 32
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                        colRipple: Appearance.colors.colSecondaryContainerActive
+                        type: RippleButtonE.ButtonType.Tonal
                         onClicked: root.createRoutine()
 
                         contentItem: StyledText {

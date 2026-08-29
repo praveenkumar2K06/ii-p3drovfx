@@ -195,16 +195,14 @@ Item {
             Layout.preferredHeight: 36
             spacing: 20
 
-            RippleButton {
+            RippleButtonE {
                 id: stopBtn
                 width: 36
                 height: 36
                 Layout.preferredWidth: 36
                 Layout.preferredHeight: 36
                 buttonRadius: 18
-                colBackground: Appearance.colors.colErrorContainer
-                colBackgroundHover: Appearance.colors.colErrorContainerHover
-                colRipple: Appearance.colors.colErrorContainerActive
+                type: RippleButtonE.ButtonType.ErroTonal
 
                 onClicked: Quickshell.execDetached([Directories.recordScriptPath])
 
@@ -221,16 +219,14 @@ Item {
                 }
             }
 
-            RippleButton {
+            RippleButtonE {
                 id: pauseBtn
                 width: 36
                 height: 36
                 Layout.preferredWidth: 36
                 Layout.preferredHeight: 36
                 buttonRadius: 18
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                colRipple: Appearance.colors.colSecondaryContainerActive
+                type: RippleButtonE.ButtonType.Tonal
 
                 onClicked: Quickshell.execDetached([Directories.recordScriptPath, "--pause"])
 

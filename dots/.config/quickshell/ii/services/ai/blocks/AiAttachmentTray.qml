@@ -239,7 +239,7 @@ Item {
                                 }
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 implicitWidth: root.chipButtonSize
                                 implicitHeight: root.chipButtonSize
                                 buttonRadius: Appearance.rounding.full
@@ -247,9 +247,7 @@ Item {
                                 bottomPadding: 0
                                 leftPadding: 0
                                 rightPadding: 0
-                                colBackground: Appearance.colors.colPrimary
-                                colBackgroundHover: Appearance.colors.colPrimaryHover
-                                colRipple: Appearance.colors.colPrimaryActive
+                                type: RippleButtonE.ButtonType.Filled
                                 onClicked: Ai.removeAttachment(fileChip.index)
 
                                 contentItem: MaterialSymbol {

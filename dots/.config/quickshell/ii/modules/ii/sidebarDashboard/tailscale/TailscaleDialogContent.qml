@@ -218,12 +218,12 @@ StyledFlickable {
                     color: Appearance.colors.colOnSecondaryContainer
                     elide: Text.ElideMiddle
                 }
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignLeft
                     implicitHeight: 36
                     implicitWidth: loginButtonText.implicitWidth + 28
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
+                    type: RippleButtonE.ButtonType.Filled
                     contentItem: StyledText {
                         id: loginButtonText
                         text: Translation.tr("Open login link")
@@ -307,11 +307,11 @@ StyledFlickable {
                 RowLayout {
                     Layout.fillWidth: true
                     spacing: 8
-                    RippleButton {
+                    RippleButtonE {
                         Layout.fillWidth: true
                         implicitHeight: 36
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
+                        type: RippleButtonE.ButtonType.Tonal
                         enabled: !TailscaleService.loading
                         contentItem: RowLayout {
                             anchors.centerIn: parent
@@ -327,11 +327,11 @@ StyledFlickable {
                         }
                         onClicked: TailscaleService.refresh()
                     }
-                    RippleButton {
+                    RippleButtonE {
                         Layout.fillWidth: true
                         implicitHeight: 36
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
+                        type: RippleButtonE.ButtonType.Tonal
                         enabled: !TailscaleService.netcheckLoading
                         contentItem: RowLayout {
                             anchors.centerIn: parent
@@ -431,12 +431,12 @@ StyledFlickable {
                         color: Appearance.colors.colSubtext
                         elide: Text.ElideRight
                     }
-                    RippleButton {
+                    RippleButtonE {
                         visible: TailscaleService.currentExitNode.length > 0
                         implicitHeight: 32
                         implicitWidth: clearExitText.implicitWidth + 20
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colErrorContainer
+                        type: RippleButtonE.ButtonType.Error
                         contentItem: StyledText {
                             id: clearExitText
                             text: Translation.tr("Clear")
@@ -506,14 +506,11 @@ StyledFlickable {
                     root.routeDraft = textField.text
             }
             rightAction: Component {
-                RippleButton {
+                RippleButtonE {
                     implicitWidth: addRouteText.implicitWidth + 20
                     implicitHeight: 36
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colBackgroundActive: Appearance.colors.colPrimaryActive
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     enabled: /^([0-9]{1,3}\.){3}[0-9]{1,3}\/[0-9]{1,2}$/.test(root.routeDraft.trim()) && !TailscaleService.loading
                     contentItem: StyledText {
                         id: addRouteText
@@ -539,12 +536,12 @@ StyledFlickable {
             spacing: 6
             Repeater {
                 model: TailscaleService.advertiseRoutes
-                delegate: RippleButton {
+                delegate: RippleButtonE {
                     required property string modelData
                     implicitHeight: 32
                     implicitWidth: routeText.implicitWidth + 28
                     buttonRadius: Appearance.rounding.full
-                    colBackground: Appearance.colors.colSecondaryContainer
+                    type: RippleButtonE.ButtonType.Tonal
                     contentItem: StyledText {
                         id: routeText
                         text: modelData + "  ×"
@@ -574,13 +571,13 @@ StyledFlickable {
                     TailscaleService.setAdvertiseExitNode(checked)
             }
         }
-        RippleButton {
+        RippleButtonE {
             visible: TailscaleService.available
             Layout.alignment: Qt.AlignLeft
             implicitHeight: 36
             implicitWidth: logoutText.implicitWidth + 28
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colErrorContainer
+            type: RippleButtonE.ButtonType.Error
             enabled: !TailscaleService.loading
             contentItem: StyledText {
                 id: logoutText
@@ -644,11 +641,11 @@ StyledFlickable {
                             }
                         }
                     }
-                    RippleButton {
+                    RippleButtonE {
                         implicitWidth: 48
                         Layout.preferredHeight: 52
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
+                        type: RippleButtonE.ButtonType.Tonal
                         enabled: modelData.online && !TailscaleService.loading
                         contentItem: MaterialSymbol {
                             anchors.centerIn: parent

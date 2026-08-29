@@ -145,13 +145,11 @@ Item {
                 }
             }
 
-            RippleButton {
+            RippleButtonE {
                 Layout.fillWidth: true
                 implicitHeight: Appearance.font.pixelSize.hugeass * 2
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colPrimaryContainer
-                colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                colRipple: Appearance.colors.colPrimaryContainerActive
+                type: RippleButtonE.ButtonType.Filled
                 Accessible.name: Translation.tr("Configure %1").arg(card.serviceName)
                 Accessible.description: Translation.tr("Open configuration for %1. Current status: %2").arg(card.serviceName).arg(card.status)
                 onClicked: card.configure()

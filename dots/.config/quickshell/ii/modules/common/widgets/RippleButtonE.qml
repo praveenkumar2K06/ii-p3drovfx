@@ -10,7 +10,10 @@ RippleButton {
         Text,
         Tonal,
         Filled,
-        Error
+        FilledTonal,
+        Tertiary,
+        Error,
+        ErrorTonal
     }
 
     property int iconSize: Appearance.font.pixelSize.normal
@@ -26,10 +29,16 @@ RippleButton {
         case RippleButtonE.ButtonType.Filled:
             return root.checked ? Appearance.colors.colOnSecondaryContainer 
                                 : Appearance.colors.colOnPrimary
+        case RippleButtonE.ButtonType.FilledTonal:
+            return Appearance.colors.colOnPrimaryContainer
         case RippleButtonE.ButtonType.Tonal:
             return Appearance.colors.colOnSecondaryContainer
         case RippleButtonE.ButtonType.Error:
             return Appearance.colors.colOnError
+        case RippleButtonE.ButtonType.ErrorTonal:
+            return Appearance.colors.colOnErrorContainer
+        case RippleButtonE.ButtonType.Tertiary:
+            return Appearance.colors.colOnTertiary
         default: // RippleButtonE.ButtonType.Text
             return Appearance.colors.colPrimary
         }
@@ -42,6 +51,11 @@ RippleButton {
             if (root.hovered) return Appearance.colors.colPrimaryHover
             return Appearance.colors.colPrimary
 
+        case RippleButtonE.ButtonType.FilledTonal:
+            if (root.down) return Appearance.colors.colPrimaryContainerActive
+            if (root.hovered) return Appearance.colors.colPrimaryContainerHover
+            return Appearance.colors.colPrimaryContainer
+
         case RippleButtonE.ButtonType.Tonal:
             if (root.down) return Appearance.colors.colSecondaryContainerActive
             if (root.hovered) return Appearance.colors.colSecondaryContainerHover
@@ -51,6 +65,16 @@ RippleButton {
             if (root.down) return Appearance.colors.colErrorActive
             if (root.hovered) return Appearance.colors.colErrorHover
             return Appearance.colors.colError
+
+        case RippleButtonE.ButtonType.ErrorTonal:
+            if (root.down) return Appearance.colors.colErrorContainerActive
+            if (root.hovered) return Appearance.colors.colErrorContainerHover
+            return Appearance.colors.colErrorContainer
+        
+        case RippleButtonE.ButtonType.Tertiary:
+            if (root.down) return Appearance.colors.colTertiaryActive
+            if (root.hovered) return Appearance.colors.colTertiaryHover
+            return Appearance.colors.colTertiary
 
         default: // Text Button
             if (root.down) return Appearance.colors.colSecondaryContainerActive
@@ -64,10 +88,16 @@ RippleButton {
         switch (root.type) {
         case RippleButtonE.ButtonType.Filled:
             return Appearance.colors.colPrimaryHover
+        case RippleButtonE.ButtonType.FilledTonal:
+            return Appearance.colors.colPrimaryContainerHover
         case RippleButtonE.ButtonType.Tonal:
             return Appearance.colors.colSecondaryContainerHover
         case RippleButtonE.ButtonType.Error:
             return Appearance.colors.colErrorHover
+        case RippleButtonE.ButtonType.ErrorTonal:
+            return Appearance.colors.colErrorContainerHover
+        case RippleButtonE.ButtonType.Tertiary:
+            return Appearance.colors.colTertiaryHover
         default: // RippleButtonE.ButtonType.Text
             return Appearance.colors.colSecondaryContainerHover
         }
@@ -76,20 +106,23 @@ RippleButton {
     property color colCustomRipple: {
         switch (root.type) {
         case RippleButtonE.ButtonType.Filled:
+            return Appearance.colors.colPrimaryActive
+        case RippleButtonE.ButtonType.FilledTonal:
             return Appearance.colors.colPrimaryContainerActive
         case RippleButtonE.ButtonType.Tonal:
             return Appearance.colors.colSecondaryContainerActive
         case RippleButtonE.ButtonType.Error:
+            return Appearance.colors.colErrorActive
+        case RippleButtonE.ButtonType.ErrorTonal:
             return Appearance.colors.colErrorContainerActive
+        case RippleButtonE.ButtonType.Tertiary:
+            return Appearance.colors.colTertiaryActive
         default: // RippleButtonE.ButtonType.Text
             return Appearance.colors.colOnSurfaceVariant
         }
     }
     
-    topLeftRadius: Appearance.rounding.full
-    topRightRadius: Appearance.rounding.full
-    bottomLeftRadius: Appearance.rounding.full
-    bottomRightRadius: Appearance.rounding.full
+    buttonRadius: Appearance.rounding.full
     buttonTextColor: root.colCustomText
     colBackground: root.colCustomBackground
     colBackgroundHover: root.colCustomHover
@@ -97,6 +130,7 @@ RippleButton {
 
     contentItem: RowLayout {
         anchors.centerIn: parent
+        Layout.alignment: Qt.AlignCenter
         spacing: 8
 
         Loader {

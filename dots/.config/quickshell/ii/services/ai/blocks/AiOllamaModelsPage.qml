@@ -351,16 +351,14 @@ Item {
                     }
                 }
 
-                RippleButton {
+                RippleButtonE {
                     id: modelPullButton
                     implicitWidth: root.downloadActionExtent
                     implicitHeight: root.downloadActionExtent
                     Layout.alignment: Qt.AlignVCenter
                     buttonRadius: Appearance.rounding.full
                     enabled: !modelRow.installed && !OllamaCatalog.pulling
-                    colBackground: enabled ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
-                    colBackgroundHover: enabled ? Appearance.colors.colPrimaryHover : Appearance.colors.colLayer3
-                    colRipple: enabled ? Appearance.colors.colPrimaryActive : Appearance.colors.colLayer3Active
+                    type: RippleButtonE.ButtonType.Filled
                     onClicked: root.pull(modelRow.modelData.name)
 
                     Accessible.name: modelRow.installed

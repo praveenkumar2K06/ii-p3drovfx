@@ -313,14 +313,12 @@ Item {
                 color: OpenRouterModels.loading ? Appearance.colors.colSubtext : Appearance.colors.colError
             }
 
-            RippleButton {
+            RippleButtonE {
                 visible: !OpenRouterModels.loading && OpenRouterModels.error.length > 0
                 implicitWidth: 36
                 implicitHeight: 36
                 buttonRadius: Appearance.rounding.full
-                colBackground: Appearance.colors.colErrorContainer
-                colBackgroundHover: Appearance.colors.colErrorContainerHover
-                colRipple: Appearance.colors.colErrorContainerActive
+                type: RippleButtonE.ButtonType.Error
                 onClicked: OpenRouterModels.refresh(true)
 
                 Accessible.name: Translation.tr("Retry OpenRouter model list")
@@ -489,7 +487,7 @@ Item {
                         }
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         id: addModelButton
                         Layout.alignment: Qt.AlignVCenter
                         Layout.preferredWidth: root.cardActionExtent
@@ -498,9 +496,7 @@ Item {
                         implicitHeight: root.cardActionExtent
                         buttonRadius: Appearance.rounding.full
                         enabled: !root.isAdded(modelCard.modelData.id)
-                        colBackground: enabled ? Appearance.colors.colPrimary : Appearance.colors.colLayer3
-                        colBackgroundHover: enabled ? Appearance.colors.colPrimaryHover : Appearance.colors.colLayer3
-                        colRipple: enabled ? Appearance.colors.colPrimaryActive : Appearance.colors.colLayer3Active
+                        type: RippleButtonE.ButtonType.Filled
                         onClicked: root.addModel(modelCard.modelData)
 
                         Accessible.name: root.isAdded(modelCard.modelData.id)

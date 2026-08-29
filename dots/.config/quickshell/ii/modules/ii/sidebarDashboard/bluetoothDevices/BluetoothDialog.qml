@@ -452,12 +452,10 @@ WindowDialog {
         }
 
         // Done button with fill
-        RippleButton {
+        RippleButtonE {
             id: doneBtn
             buttonRadius: Appearance.rounding.full
-            colBackground: Appearance.colors.colPrimary
-            colBackgroundHover: Appearance.colors.colPrimaryHover
-            colRipple: Appearance.colors.colPrimaryActive
+            type: RippleButtonE.ButtonType.Filled
             implicitHeight: 36
             implicitWidth: doneText.implicitWidth + 48
 

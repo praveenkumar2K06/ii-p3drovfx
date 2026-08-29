@@ -262,14 +262,12 @@ Item {
                 }
 
                 // Play/Pause
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignHCenter
                     implicitWidth: 28
                     implicitHeight: 32
                     buttonRadius: root.isPlaying ? Appearance.rounding.small : height / 2
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     downAction: () => root.activePlayer?.togglePlaying()
 
                     Behavior on buttonRadius {
@@ -584,14 +582,12 @@ Item {
                 }
 
                 // Play/Pause
-                RippleButton {
+                RippleButtonE {
                     Layout.alignment: Qt.AlignVCenter
                     implicitWidth: card.height + 8
                     implicitHeight: card.height - 6
                     buttonRadius: root.isPlaying ? Appearance.rounding.small : height / 2
-                    colBackground: Appearance.colors.colPrimary
-                    colBackgroundHover: Appearance.colors.colPrimaryHover
-                    colRipple: Appearance.colors.colPrimaryActive
+                    type: RippleButtonE.ButtonType.Filled
                     downAction: () => root.activePlayer?.togglePlaying()
 
                     Behavior on buttonRadius {

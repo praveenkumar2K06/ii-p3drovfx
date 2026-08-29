@@ -1,0 +1,7 @@
+WARN scene: QML ButtonGroup at @modules/ii/sidebarDashboard/SidebarDashboardContent.qml[852:13]: Cannot anchor to an item that isn't a parent or sibling.
+
+WARN scene: @modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidBrightnessSliderToggle.qml[18:5]: Unable to assign [undefined] to double
+  WARN scene: @modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidGammaSliderToggle.qml[18:5]: Unable to assign [undefined] to double
+  WARN scene: @modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidVolumeSliderToggle.qml[18:5]: Unable to assign [undefined] to double
+  WARN scene: @modules/ii/sidebarDashboard/quickToggles/androidStyle/AndroidMicSliderToggle.qml[10:5]: Unable to assign [undefined] to double\\
+

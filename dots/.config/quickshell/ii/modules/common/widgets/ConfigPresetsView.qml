@@ -224,52 +224,36 @@ ColumnLayout {
                                 elide: Text.ElideRight
                             }
 
-                            RippleButton {
-                                    id: updateButton
-                                    anchors.right: exportButton.left
-                                    anchors.rightMargin: 5
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    implicitWidth: 30
-                                    implicitHeight: 30
-                                    buttonRadius: Appearance.rounding.full
-                                    colBackground: Appearance.colors.colTertiaryContainer
-                                    colBackgroundHover: Appearance.colors.colTertiaryContainerHover
-                                    colRipple: Appearance.colors.colTertiaryContainerActive
+                            RippleButtonE {
+                                id: updateButton
+                                anchors.right: exportButton.left
+                                anchors.rightMargin: 5
+                                anchors.verticalCenter: parent.verticalCenter
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                type: RippleButtonE.ButtonType.Tertiary
+                                materialIcon: "save"
+                                iconSize: 16
 
-                                    contentItem: MaterialSymbol {
-                                    anchors.centerIn: parent
-                                    text: "save"
-                                    iconSize: 16
-                                    color: Appearance.colors.colOnTertiaryContainer
-                                }
-
-                                    onClicked: {
+                                onClicked: {
                                     Quickshell.execDetached(["bash", "-c", `${Directories.scriptPath}/presets.sh update "${model.name}"`]);
                                     refreshTimer.restart();
                                 }
 
-                                    StyledToolTip {
+                                StyledToolTip {
                                     text: Translation.tr("Save settings to this preset")
                                 }
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 id: deleteButton
                                 anchors.right: parent.right
                                 anchors.verticalCenter: parent.verticalCenter
                                 implicitWidth: 30
                                 implicitHeight: 30
-                                buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colError
-                                colBackgroundHover: Appearance.colors.colErrorHover
-                                colRipple: Appearance.colors.colErrorActive
-
-                                contentItem: MaterialSymbol {
-                                    anchors.centerIn: parent
-                                    text: "delete"
-                                    iconSize: 16
-                                    color: Appearance.colors.colOnError
-                                }
+                                type: RippleButtonE.ButtonType.Error
+                                materialIcon: "delete"
+                                iconSize: 16
 
                                 onClicked: {
                                     Quickshell.execDetached(["bash", "-c", `${Directories.scriptPath}/presets.sh delete "${model.name}"`]);
@@ -281,24 +265,16 @@ ColumnLayout {
                                 }
                             }
 
-                            RippleButton {
+                            RippleButtonE {
                                 id: exportButton
                                 anchors.right: deleteButton.left
                                 anchors.rightMargin: 5
                                 anchors.verticalCenter: parent.verticalCenter
                                 implicitWidth: 30
                                 implicitHeight: 30
-                                buttonRadius: Appearance.rounding.full
-                                colBackground: Appearance.colors.colPrimaryContainer
-                                colBackgroundHover: Appearance.colors.colPrimaryContainerHover
-                                colRipple: Appearance.colors.colPrimaryContainerActive
-
-                                contentItem: MaterialSymbol {
-                                    anchors.centerIn: parent
-                                    text: "file_download"
-                                    iconSize: 16
-                                    color: Appearance.colors.colOnPrimaryContainer
-                                }
+                                type: RippleButtonE.ButtonType.Filled
+                                materialIcon: "file_download"
+                                iconSize: 16
 
                                 onClicked: {
                                     Quickshell.execDetached([Directories.scriptPath + "/presets.sh", "export", String(model.name)]);

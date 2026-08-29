@@ -172,7 +172,7 @@ Rectangle {
                 }
             }
 
-            RippleButton {
+            RippleButtonE {
                 id: addComponentButton
                 implicitHeight: componentSelector.implicitHeight
 
@@ -183,10 +183,8 @@ Rectangle {
 
                 buttonText: root.addButtonText
                 enabled: root.availableComponents.length >= 1
-
-                colBackground: Appearance.colors.colSecondaryContainer
-                colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                rippleColor: Appearance.colors.colSecondaryContainerActive
+                
+                type: RippleButtonE.ButtonType.Tonal
 
                 onClicked: {
                     let available = root.availableComponents;

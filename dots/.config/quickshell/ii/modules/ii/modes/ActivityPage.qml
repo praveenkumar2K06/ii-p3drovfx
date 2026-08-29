@@ -423,16 +423,14 @@ Item {
                         color: Appearance.colors.colSubtext
                     }
 
-                    RippleButton {
+                    RippleButtonE {
                         visible: Modes.history.length > 0
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: 4
                         implicitHeight: 40
                         implicitWidth: allText.implicitWidth + 32
                         buttonRadius: Appearance.rounding.full
-                        colBackground: Appearance.colors.colSecondaryContainer
-                        colBackgroundHover: Appearance.colors.colSecondaryContainerHover
-                        colRipple: Appearance.colors.colSecondaryContainerActive
+                        type: RippleButtonE.ButtonType.Tonal
                         onClicked: root.filter = "all"
 
                         contentItem: StyledText {
