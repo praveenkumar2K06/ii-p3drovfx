@@ -85,6 +85,34 @@ Item {
         animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(root)
     }
 
+    // ── Drop Shadow for Dynamic Island Pill (Sibling to avoid rasterizing children) ─
+    Rectangle {
+        id: barBackgroundShadow
+        z: barBackground.z - 1
+        anchors {
+            top: barBackground.top
+            bottom: barBackground.bottom
+            horizontalCenter: barBackground.horizontalCenter
+        }
+        width: barBackground.width
+        height: barBackground.height
+        topLeftRadius: barBackground.topLeftRadius
+        topRightRadius: barBackground.topRightRadius
+        bottomLeftRadius: barBackground.bottomLeftRadius
+        bottomRightRadius: barBackground.bottomRightRadius
+        color: barBackground.color
+        visible: barBackground.visible && barBackground.color !== "transparent" && barBackground.color !== "#00000000"
+
+        layer.enabled: Config.options.bar.dropShadow && !ShellModePolicy.barDropShadowBlocked
+        layer.smooth: true
+        layer.effect: MultiEffect {
+            shadowEnabled: true
+            shadowColor: Qt.rgba(0, 0, 0, 0.28)
+            shadowVerticalOffset: Config.options.bar.bottom ? -4 : 4
+            shadowBlur: 1.0
+        }
+    }
+
     // ── Main Bar Background Pill ─────────────────────────────────────────────
     Rectangle {
         id: barBackground

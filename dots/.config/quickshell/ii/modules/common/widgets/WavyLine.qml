@@ -42,7 +42,7 @@ Item {
         var len = Math.max(1, root.fullLength);
         var k = (root.frequency * 2 * Math.PI) / len;
         var curPhase = root.phase;
-        var step = 4;
+        var step = 1;
 
         pts.push(Qt.point(startX, cY + amp * Math.sin(k * startX + curPhase)));
         for (var x = startX + step; x < endX; x += step) {
@@ -56,8 +56,10 @@ Item {
     Shape {
         id: shape
         anchors.fill: parent
-        preferredRendererType: Shape.GeometryRenderer
+        preferredRendererType: Shape.CurveRenderer
         asynchronous: false
+        antialiasing: true
+        smooth: true
 
         ShapePath {
             strokeWidth: root.lineWidth
@@ -74,11 +76,11 @@ Item {
 
     Timer {
         id: animTimer
-        interval: 66 // ~15 FPS: visually smooth wave flow while saving 90% compositor surface redraws
+        interval: 33
         running: root.animateWave && root.visible && root.amplitudeMultiplier > 0.01
         repeat: true
         onTriggered: {
-            root.phase += 0.16;
+            root.phase += 0.08;
             if (root.phase > 6.2831853) {
                 root.phase -= 6.2831853;
             }

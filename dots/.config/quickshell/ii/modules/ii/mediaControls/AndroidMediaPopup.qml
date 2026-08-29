@@ -336,7 +336,7 @@ Item {
                 RippleButton {
                     implicitWidth: 22
                     implicitHeight: 22
-                    Layout.alignment: Qt.AlignTop
+                    Layout.alignment: Qt.AlignVCenter
                     colBackground: "transparent"
                     colBackgroundHover: Qt.rgba(1, 1, 1, 0.1)
                     colRipple: Qt.rgba(1, 1, 1, 0.15)
@@ -359,18 +359,49 @@ Item {
                     implicitHeight: 24
                     leftPadding: 8
                     rightPadding: 8
-                    Layout.alignment: Qt.AlignTop
+                    Layout.alignment: Qt.AlignVCenter
                     colBackground: root.useDynamicColors ? root.blendedColors.colPrimaryContainer : Appearance.colors.colPrimaryContainer
                     colBackgroundHover: root.useDynamicColors ? root.blendedColors.colPrimaryContainerHover : Appearance.colors.colPrimaryContainerHover
-                    colRipple: root.useDynamicColors ? root.blendedColors.colOnPrimaryContainer : Appearance.colors.colOnPrimaryContainer
+                    colRipple: root.useDynamicColors ? root.blendedColors.colPrimaryContainerActive : Appearance.colors.colPrimaryContainerActive
                     buttonRadius: Appearance.rounding.full
+                    middleClickAction: () => Audio.toggleMute()
 
-                    readonly property string activeAudioDeviceName: Audio.sink ? (Audio.sink.description || "") : ""
+                    readonly property color contentColor: root.useDynamicColors ? root.blendedColors.colOnPrimaryContainer : Appearance.colors.colOnPrimaryContainer
+
+                    readonly property string activeAudioDeviceName: {
+                        if (!Audio.sink) return Translation.tr("Audio");
+                        let name = Audio.friendlyDeviceName(Audio.sink);
+                        if (!name || name === Translation.tr("Unknown")) {
+                            name = Audio.sink.description || Audio.sink.name || Translation.tr("Audio");
+                        }
+                        return name
+                            .replace(/\s*Analog Stereo\s*/gi, "")
+                            .replace(/\s*Digital Stereo \([^)]*\)\s*/gi, "")
+                            .replace(/\s*HD Audio Controller\s*/gi, "")
+                            .trim() || name;
+                    }
+
                     readonly property string audioDeviceIcon: {
-                        let desc = activeAudioDeviceName.toLowerCase();
-                        if (desc.includes("headphone") || desc.includes("headset") || desc.includes("wired")) {
+                        if (!Audio.sink || !Audio.sink.audio) return "volume_off";
+                        if (Audio.sink.audio.muted) return "volume_off";
+                        let rawDesc = (Audio.sink.description || Audio.sink.name || "").toLowerCase();
+                        let name = activeAudioDeviceName.toLowerCase();
+                        let combined = rawDesc + " " + name;
+                        if (combined.includes("headphone") || combined.includes("headset") || combined.includes("earphone") || combined.includes("iem") || combined.includes("wired")) {
                             return "headphones";
                         }
+                        if (combined.includes("bluetooth") || combined.includes("bluez") || combined.includes("airpod") || combined.includes("buds") || combined.includes("freebuds")) {
+                            return "bluetooth";
+                        }
+                        if (combined.includes("hdmi") || combined.includes("displayport") || combined.includes("dp") || combined.includes("tv") || combined.includes("monitor")) {
+                            return "tv";
+                        }
+                        if (combined.includes("usb") || combined.includes("dac")) {
+                            return "usb";
+                        }
+                        let vol = Audio.sink.audio.volume;
+                        if (vol === 0) return "volume_mute";
+                        if (vol <= 0.5) return "volume_down";
                         return "volume_up";
                     }
 
@@ -381,23 +412,35 @@ Item {
                         });
                     }
 
+                    StyledToolTip {
+                        requireOverlay: false
+                        text: {
+                            let devName = Audio.sink ? (Audio.sink.description || Audio.friendlyDeviceName(Audio.sink)) : Translation.tr("Audio Output");
+                            let vol = (Audio.sink && Audio.sink.audio) ? (Audio.sink.audio.muted ? Translation.tr("Muted") : Math.round(Audio.sink.audio.volume * 100) + "%") : "";
+                            return vol ? `${devName} • ${vol}` : devName;
+                        }
+                        extraVisibleCondition: audioPill.hovered
+                    }
+
                     contentItem: RowLayout {
                         id: audioPillLayout
-                        spacing: 4
+                        spacing: 5
 
                         MaterialSymbol {
                             text: audioPill.audioDeviceIcon
                             iconSize: Appearance.font.pixelSize.smallest
-                            color: root.useDynamicColors ? root.blendedColors.colOnPrimaryContainer : Appearance.colors.colOnPrimaryContainer
+                            color: audioPill.contentColor
+                            Layout.alignment: Qt.AlignVCenter
                         }
 
                         StyledText {
-                            text: audioPill.activeAudioDeviceName !== "" ? audioPill.activeAudioDeviceName : Translation.tr("Audio")
+                            text: audioPill.activeAudioDeviceName
                             font.pixelSize: Appearance.font.pixelSize.smallest
-                            font.bold: true
-                            color: root.useDynamicColors ? root.blendedColors.colOnPrimaryContainer : Appearance.colors.colOnPrimaryContainer
-                            Layout.maximumWidth: 100
+                            font.weight: Font.DemiBold
+                            color: audioPill.contentColor
+                            Layout.maximumWidth: 110
                             elide: Text.ElideRight
+                            Layout.alignment: Qt.AlignVCenter
                         }
                     }
                 }

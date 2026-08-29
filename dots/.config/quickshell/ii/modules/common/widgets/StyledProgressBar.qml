@@ -49,8 +49,8 @@ ProgressBar {
                 id: wavyFill
                 frequency: root.waveFrequency
                 color: root.highlightColor
-                amplitudeMultiplier: root.wavy ? 0.5 : 0
-                height: contentItem.height * 6
+                amplitudeMultiplier: root.waveAmplitudeMultiplier
+                height: Math.max(contentItem.height * 6, root.valueBarHeight * 6)
                 width: contentItem.width * root.visualPosition
                 lineWidth: contentItem.height
                 fullLength: root.width
@@ -62,9 +62,9 @@ ProgressBar {
             active: !root.wavy
             sourceComponent: Rectangle {
                 anchors.left: parent.left
-                width: contentItem.width * root.visualPosition
+                width: Math.round(contentItem.width * root.visualPosition)
                 height: contentItem.height
-                radius: Appearance.rounding.full
+                radius: Math.min(Appearance.rounding.full, Math.floor(contentItem.height / 2))
                 color: root.highlightColor
             }
         }
@@ -74,9 +74,9 @@ ProgressBar {
             readonly property real computedWidth: remainingSpace - root.valueBarGap
             visible: computedWidth > 1
             anchors.right: parent.right
-            width: Math.max(0, computedWidth)
+            width: Math.max(0, Math.round(computedWidth))
             height: parent.height
-            radius: Appearance.rounding.full
+            radius: Math.min(Appearance.rounding.full, Math.floor(parent.height / 2))
             color: root.trackColor
         }
 
